@@ -14,9 +14,8 @@ import {PropuestaModule} from './propuesta/propuesta.module';
     BrowserModule,
     HttpClientModule,
     ClienteModule,
-	PropuestaModule	
+	  PropuestaModule	
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
