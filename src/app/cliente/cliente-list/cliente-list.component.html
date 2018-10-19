@@ -1,20 +1,16 @@
 <div class="container-fluid">
-  <div class="col-md-6">
+  <div class="col-md-5">
       <table class="table table-striped">
           <thead class="thead-dark">
               <tr>
                   <th>Nombre Cliente</th>
                   <th>Correo Electrónico</th>
-                  <th>Nombre Usuario</th>
-                  <th>Tipo</th>
               </tr>
           </thead>
           <tbody>
               <tr *ngFor = "let cliente of clientes">
                   <td>{{cliente.nombre}}</td>
-                  <td>{{cliente.correoElectronico}}</td>                
-                  <td>{{cliente.nombreUsuario}}</td>
-                  <td>{{cliente.tipoCliente}}</td>
+                  <td>{{cliente.correoElectronico}}</td> 
               </tr>
           </tbody>
       </table>

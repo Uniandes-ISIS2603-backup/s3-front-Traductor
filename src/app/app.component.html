@@ -1,9 +1,22 @@
-<div style="text-align:center">
+<div class="app-component">
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <list-cliente></list-cliente>
-  <app-propuesta-list></app-propuesta-list>
+  <nav>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a id="clientesTag" class="nav-link" routerLink="/clientes/list">Clientes</a>
+        </li>
+        <li class="nav-item">
+            <a id="propuestasTag" class="nav-link" routerLink="/propuestas/list">Propuestas</a>
+        </li>
+    </ul>
+  </nav>
+  <div class="list">
+    <router-outlet></router-outlet>
+  </div>
+  <!-- <list-cliente></list-cliente>
+  <app-propuesta-list></app-propuesta-list> -->
 </div>
 
 
