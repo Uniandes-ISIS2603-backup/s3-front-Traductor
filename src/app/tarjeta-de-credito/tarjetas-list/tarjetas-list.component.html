@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="col-md-2">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                      
+          <th>Numero tarjeta</th>
+          <th>CCV</th>
+          <th>Fecha expiracion</th>
+          <th>Red Bancaria</th>
+          <th>Nombre Titular</th>
+                </tr>
+            </thead>
+            <tbody>                       
+                <tr *ngFor = "let tarjetaActual of tarjetas">
+                      
+          <td>{{tarjetaActual.numeroTarjetaCredito}}</td>
+          <td>{{tarjetaActual.ccv}}</td>
+          <td>{{tarjetaActual.mesExpiracion}}/{{tarjetaActual.anioExpiracion}}</td>
+          <td>{{tarjetaActual.redBancaria}}</td>
+          <td>{{tarjetaActual.nombreTitular}}</td>
+    
+                </tr>
+            </tbody>
+        </table>
+  </div>
+  </div>
+  

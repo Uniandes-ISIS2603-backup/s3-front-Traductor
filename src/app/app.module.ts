@@ -5,7 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ClienteModule } from './cliente/cliente.module';
 import {PropuestaModule} from './propuesta/propuesta.module';
+import {PagosModule} from './pagos/pagos.module';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { TarjetaDeCreditoModule } from './tarjeta-de-credito/tarjeta-de-credito.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     BrowserModule,
     HttpClientModule,
     ClienteModule,
-	  PropuestaModule,
+    PropuestaModule,
+    PagosModule,
+    TarjetaDeCreditoModule,
 	  AppRoutingModule	
   ],
   bootstrap: [AppComponent]

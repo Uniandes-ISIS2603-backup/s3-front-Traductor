@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <div class="col-md-2">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                      
+          <th>idTransaccion</th>
+          <th>Estado pago</th>
+          <th>idPropuesta</th>
+          <th>Descripcion Propuesta</th>
+                </tr>
+            </thead>
+            <tbody>                       
+                <tr *ngFor = "let pagoAct of pagos">
+                      
+          <td>{{pagoAct.idTransaccion}}</td>
+          <td>{{getEstado(pagoAct)}}</td>
+          <td>{{pagoAct.propuestaDTO.propuestaID}}</td>
+          <td>{{pagoAct.propuestaDTO.descripcion}}</td>
+    
+                </tr>
+            </tbody>
+        </table>
+  </div>
+  </div>
+  
