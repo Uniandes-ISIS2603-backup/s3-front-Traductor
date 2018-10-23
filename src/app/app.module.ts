@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ClienteModule } from './cliente/cliente.module';
+import { SolicitudModule } from './solicitud/solicitud.module';
+
 
 @NgModule({
   declarations: [
@@ -12,7 +14,8 @@ import { ClienteModule } from './cliente/cliente.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-    ClienteModule
+    ClienteModule,
+    SolicitudModule
   ],
   providers: [],
   bootstrap: [AppComponent]
