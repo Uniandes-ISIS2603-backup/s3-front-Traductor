@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <div class="col-md-5">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID empleado</th>
+                    <th>comentario calificacion</th>
+                    <th>valor calificacion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let calificacion of calificaciones">
+                    <td>{{calificacion.idEmpleado}}</td>
+                    <td>{{calificacion.comentario}}</td> 
+                    <td>{{calificacion.valor}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
