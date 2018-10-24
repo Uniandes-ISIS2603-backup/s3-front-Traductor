@@ -1,4 +1,4 @@
-import { CalificacionModule} } from './calificacion.module';
+import { CalificacionModule}  from './calificacion.module';
 
 describe('CalificacionModule', () => {
   let calificacionModule: CalificacionModule;
