@@ -8,9 +8,9 @@ import { ClienteListComponent } from './cliente/cliente-list/cliente-list.compon
 import { PropuestaListComponent } from './propuesta/propuesta-list/propuesta-list.component';
 import { PagosListComponent } from './pagos/pagos-list/pagos-list.component';
 import { TarjetasListComponent } from './tarjeta-de-credito/tarjetas-list/tarjetas-list.component';
-import {IdiomaListComponent} from './idioma/idioma-list/idioma-list.component';
-import {AreaListComponent} from './area-conocimiento/area-list/area-list.component';
-import {CalificacionListComponent} from './calificacion/calificacion-list/calificacion-list.component';
+import {IdiomasListComponent} from './idiomas/idiomas-list/idiomas-list.component';
+import {AreasListComponent} from './areas/areas-list/areas-list.component';
+import {CalificacionesListComponent} from './calificaciones/calificaciones-list/calificaciones-list.component';
 
 describe('AppComponent', () => {
 
@@ -23,9 +23,9 @@ describe('AppComponent', () => {
         PropuestaListComponent,
         PagosListComponent,
         TarjetasListComponent,
-        IdiomaListComponent,
-        AreaListComponent,
-        CalificacionListComponent,
+        IdiomasListComponent,
+        AreasListComponent,
+        CalificacionesListComponent,
         AppComponent
       ]
     }).compileComponents();

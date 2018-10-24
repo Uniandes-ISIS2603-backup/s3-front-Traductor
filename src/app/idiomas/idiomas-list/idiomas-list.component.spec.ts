@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppModule } from '../../app.module';
 
 import { IdiomasListComponent } from './idiomas-list.component';
-import { IdiomaService } from '../idiomas.service';
+import { IdiomasService } from '../idiomas.service';
 import { Idioma } from '../idiomas';
 
 describe('idiomaListComponent', () => {
@@ -18,7 +18,7 @@ describe('idiomaListComponent', () => {
     TestBed.configureTestingModule({
       imports: [ AppRoutingModule, HttpClientModule, AppModule ],
       declarations: [ ],
-      providers: [{provide: APP_BASE_HREF, useValue: ''}, IdiomaService ]
+      providers: [{provide: APP_BASE_HREF, useValue: ''}, IdiomasService ]
     })
     .compileComponents();
   }));

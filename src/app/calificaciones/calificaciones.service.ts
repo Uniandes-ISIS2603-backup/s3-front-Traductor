@@ -4,8 +4,8 @@ import { Calificacion } from './calificaciones';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment'; 
 
-const API_URL = environment.API_URL;
-const calificaciones = '/calificaciones';
+const API_URL = '../../assets/';
+const calificaciones = '/calificaciones.json';
 
 /**
  * El servicio que provee todo lo de los clientes

@@ -9,7 +9,9 @@ import { ClienteModule } from './cliente/cliente.module';
 import { PropuestaModule } from './propuesta/propuesta.module';
 import { PagosModule } from './pagos/pagos.module';
 import { TarjetaDeCreditoModule } from './tarjeta-de-credito/tarjeta-de-credito.module';
-
+import {IdiomasModule} from './idiomas/idiomas.module';
+import {AreasModule} from './areas/areas.module';
+import {CalificacionesModule} from './calificaciones/calificaciones.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -21,6 +23,9 @@ import { TarjetaDeCreditoModule } from './tarjeta-de-credito/tarjeta-de-credito.
     PropuestaModule,
     PagosModule,
     TarjetaDeCreditoModule,
+    IdiomasModule,
+    CalificacionesModule,
+    AreasModule,
 	  AppRoutingModule	
   ],
   bootstrap: [AppComponent]

@@ -4,7 +4,7 @@ import { Area } from './areas';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment'; 
 
-const API_URL = "../../assets/";
+const API_URL = '../../assets/';
 const areas = 'areas.json';
 
 /**

@@ -4,8 +4,8 @@ import { Idioma } from './idiomas';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment'; 
 
-const API_URL = environment.API_URL;
-const idiomas = '/idiomas';
+const API_URL = '../../assets';
+const idiomas = '/idiomas.json';
 
 /**
  * El servicio que provee todo lo de los clientes

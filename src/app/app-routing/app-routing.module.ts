@@ -47,6 +47,33 @@ const routes: Routes = [
                 component: PagosListComponent
             }
         ]
+    },
+    {
+        path:'idiomas',
+        children:[
+            {
+                path:'list',
+                component:IdiomasListComponent
+            }
+        ]
+    },
+    {
+        path:'areas',
+        children:[
+            {
+                path:'list',
+                component: AreasListComponent
+            }
+        ]
+    },
+    {
+        path:'calificaciones',
+        children:[
+            {
+                path:'list',
+                component: CalificacionesListComponent
+            }
+        ]
     }
 ];
 
