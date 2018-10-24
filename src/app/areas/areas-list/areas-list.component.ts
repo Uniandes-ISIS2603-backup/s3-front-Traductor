@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { Area } from '../area';
-import { AreaService } from '../area.service';
+import { Area } from '../areas';
+import { AreasService } from '../areas.service';
 
 /**
  * EL componente para listar las areas en traductor
  */
 @Component({
   selector: 'list-area',
-  templateUrl: './area-list.component.html',
-  styleUrls: ['./area-list.component.css']
+  templateUrl: './areas-list.component.html'
 })
-export class AreaListComponent implements OnInit {
+export class AreasListComponent implements OnInit {
 
-  constructor(private areaService: AreaService) { }
+  constructor(private areaService: AreasService) { }
 
   /**
    * la lista de areas de la aplicacion

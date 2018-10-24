@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Calificacion } from './calificacion';
+import { Area } from './areas';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment'; 
 
-const API_URL = environment.API_URL;
-const calificaciones = '/calificaciones';
+const API_URL = "../../assets/";
+const areas = 'areas.json';
 
 /**
- * El servicio que provee todo lo de los clientes
+ * El servicio que provee todo lo de las areas
  */
-@Injectable()
-export class CalificacionService {
+@Injectable({
+  providedIn: 'root'
+})
+export class AreasService {
 
   /**
     * Constructor of the service
@@ -20,7 +22,7 @@ export class CalificacionService {
    constructor(private http: HttpClient) { }
     
   
-   getCalificaciones() : Observable<Calificacion[]> {
-       return this.http.get<Calificacion[]>(API_URL + calificaciones);
+   getAreas() : Observable<Area[]> {
+       return this.http.get<Area[]>(API_URL + areas);
    }
 }

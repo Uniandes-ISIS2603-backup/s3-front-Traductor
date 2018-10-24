@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { Idioma } from '../idioma';
-import { IdiomaService } from '../idioma.service';
+import { Idioma } from '../idiomas';
+import { IdiomasService } from '../idiomas.service';
 
 /**
  * EL componente para listar los clientes en traductor
  */
 @Component({
   selector: 'list-idioma',
-  templateUrl: './idioma-list.component.html',
-  styleUrls: ['./idioma-list.component.css']
+  templateUrl: './idiomas-list.component.html'
 })
-export class IdiomaListComponent implements OnInit {
+export class IdiomasListComponent implements OnInit {
 
-  constructor(private idiomaService: IdiomaService) { }
+  constructor(private idiomaService: IdiomasService) { }
 
   /**
    * la lista de calificaciones de la aplicacion

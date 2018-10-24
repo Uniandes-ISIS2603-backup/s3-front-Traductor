@@ -5,26 +5,26 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppModule } from '../../app.module';
 
-import { CalificacionListComponent } from './calificacion-list.component';
-import { CalificacionService } from '../calificacion.service';
-import { calificacion } from '../calificacion';
+import { CalificacionesListComponent } from './calificaciones-list.component';
+import { CalificacionesService } from '../calificaciones.service';
+import { Calificacion } from '../calificaciones';
 
 describe('CalificacionListComponent', () => {
-  let component: CalificacionListComponent;
-  let fixture: ComponentFixture<CalificacionListComponent>;
+  let component: CalificacionesListComponent;
+  let fixture: ComponentFixture<CalificacionesListComponent>;
   const calificaciones: Calificacion[] = require('../../../assets/calificaciones.json');
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ AppRoutingModule, HttpClientModule, AppModule ],
       declarations: [ ],
-      providers: [{provide: APP_BASE_HREF, useValue: ''}, CalificacionService ]
+      providers: [{provide: APP_BASE_HREF, useValue: ''}, CalificacionesService ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CalificacionListComponent);
+    fixture = TestBed.createComponent(CalificacionesListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -41,7 +41,7 @@ describe('CalificacionListComponent', () => {
   it('a client should be a client (first and last)', () => {
       component.calificaciones = calificaciones;
       //revisar todas las calificaciones
-      expect(component.calificaciones[0].idEmpleado).toEqual(calificaciones[0].idEmpleado);
-      expect(component.clientes[calificaciones.length - 1].idEmpleado).toEqual(calificaciones[calificaciones.length - 1].idEmpleado);
+      expect(component.calificaciones[0].id).toEqual(calificaciones[0].id);
+      expect(component.calificaciones[calificaciones.length - 1].id).toEqual(calificaciones[calificaciones.length - 1].id);
   });
 });

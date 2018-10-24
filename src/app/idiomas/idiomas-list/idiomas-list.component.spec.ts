@@ -5,13 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppModule } from '../../app.module';
 
-import { IdiomaListComponent } from './idioma-list.component';
-import { IdiomaService } from '../idioma.service';
-import { Idioma } from '../idioma';
+import { IdiomasListComponent } from './idiomas-list.component';
+import { IdiomaService } from '../idiomas.service';
+import { Idioma } from '../idiomas';
 
 describe('idiomaListComponent', () => {
-  let component: IdiomaListComponent;
-  let fixture: ComponentFixture<IdiomaListComponent>;
+  let component: IdiomasListComponent;
+  let fixture: ComponentFixture<IdiomasListComponent>;
   const idiomas: Idioma[] = require('../../../assets/idiomas.json');
 
   beforeEach(async(() => {
@@ -24,7 +24,7 @@ describe('idiomaListComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IdiomaListComponent);
+    fixture = TestBed.createComponent(IdiomasListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -42,6 +42,6 @@ describe('idiomaListComponent', () => {
       component.idiomas = idiomas;
       //revisar todas las idiomas
       expect(component.idiomas[0].id).toEqual(idiomas[0].id);
-      expect(component.idiomas[idiomas.length - 1].idEmpleado).toEqual(idiomas[idiomas.length - 1].id);
+      expect(component.idiomas[idiomas.length - 1].id).toEqual(idiomas[idiomas.length - 1].id);
   });
 });

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Idioma } from './idioma';
+import { Idioma } from './idiomas';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment'; 
 
@@ -11,7 +11,7 @@ const idiomas = '/idiomas';
  * El servicio que provee todo lo de los clientes
  */
 @Injectable()
-export class IdiomaService {
+export class IdiomasService {
 
   /**
     * Constructor of the service

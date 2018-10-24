@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { Calificacion } from '../calificacion';
-import { CalificacionService } from '../calificacion.service';
+import { Calificacion } from '../calificaciones';
+import { CalificacionesService } from '../calificaciones.service';
 
 /**
  * EL componente para listar los clientes en traductor
  */
 @Component({
   selector: 'list-calificacion',
-  templateUrl: './calificacion-list.component.html',
-  styleUrls: ['./calificaicon-list.component.css']
+  templateUrl: './calificaciones-list.component.html'
 })
-export class CalificacionListComponent implements OnInit {
+export class CalificacionesListComponent implements OnInit {
 
-  constructor(private calificacionService: CalificacionService) { }
+  constructor(private calificacionService: CalificacionesService) { }
 
   /**
    * la lista de calificaciones de la aplicacion
@@ -31,6 +30,7 @@ export class CalificacionListComponent implements OnInit {
    */
   ngOnInit() {
     this.getCalificaciones();
+    console.log("holi :3");
   }
 
 }
