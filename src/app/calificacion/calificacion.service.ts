@@ -20,7 +20,7 @@ export class CalificacionService {
    constructor(private http: HttpClient) { }
     
   
-   getClientes() : Observable<Calificacion[]> {
+   getCalificaciones() : Observable<Calificacion[]> {
        return this.http.get<Calificacion[]>(API_URL + calificaciones);
    }
 }

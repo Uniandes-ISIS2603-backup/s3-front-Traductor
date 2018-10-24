@@ -12,7 +12,7 @@ import { CalificacionService } from '../calificacion.service';
 })
 export class CalificacionListComponent implements OnInit {
 
-  constructor(private calificacionService: CalificaionService) { }
+  constructor(private calificacionService: CalificacionService) { }
 
   /**
    * la lista de calificaciones de la aplicacion

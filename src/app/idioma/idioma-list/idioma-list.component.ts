@@ -22,7 +22,7 @@ export class IdiomaListComponent implements OnInit {
  * actualiza las calificaicones
  */
   getIdiomas(): void {
-    this.idiomaService.getIdiomas.subscribe(idiomas => this.idiomas = idiomas);
+    this.idiomaService.getIdiomas().subscribe(idiomas => this.idiomas = idiomas);
   }
   
   /**
