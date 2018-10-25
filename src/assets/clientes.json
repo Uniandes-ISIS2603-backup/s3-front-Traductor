@@ -1,7 +1,65 @@
-[{"id":1,"nombre":"Lauree Mussett","nombreUsuario":"lmussett0","correoElectronico":"lmussett0@jigsy.com","identificacion":"6759303999897612","contrasenia":"Zmrf9jXeE8Wg","tipoCliente":"EMPRESA"},
-{"id":2,"nombre":"Borden Whittingham","nombreUsuario":"bwhittingham1","correoElectronico":"bwhittingham1@geocities.jp","identificacion":"337941667659733","contrasenia":"KDG1kfM51","tipoCliente":"PERSONA_NATURAL"},
-{"id":3,"nombre":"Malvina Lavery","nombreUsuario":"mlavery2","correoElectronico":"mlavery2@gnu.org","identificacion":"3529899367852812","contrasenia":"DDibJnTj","tipoCliente":"PERSONA_NATURAL"},
-{"id":4,"nombre":"Cordy Knutton","nombreUsuario":"cknutton3","correoElectronico":"cknutton3@mayoclinic.com","identificacion":"6709875356067981439","contrasenia":"FaCwKI0v0","tipoCliente":"EMPRESA"},
-{"id":5,"nombre":"Sheff I'anson","nombreUsuario":"sianson4","correoElectronico":"sianson4@ucoz.com","identificacion":"3573455085955687","contrasenia":"x8yNCVYyRF","tipoCliente":"EMPRESA"},
-{"id":6,"nombre":"Kamilah Keirl","nombreUsuario":"kkeirl5","correoElectronico":"kkeirl5@dmoz.org","identificacion":"3587227243241142","contrasenia":"mgO4fPSpGfq9","tipoCliente":"EMPRESA"},
-{"id":7,"nombre":"Tamas Bacchus","nombreUsuario":"tbacchus6","correoElectronico":"tbacchus6@shinystat.com","identificacion":"4041374793395841","contrasenia":"Mz5xDw7luhv7","tipoCliente":"EMPRESA"}]
+[
+    {
+        "id": 1,
+        "nombre": "Lauree Mussett",
+        "nombreUsuario": "lmussett0",
+        "correoElectronico": "lmussett0@jigsy.com",
+        "identificacion": "6759303999897612",
+        "contrasenia": "Zmrf9jXeE8Wg",
+        "tipoCliente": "EMPRESA"
+    },
+    {
+        "id": 2,
+        "nombre": "Borden Whittingham",
+        "nombreUsuario": "bwhittingham1",
+        "correoElectronico": "bwhittingham1@geocities.jp",
+        "identificacion": "337941667659733",
+        "contrasenia": "KDG1kfM51",
+        "tipoCliente": "PERSONA_NATURAL"
+    },
+    {
+        "id": 3,
+        "nombre": "Malvina Lavery",
+        "nombreUsuario": "mlavery2",
+        "correoElectronico": "mlavery2@gnu.org",
+        "identificacion": "3529899367852812",
+        "contrasenia": "DDibJnTj",
+        "tipoCliente": "PERSONA_NATURAL"
+    },
+    {
+        "id": 4,
+        "nombre": "Cordy Knutton",
+        "nombreUsuario": "cknutton3",
+        "correoElectronico": "cknutton3@mayoclinic.com",
+        "identificacion": "6709875356067981439",
+        "contrasenia": "FaCwKI0v0",
+        "tipoCliente": "EMPRESA"
+    },
+    {
+        "id": 5,
+        "nombre": "Sheff I'anson",
+        "nombreUsuario": "sianson4",
+        "correoElectronico": "sianson4@ucoz.com",
+        "identificacion": "3573455085955687",
+        "contrasenia": "x8yNCVYyRF",
+        "tipoCliente": "EMPRESA"
+    },
+    {
+        "id": 6,
+        "nombre": "Kamilah Keirl",
+        "nombreUsuario": "kkeirl5",
+        "correoElectronico": "kkeirl5@dmoz.org",
+        "identificacion": "3587227243241142",
+        "contrasenia": "mgO4fPSpGfq9",
+        "tipoCliente": "EMPRESA"
+    },
+    {
+        "id": 7,
+        "nombre": "Tamas Bacchus",
+        "nombreUsuario": "tbacchus6",
+        "correoElectronico": "tbacchus6@shinystat.com",
+        "identificacion": "4041374793395841",
+        "contrasenia": "Mz5xDw7luhv7",
+        "tipoCliente": "EMPRESA"
+    }
+]
