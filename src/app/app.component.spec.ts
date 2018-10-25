@@ -8,6 +8,9 @@ import { ClienteListComponent } from './cliente/cliente-list/cliente-list.compon
 import { PropuestaListComponent } from './propuesta/propuesta-list/propuesta-list.component';
 import { PagosListComponent } from './pagos/pagos-list/pagos-list.component';
 import { TarjetasListComponent } from './tarjeta-de-credito/tarjetas-list/tarjetas-list.component';
+import {IdiomasListComponent} from './idiomas/idiomas-list/idiomas-list.component';
+import {AreasListComponent} from './areas/areas-list/areas-list.component';
+import {CalificacionesListComponent} from './calificaciones/calificaciones-list/calificaciones-list.component';
 
 describe('AppComponent', () => {
 
@@ -20,6 +23,9 @@ describe('AppComponent', () => {
         PropuestaListComponent,
         PagosListComponent,
         TarjetasListComponent,
+        IdiomasListComponent,
+        AreasListComponent,
+        CalificacionesListComponent,
         AppComponent
       ]
     }).compileComponents();
@@ -52,5 +58,8 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('#propuestasTag').textContent).toContain('Propuestas');
     expect(compiled.querySelector('#tarjetasTag').textContent).toContain('Tarjetas de Credito');
     expect(compiled.querySelector('#pagosTag').textContent).toContain('Pagos');
+    expect(compiled.querySelector('#idiomasTag').textContent).toContain('Idiomas');
+    expect(compiled.querySelector('#areasTag').textContent).toContain('Areas de conocimiento');
+    expect(compiled.querySelector('#calificacionTag').textContent).toContain('Calificaciones');
   }));
 });

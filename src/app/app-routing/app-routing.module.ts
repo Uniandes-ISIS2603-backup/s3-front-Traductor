@@ -6,6 +6,9 @@ import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.compo
 import { PagosListComponent } from '../pagos/pagos-list/pagos-list.component';
 import { PropuestaListComponent } from '../propuesta/propuesta-list/propuesta-list.component';
 import { TarjetasListComponent } from '../tarjeta-de-credito/tarjetas-list/tarjetas-list.component';
+import {IdiomasListComponent} from '../idiomas/idiomas-list/idiomas-list.component';
+import {AreasListComponent} from '../areas/areas-list/areas-list.component';
+import {CalificacionesListComponent} from '../calificaciones/calificaciones-list/calificaciones-list.component';
 
 const routes: Routes = [
 
@@ -42,6 +45,33 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: PagosListComponent
+            }
+        ]
+    },
+    {
+        path:'idiomas',
+        children:[
+            {
+                path:'list',
+                component:IdiomasListComponent
+            }
+        ]
+    },
+    {
+        path:'areas',
+        children:[
+            {
+                path:'list',
+                component: AreasListComponent
+            }
+        ]
+    },
+    {
+        path:'calificaciones',
+        children:[
+            {
+                path:'list',
+                component: CalificacionesListComponent
             }
         ]
     }
