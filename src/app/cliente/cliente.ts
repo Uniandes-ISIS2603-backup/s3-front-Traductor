@@ -1,8 +1,12 @@
+import { TarjetaDeCredito } from "../tarjeta-de-credito/tarjetaDeCredito";
+import { Propuesta } from "../propuesta/propuesta";
+import { Pagos } from "../pagos/pagos";
+
 /**
 * This class represents a client of the Translate proyect. 
 * It contains all the information relevant to the client.
 */
-export interface Cliente {
+export class Cliente {
     /**
     * El id
     */
@@ -36,4 +40,29 @@ export interface Cliente {
      * el tipo del cliente (EMPRESA o PERSONA_NATURAL)
      */
     tipoCliente: string;
+
+    /**
+     * las tarjetas de credito del cliente
+     */
+    tarjetas: TarjetaDeCredito[];
+
+    /**
+     * Las propuestas del cliente
+     */
+    propuestas: Propuesta[];
+
+    /**
+     * las invitaciones del cliente
+     */
+    //invitaciones: Invitacion[];
+
+    /**
+     * las solicitudes del cliente que envio al sistema
+     */
+    //solicitudes: Solicitud[];
+
+    /**
+     * Los pagos realizados por el cliente
+     */
+    pagos: Pagos[];
 }
