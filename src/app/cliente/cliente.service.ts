@@ -8,8 +8,9 @@ import { catchError } from 'rxjs/operators';
 //import { HttpErrorInterceptor } from '../interceptors/httperrorinterceptor.service';
 
 const API_URL = environment.API_URL;
-// const API_URL = '../../assets/clientes.json';
 const clientes = '/clientes';
+// const API_URL = '../../assets';
+// const clientes = '/clientes.json';
 
 /**
  * El servicio que provee todo lo de los clientes

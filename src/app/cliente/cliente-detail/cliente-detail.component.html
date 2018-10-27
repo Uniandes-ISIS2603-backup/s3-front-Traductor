@@ -1,28 +1,29 @@
-<div class="row">
-  <div class="card col-6 align-self-center">
-    <h5 class="card-header">{{cliente.nombre}}</h5>
-    <ng-container *ngIf="cliente.tipoCliente === 'EMPRESA'; else elseBlock">
-        <img class="card-img-top" src="https://i.postimg.cc/ryWSLQhy/icons8-organization-96.png" alt="Card {{cliente.nombre}}}">
-    </ng-container>
-    <ng-template #elseBlock>
-        <img class="card-img-top" src="https://i.postimg.cc/xdGMrCjf/icons8-circled-user-male-skin-type-1-2-100.png" alt="Card {{cliente.nombre}}}">
-    </ng-template>
-    <div class="card-body">
-        <dl class="card-text">
-          <dt>Nombre de Usuario:</dt>
-          <dd>{{cliente.nombreUsuario}}</dd>
-          <dt>Correo Electrónico:</dt>
-          <dd>{{cliente.correoElectronico}}</dd>
-          <dt>Identificación:</dt>
-          <dd>{{cliente.identificacion}}</dd>
-          <dt>Tipo de Cliente:</dt>
-          <ng-container *ngIf="cliente.tipoCliente === 'EMPRESA'; else elseTemplate">
-              <dd>Empresa</dd>
-          </ng-container>
-          <ng-template #elseTemplate>
-              <dd>Persona Natural</dd>
-          </ng-template> 
+<div class="crd row justify-content-center">
+    <div class="col-md-2">
+        <ng-container *ngIf="cliente.tipoCliente === 'EMPRESA'; else elseBlock">
+            <img class="card-img-top" src="https://i.postimg.cc/ryWSLQhy/icons8-organization-96.png" alt="Card {{cliente.nombre}}}">
+        </ng-container>
+        <ng-template #elseBlock>
+            <img class="card-img-top" src="https://i.postimg.cc/xdGMrCjf/icons8-circled-user-male-skin-type-1-2-100.png" alt="Card {{cliente.nombre}}}">
+        </ng-template>
+    </div>
+    <div class="col-md-10">
+        <span class="figure-caption">Sobre este Cliente...</span>
+        <h3 class="card-title">{{cliente.nombre}}</h3>
+        <dl>
+            <dt>Nombre de Usuario:</dt>
+            <dd>{{cliente.nombreUsuario}}</dd>
+            <dt>Correo Electrónico:</dt>
+            <dd>{{cliente.correoElectronico}}</dd>
+            <dt>Identificación:</dt>
+            <dd>{{cliente.identificacion}}</dd>
+            <dt>Tipo de Cliente:</dt>
+            <ng-container *ngIf="cliente.tipoCliente === 'EMPRESA'; else elseTemplate">
+                <dd>Empresa</dd>
+            </ng-container>
+            <ng-template #elseTemplate>
+                <dd>Persona Natural</dd>
+            </ng-template> 
         </dl>
     </div>
-  </div>
 </div>

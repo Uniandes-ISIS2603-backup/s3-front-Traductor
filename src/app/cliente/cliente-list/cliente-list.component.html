@@ -1,17 +1,13 @@
 <div class="container-fluid">
-    <div class="card-deck">
-        <div class="card text-center" *ngFor = "let cliente of clientes">
+    <div class="card-deck justify-content-center">
+        <a class="crd card text-center" routerLink="/clientes/{{cliente.id}}" *ngFor = "let cliente of clientes">
             <ng-container *ngIf="cliente.tipoCliente === 'EMPRESA'; else elseTemplate">
-                <img class="card-img-top" src="https://i.postimg.cc/ryWSLQhy/icons8-organization-96.png" alt="Card {{cliente.nombre}}}">
+                <img class="im card-img-top" src="https://i.postimg.cc/ryWSLQhy/icons8-organization-96.png" alt="Card {{cliente.nombre}}}">
             </ng-container>
             <ng-template #elseTemplate>
-                <img class="card-img-top" src="https://i.postimg.cc/xdGMrCjf/icons8-circled-user-male-skin-type-1-2-100.png" alt="Card {{cliente.nombre}}}">
+                <img class="im card-img-top" src="https://i.postimg.cc/xdGMrCjf/icons8-circled-user-male-skin-type-1-2-100.png" alt="Card {{cliente.nombre}}}">
             </ng-template>
-            <div class="card-body">
-                <h5 class="card-title">{{cliente.nombre}}</h5>
-                <p class="card-text">{{cliente.nombreUsuario}}</p>
-                <a href="#" class="btn btn-primary" routerLink="/clientes/{{cliente.id}}">Ver Detalle</a>
-            </div>
-        </div>
+            <h5 class="name">{{cliente.nombre}}</h5>
+        </a>
     </div>
 </div>

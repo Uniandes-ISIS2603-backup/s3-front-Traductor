@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -30,6 +31,7 @@ import {CalificacionesModule} from './calificaciones/calificaciones.module';
     CalificacionesModule,
     AreasModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
   bootstrap: [AppComponent]
