@@ -5,9 +5,10 @@ import { Observable, throwError } from 'rxjs';
 import { environment } from '../../environments/environment'; 
 import { catchError } from 'rxjs/operators';
 //import 'rxjs/add/operator/catch';
-import { HttpErrorInterceptor } from '../interceptors/httperrorinterceptor.service';
+//import { HttpErrorInterceptor } from '../interceptors/httperrorinterceptor.service';
 
 const API_URL = environment.API_URL;
+// const API_URL = '../../assets/clientes.json';
 const clientes = '/clientes';
 
 /**

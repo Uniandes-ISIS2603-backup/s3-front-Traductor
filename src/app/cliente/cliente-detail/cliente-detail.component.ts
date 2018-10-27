@@ -44,12 +44,12 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
   cliente_id: number;
 
   /**
- * The book whose details are shown
+ * The client whose details are shown
  */
   cliente: Cliente;
 
   /**
- * The other books shown in the sidebar
+ * The other clients shown in the sidebar
  */
   other_clientes: Cliente[];
 
@@ -95,7 +95,7 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
     this.cliente_id = +this.route.snapshot.paramMap.get('id');
     this.cliente = new Cliente();
     this.getCliente();
-    this.getAllClientes();
+    //this.getAllClientes();
   }
   
   /**

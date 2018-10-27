@@ -1,3 +1,6 @@
 .app-component{
     text-align: center;
+    background: #43e97b;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #43e97b, #38f9d7);  /* Chrome 10-25, Safari 5.1-6 */
+    background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
 }

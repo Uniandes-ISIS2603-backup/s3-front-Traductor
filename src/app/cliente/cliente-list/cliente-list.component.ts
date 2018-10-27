@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../cliente';
 import { ClienteService } from '../cliente.service';
+import { ToastrService } from 'ngx-toastr';
 
 /**
  * EL componente para listar los clientes en traductor
@@ -12,7 +13,12 @@ import { ClienteService } from '../cliente.service';
 })
 export class ClienteListComponent implements OnInit {
 
-  constructor(private clienteService: ClienteService) { }
+  /**
+  * Constructor of the component
+  * @param clienteService The client's services provider
+  * @param toastrService The toastr to show messages to the user
+  */
+  constructor(private clienteService: ClienteService, private toastrService: ToastrService) { }
 
   /**
    * la lista de clientes de la aplicacion
@@ -23,7 +29,12 @@ export class ClienteListComponent implements OnInit {
    * Asks the service to update the list of clientes
    */
   getClientes(): void {
-    this.clienteService.getClientes().subscribe(clientes => this.clientes = clientes);
+    this.clienteService.getClientes()
+      .subscribe(clientes => {
+        this.clientes = clientes
+      }, err => {
+          this.toastrService.error(err, "Error");
+      });
   }
   
   /**
