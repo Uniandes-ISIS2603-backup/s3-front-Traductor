@@ -1,18 +1,13 @@
 <div class="container-fluid">
-  <div class="col-md-5">
-      <table class="table table-striped">
-          <thead class="thead-dark">
-              <tr>
-                  <th>Nombre Cliente</th>
-                  <th>Correo Electrónico</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr *ngFor = "let cliente of clientes">
-                  <td>{{cliente.nombre}}</td>
-                  <td>{{cliente.correoElectronico}}</td> 
-              </tr>
-          </tbody>
-      </table>
-  </div>
+    <div class="card-deck justify-content-center">
+        <a class="crd card text-center" routerLink="/clientes/{{cliente.id}}" *ngFor = "let cliente of clientes">
+            <ng-container *ngIf="cliente.tipoCliente === 'EMPRESA'; else elseTemplate">
+                <img class="im card-img-top" src="https://i.postimg.cc/ryWSLQhy/icons8-organization-96.png" alt="Card {{cliente.nombre}}}">
+            </ng-container>
+            <ng-template #elseTemplate>
+                <img class="im card-img-top" src="https://i.postimg.cc/xdGMrCjf/icons8-circled-user-male-skin-type-1-2-100.png" alt="Card {{cliente.nombre}}}">
+            </ng-template>
+            <h5 class="name">{{cliente.nombre}}</h5>
+        </a>
+    </div>
 </div>

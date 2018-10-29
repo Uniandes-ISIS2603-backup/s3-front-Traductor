@@ -9,6 +9,7 @@ import { TarjetasListComponent } from '../tarjeta-de-credito/tarjetas-list/tarje
 import {IdiomasListComponent} from '../idiomas/idiomas-list/idiomas-list.component';
 import {AreasListComponent} from '../areas/areas-list/areas-list.component';
 import {CalificacionesListComponent} from '../calificaciones/calificaciones-list/calificaciones-list.component';
+import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
 
 const routes: Routes = [
 
@@ -18,6 +19,10 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: ClienteListComponent
+            },
+            {
+                path: ':id',
+                component: ClienteDetailComponent
             }
         ]
     },
@@ -80,7 +85,7 @@ const routes: Routes = [
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})
     ],
     exports: [RouterModule],
     declarations: []
