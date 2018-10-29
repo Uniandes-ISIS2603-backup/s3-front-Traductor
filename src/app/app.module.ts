@@ -14,6 +14,7 @@ import { TarjetaDeCreditoModule } from './tarjeta-de-credito/tarjeta-de-credito.
 import {IdiomasModule} from './idiomas/idiomas.module';
 import {AreasModule} from './areas/areas.module';
 import {CalificacionesModule} from './calificaciones/calificaciones.module';
+import {SolicitudesModule} from './solicitudes/solicitudes.module';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import {CalificacionesModule} from './calificaciones/calificaciones.module';
     IdiomasModule,
     CalificacionesModule,
     AreasModule,
+    SolicitudesModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot()

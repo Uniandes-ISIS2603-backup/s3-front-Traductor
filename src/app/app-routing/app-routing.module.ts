@@ -6,10 +6,11 @@ import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.compo
 import { PagosListComponent } from '../pagos/pagos-list/pagos-list.component';
 import { PropuestaListComponent } from '../propuesta/propuesta-list/propuesta-list.component';
 import { TarjetasListComponent } from '../tarjeta-de-credito/tarjetas-list/tarjetas-list.component';
-import {IdiomasListComponent} from '../idiomas/idiomas-list/idiomas-list.component';
-import {AreasListComponent} from '../areas/areas-list/areas-list.component';
-import {CalificacionesListComponent} from '../calificaciones/calificaciones-list/calificaciones-list.component';
+import { IdiomasListComponent } from '../idiomas/idiomas-list/idiomas-list.component';
+import { AreasListComponent } from '../areas/areas-list/areas-list.component';
+import { CalificacionesListComponent } from '../calificaciones/calificaciones-list/calificaciones-list.component';
 import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
+import { SolicitudesListComponent } from '../solicitudes/solicitudes-list/solicitudes-list.component';
 
 const routes: Routes = [
 
@@ -54,38 +55,48 @@ const routes: Routes = [
         ]
     },
     {
-        path:'idiomas',
-        children:[
+        path: 'idiomas',
+        children: [
             {
-                path:'list',
-                component:IdiomasListComponent
+                path: 'list',
+                component: IdiomasListComponent
             }
         ]
     },
     {
-        path:'areas',
-        children:[
+        path: 'areas',
+        children: [
             {
-                path:'list',
+                path: 'list',
                 component: AreasListComponent
             }
         ]
     },
     {
-        path:'calificaciones',
-        children:[
+        path: 'calificaciones',
+        children: [
             {
-                path:'list',
+                path: 'list',
                 component: CalificacionesListComponent
             }
         ]
+    },
+    {
+        path: 'solicitudes',
+        children: [
+            {
+                path: 'list',
+                component: SolicitudesListComponent
+            }
+        ]
     }
+
 ];
 
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})
+        RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })
     ],
     exports: [RouterModule],
     declarations: []
