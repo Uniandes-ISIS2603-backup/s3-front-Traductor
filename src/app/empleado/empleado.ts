@@ -1,9 +1,9 @@
-import { Calificacion } from "../calificaciones/calificaciones";
-import { Propuesta } from "../propuesta/propuesta";
-import { Area } from "../areas/areas";
-import { Idioma } from "../idiomas/idiomas";
+import { Calificacion } from '../calificaciones/calificaciones';
+import { Propuesta } from '../propuesta/propuesta';
+import { Area } from '../areas/areas';
+import { Idioma } from '../idiomas/idiomas';
 
-export class Cliente {
+export class Empleado {
     /**
     * El id
     */
@@ -17,7 +17,7 @@ export class Cliente {
      * el nombre de usuario del cliente
      */
     nombreUsuario: string;
-    
+
     /**
      * El correo del empleado
      */
@@ -27,7 +27,7 @@ export class Cliente {
      * años experiencia del empleado
      */
     aniosExperiencia: number;
-    
+
     /**
      * la contrasenia del cliente
      */
@@ -54,7 +54,7 @@ export class Cliente {
     /**
      * Referencias personales y referencias externas del empleado
      */
-    referencias:string
+    referencias: string;
     /**
      * Calificaciones del empleado
      */
@@ -66,18 +66,18 @@ export class Cliente {
     /**
      * las invitaciones enviadas al empleado por un cliente
      */
-    //TODO
-    //invitaciones
+    // TODO
+    // invitaciones
     /**
      * Areas de conocimiento de un empleado
      */
-    areasDeConocimiento:Area[];
+    areasDeConocimiento: Area[];
     /**
-     * Solicitudes en las cuales trabaja el empleado 
+     * Solicitudes en las cuales trabaja el empleado
      */
-    //solicitudes
+    // solicitudes
     /**
-     * idiomas que domina el empleado 
+     * idiomas que domina el empleado
      */
-    idiomas:Idioma[];
+    idiomas: Idioma[];
 }
