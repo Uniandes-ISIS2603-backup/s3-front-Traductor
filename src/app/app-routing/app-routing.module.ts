@@ -10,6 +10,7 @@ import {IdiomasListComponent} from '../idiomas/idiomas-list/idiomas-list.compone
 import {AreasListComponent} from '../areas/areas-list/areas-list.component';
 import {CalificacionesListComponent} from '../calificaciones/calificaciones-list/calificaciones-list.component';
 import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
+import {InvitacionListComponent} from '../invitacion/invitacion-list/invitacion-list.component';
 
 const routes: Routes = [
 
@@ -35,6 +36,15 @@ const routes: Routes = [
             }
         ]
     },
+	{
+		path: 'invitaciones',
+		children:[
+			{
+				path: 'list',
+				component: InvitacionListComponent				
+			}			
+		]		
+	},
     {
         path: 'tarjetasDeCredito',
         children: [

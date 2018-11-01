@@ -13,6 +13,7 @@ import { PagosModule } from './pagos/pagos.module';
 import { TarjetaDeCreditoModule } from './tarjeta-de-credito/tarjeta-de-credito.module';
 import {IdiomasModule} from './idiomas/idiomas.module';
 import {AreasModule} from './areas/areas.module';
+import { InvitacionModule } from './invitacion/invitacion.module';
 import {CalificacionesModule} from './calificaciones/calificaciones.module';
 
 
@@ -29,6 +30,7 @@ import {CalificacionesModule} from './calificaciones/calificaciones.module';
     TarjetaDeCreditoModule,
     IdiomasModule,
     CalificacionesModule,
+	InvitacionModule,
     AreasModule,
     AppRoutingModule,
     BrowserAnimationsModule,
