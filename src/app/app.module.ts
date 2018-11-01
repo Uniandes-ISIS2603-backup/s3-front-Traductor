@@ -15,6 +15,7 @@ import {IdiomasModule} from './idiomas/idiomas.module';
 import {AreasModule} from './areas/areas.module';
 import { InvitacionModule } from './invitacion/invitacion.module';
 import {CalificacionesModule} from './calificaciones/calificaciones.module';
+import { EmpleadoeModule } from './empleado/empleado.module';
 
 
 @NgModule({
@@ -30,11 +31,11 @@ import {CalificacionesModule} from './calificaciones/calificaciones.module';
     TarjetaDeCreditoModule,
     IdiomasModule,
     CalificacionesModule,
-	InvitacionModule,
+    InvitacionModule,
     AreasModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(), EmpleadoeModule
   ],
   bootstrap: [AppComponent]
 })
