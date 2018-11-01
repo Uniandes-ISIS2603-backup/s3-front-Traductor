@@ -21,7 +21,7 @@ export class EmpleadoListComponent implements OnInit {
   constructor(private empleadoService: EmpleadoService, private toastrService: ToastrService) { }
 
   /**
-   * la lista de clientes de la aplicacion
+   * la lista de empleados de la aplicacion
    */
   empleados: Empleado[];
 

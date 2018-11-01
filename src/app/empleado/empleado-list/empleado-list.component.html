@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="card-deck justify-content-center">
         <a class="crd card text-center" routerLink="/empleados/{{empleado.id}}" *ngFor = "let empleado of empleados">
-                <img class="im card-img-top" src="https://i.postimg.cc/xdGMrCjf/icons8-circled-user-male-skin-type-1-2-100.png" alt="Card {{cliente.nombre}}}">
+                <img class="im card-img-top" src="https://i.postimg.cc/xdGMrCjf/icons8-circled-user-male-skin-type-1-2-100.png" alt="Card {{empleado.nombreEmpleado}}}">
             <h5 class="name">{{empleado.nombreEmpleado}}</h5>
         </a>
     </div>
