@@ -23,10 +23,9 @@ export class EmpleadoService {
    }
 
    /**
-    * Constructor of the service
-    * @param http The HttpClient - This is necessary in order to perform requests
+    * Obtener todos los empleads
     */
-    getempleados(): Observable<Empleado[]> {
+    getEmpleados(): Observable<Empleado[]> {
     return this.http.get<Empleado[]>(API_URL + empleados);
   }
 
@@ -34,7 +33,7 @@ export class EmpleadoService {
   * Returns the Observable object with the details of a empleado retrieved from the API
   * @returns The client details
   */
-  getCliente(empleadoId): Observable<Empleado> {
+  getEmpleado(empleadoId): Observable<Empleado> {
     return this.http.get<Empleado>(API_URL + empleados + '/' + empleadoId).pipe(catchError(err => this.handleError(err)));
   }
 
