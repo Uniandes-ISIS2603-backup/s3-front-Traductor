@@ -11,6 +11,7 @@ import {AreasListComponent} from '../areas/areas-list/areas-list.component';
 import {CalificacionesListComponent} from '../calificaciones/calificaciones-list/calificaciones-list.component';
 import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
 import {InvitacionListComponent} from '../invitacion/invitacion-list/invitacion-list.component';
+import { EmpleadoListComponent } from '../empleado/empleado-list/empleado-list.component';
 
 const routes: Routes = [
 
@@ -87,6 +88,15 @@ const routes: Routes = [
             {
                 path:'list',
                 component: CalificacionesListComponent
+            }
+        ]
+    },
+    {
+        path:'empleados',
+        children:[
+            {
+                path:'list',
+                component: EmpleadoListComponent
             }
         ]
     }
