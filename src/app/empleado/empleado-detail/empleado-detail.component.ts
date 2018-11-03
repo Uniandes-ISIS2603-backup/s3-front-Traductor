@@ -2,35 +2,36 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
-import { Cliente } from '../cliente';
-import { ClienteService } from '../cliente.service';
+
 import { TarjetaDeCredito } from '../../tarjeta-de-credito/tarjetaDeCredito';
 import { Pagos } from '../../pagos/pagos';
+import { EmpleadoService } from '../empleado.service';
+import { Empleado } from '../empleado';
 
 
 @Component({
-  selector: 'app-cliente-detail',
-  templateUrl: './cliente-detail.component.html',
-  styleUrls: ['./cliente-detail.component.css']
+  selector: 'app-empleado-detail',
+  templateUrl: './empleado-detail.component.html',
+  styleUrls: ['./empleado-detail.component.css']
 })
-export class ClienteDetailComponent implements OnInit, OnDestroy {
-  
-  
+export class EmpleadoDetailComponent implements OnInit, OnDestroy {
+
+
   /**
     * The constructor of the component
-    * @param clienteService The client service which communicates with the API
+    * @param empleadoService The client service which communicates with the API
     * @param route The route which helps to retrieves the id of the client to be shown
     * @param router The router which is needed to know when the component needs to reload
     * @param toastrService The toastr to show messages to the user
   */
   constructor(
-    private clienteService: ClienteService,
+    private empleadoService: EmpleadoService,
     private route: ActivatedRoute,
     private router: Router,
     private toastrService: ToastrService
   ) {
-        //This is added so we can refresh the view when one of the clients in
-        //the "Other clients" list is clicked
+        // This is added so we can refresh the view when one of the empleados in
+        // the "Other empleados" list is clicked
         this.navigationSubscription = this.router.events.subscribe((e: any) => {
           if (e instanceof NavigationEnd) {
               this.ngOnInit();
@@ -41,17 +42,17 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
   /**
   * The client's id retrieved from the address
   */
-  cliente_id: number;
+  empleado_id: number;
 
   /**
- * The client whose details are shown
+ * The empleados whose details are shown
  */
-  cliente: Cliente;
+  empleado: Empleado;
 
   /**
- * The other clients shown in the sidebar
+ * The other empleados shown in the sidebar
  */
-  other_clientes: Cliente[];
+  other_empleados: Empleado[];
 
   /**
  * The suscription which helps to know when a new client
@@ -60,29 +61,29 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
   navigationSubscription;
 
   /**
-  * The method which retrieves the details of the client that
+  * The method which retrieves the details of the empleado that
   * we want to show
   */
-  getCliente(): void {
-    this.clienteService.getCliente(this.cliente_id)
-      .subscribe(cliente => {
-          this.cliente = cliente;
+  getEmpleado(): void {
+    this.empleadoService.getEmpleado(this.empleado_id)
+      .subscribe(empleado => {
+          this.empleado = empleado;
       }, err => {
-          this.toastrService.error(err, "Error obteniendo el empleado");
+          this.toastrService.error(err, 'Error');
     });
   }
 
   /**
-  * This method retrieves all the clients in the Prometeus to show them in the list
+  * This method retrieves all the empleados in the Prometeus to show them in the list
   */
-  getAllClientes(): void {
-    this.clienteService.getCliente(this.cliente_id)
-    this.clienteService.getClientes()
-          .subscribe(clientes => {
-              this.other_clientes = clientes;
-              this.other_clientes = this.other_clientes.filter(cliente => cliente.id !== this.cliente_id);
+  getAllEmpleados(): void {
+    this.empleadoService.getEmpleado(this.empleado_id);
+    this.empleadoService.getEmpleados()
+          .subscribe(empleados => {
+              this.other_empleados = empleados;
+              this.other_empleados = this.other_empleados.filter(empleado => empleado.id !== this.empleado_id);
           }, err => {
-              this.toastrService.error(err, "Error al añadir otros empleados");
+              this.toastrService.error(err, 'Error');
           });
   }
 
@@ -92,12 +93,12 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
   * they are never considered undefined
   */
   ngOnInit() {
-    this.cliente_id = +this.route.snapshot.paramMap.get('id');
-    this.cliente = new Cliente();
-    this.getCliente();
-    //this.getAllClientes();
+    this.empleado_id = +this.route.snapshot.paramMap.get('id')
+    this.empleado = new Empleado();
+    this.getEmpleado();
+    // this.getAllEmpleados();
   }
-  
+
   /**
   * This method helps to refresh the view when we need to load another client into it
   * when one of the other books in the list is clicked

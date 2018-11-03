@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { EmpleadoListComponent } from './empleado-list/empleado-list.component';
+import { EmpleadoDetailComponent } from './empleado-detail/empleado-detail.component';
 
 @NgModule({
   imports: [
@@ -13,8 +14,8 @@ import { EmpleadoListComponent } from './empleado-list/empleado-list.component';
     HttpClientModule,
     CommonModule
   ],
-  declarations: [EmpleadoListComponent],
+  declarations: [EmpleadoListComponent, EmpleadoDetailComponent],
   providers: [EmpleadoService],
-  exports: [EmpleadoListComponent]
+  exports: [EmpleadoListComponent, EmpleadoDetailComponent]
 })
-export class EmpleadoeModule { }
+export class EmpleadoModule { }

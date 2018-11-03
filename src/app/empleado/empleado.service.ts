@@ -7,8 +7,8 @@ import { Empleado } from './empleado';
 // import 'rxjs/add/operator/catch';
 // import { HttpErrorInterceptor } from '../interceptors/httperrorinterceptor.service';
 
-//const API_URL = environment.API_URL;
-//const empleados = '/empleados';
+// const API_URL = environment.API_URL;
+// const empleados = '/empleados';
  const API_URL = '../../assets';
  const empleados = '/empleados.json';
 /**

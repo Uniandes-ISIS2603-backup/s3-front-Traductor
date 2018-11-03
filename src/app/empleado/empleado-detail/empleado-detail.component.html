@@ -1,0 +1,23 @@
+<div class="crd row justify-content-center">
+    <div class="col-md-2">
+        <ng-container *ngIf="empleado.aniosExperiencia % 2 === 0; else elseTemplate">
+            <img class="im card-img-top" src="https://png.icons8.com/color/1600/administrator-male.png" alt="Card {{empleado.nombreEmpleado}}}">
+        </ng-container>
+        <ng-template #elseTemplate>
+            <img class="im card-img-top" src="https://png2.kisspng.com/20180402/yie/kisspng-computer-icons-female-user-profile-avatar-material-5ac1fa22a5a567.4501855215226619226785.png" alt="Card {{empleado.nombreEmpleado}}}">
+        </ng-template>
+    </div>
+    <div class="col-md-10">
+        <span class="figure-caption">Sobre este Empleado...</span>
+        <h3 class="card-title">{{empleado.nombreEmpleado}}</h3>
+        <dl>
+            <dt>Nombre de Usuario:</dt>
+            <dd>{{empleado.nombreUsuario}}</dd>
+            <dt>Correo Electrónico:</dt>
+            <dd>{{empleado.correoElectronico}}</dd>
+            <dt>Años de experiencia:</dt>
+            <dd>{{empleado.aniosExperiencia}}</dd>
+            <dt>Tipo de Empleado:</dt>
+        </dl>
+    </div>
+</div>
