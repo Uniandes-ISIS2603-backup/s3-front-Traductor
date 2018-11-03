@@ -15,7 +15,7 @@ import {IdiomasModule} from './idiomas/idiomas.module';
 import {AreasModule} from './areas/areas.module';
 import { InvitacionModule } from './invitacion/invitacion.module';
 import {CalificacionesModule} from './calificaciones/calificaciones.module';
-import { EmpleadoeModule } from './empleado/empleado.module';
+import { EmpleadoModule } from './empleado/empleado.module';
 
 
 @NgModule({
@@ -35,7 +35,7 @@ import { EmpleadoeModule } from './empleado/empleado.module';
     AreasModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(), EmpleadoeModule
+    ToastrModule.forRoot(), EmpleadoModule
   ],
   bootstrap: [AppComponent]
 })

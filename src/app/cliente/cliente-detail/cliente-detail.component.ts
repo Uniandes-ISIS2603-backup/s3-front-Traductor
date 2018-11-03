@@ -68,7 +68,7 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
       .subscribe(cliente => {
           this.cliente = cliente;
       }, err => {
-          this.toastrService.error(err, "Error obteniendo el empleado");
+          this.toastrService.error(err, "Error");
     });
   }
 
@@ -82,7 +82,7 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
               this.other_clientes = clientes;
               this.other_clientes = this.other_clientes.filter(cliente => cliente.id !== this.cliente_id);
           }, err => {
-              this.toastrService.error(err, "Error al añadir otros empleados");
+              this.toastrService.error(err, "Error");
           });
   }
 
