@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { EmpleadoListComponent } from './empleado-list/empleado-list.component';
+import { FormsModule } from '@angular/forms';
 import { EmpleadoDetailComponent } from './empleado-detail/empleado-detail.component';
 import { EmpleadoCreateComponent } from './empleado-create/empleado-create.component';
 
@@ -13,6 +14,7 @@ import { EmpleadoCreateComponent } from './empleado-create/empleado-create.compo
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     CommonModule
   ],
   declarations: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent],

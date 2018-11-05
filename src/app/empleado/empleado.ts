@@ -9,29 +9,21 @@ export class Empleado {
     */
     nombreEmpleado: string;
     /**
-     * el nombre de usuario del cliente
-     */
-    nombreUsuario: string;
-
-    /**
      * El correo del empleado
      */
     correoElectronico: string;
-
     /**
      * años experiencia del empleado
      */
     aniosExperiencia: number;
-
     /**
-     * la contrasenia del cliente
+     * el nombre de usuario del empleado
+     */
+    nombreUsuario: string;
+    /**
+     * la contrasenia del empleado
      */
     contrasenia: string;
-
-    /**
-     * el tipo del empleado (corrector, traductor o ambos)
-     */
-    tipoEmpleado: string;
 
     /**
      * la trayectoria del empleado
@@ -41,7 +33,11 @@ export class Empleado {
     /**
      * La hoja de vida del empleado
      */
-    HojaDeVida: string;
+    hojaDeVida: string;
+    /**
+     * el tipo del empleado (corrector, traductor o ambos)
+     */
+    tipoEmpleado: string;
     /**
      * los estudios del empleado
      */
@@ -51,3 +47,4 @@ export class Empleado {
      */
     referencias: string;
 }
+

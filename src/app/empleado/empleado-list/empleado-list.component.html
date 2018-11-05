@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-primary" routerLink="/empleados/add">Crear</button>
+
 <div class="container-fluid">
     <div class="card-deck justify-content-center">
         <a class="crd card text-center" routerLink="/empleados/{{empleado.id}}" *ngFor = "let empleado of empleados">
@@ -11,4 +11,11 @@
             <h5 class="name">{{empleado.nombreEmpleado}}</h5>
         </a>
     </div>
+
+ 
+      
+    <div class="text-center">
+        <button type="button" class="btn btn-primary" routerLink="/empleados/add">Crear Nuevo Empleado</button>
+    </div>
+    
 </div>
