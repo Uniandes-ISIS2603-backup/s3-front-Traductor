@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { catchError } from 'rxjs/operators';
 import { Empleado } from './empleado';
+import { EmpleadoDetail } from './empleado-detail';
 // import 'rxjs/add/operator/catch';
 // import { HttpErrorInterceptor } from '../interceptors/httperrorinterceptor.service';
 
@@ -34,8 +35,8 @@ export class EmpleadoService {
   * Returns the Observable object with the details of a empleado retrieved from the API
   * @returns The client details
   */
-  getEmpleado(empleadoId): Observable<Empleado> {
-    return this.http.get<Empleado>(API_URL + empleados + '/' + empleadoId).pipe(catchError(err => this.handleError(err)));
+  getEmpleado(empleadoId): Observable<EmpleadoDetail> {
+    return this.http.get<EmpleadoDetail>(API_URL + empleados + '/' + empleadoId).pipe(catchError(err => this.handleError(err)));
   }
 
   /**

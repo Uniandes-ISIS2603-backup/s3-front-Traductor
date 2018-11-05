@@ -7,6 +7,7 @@ import { TarjetaDeCredito } from '../../tarjeta-de-credito/tarjetaDeCredito';
 import { Pagos } from '../../pagos/pagos';
 import { EmpleadoService } from '../empleado.service';
 import { Empleado } from '../empleado';
+import { EmpleadoDetail } from '../empleado-detail';
 
 
 @Component({
@@ -47,7 +48,7 @@ export class EmpleadoDetailComponent implements OnInit, OnDestroy {
   /**
  * The empleados whose details are shown
  */
-  empleado: Empleado;
+  empleado: EmpleadoDetail;
 
   /**
  * The other empleados shown in the sidebar
@@ -94,7 +95,7 @@ export class EmpleadoDetailComponent implements OnInit, OnDestroy {
   */
   ngOnInit() {
     this.empleado_id = +this.route.snapshot.paramMap.get('id')
-    this.empleado = new Empleado();
+    this.empleado = new EmpleadoDetail();
     this.getEmpleado();
     // this.getAllEmpleados();
   }
