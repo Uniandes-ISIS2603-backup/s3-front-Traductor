@@ -13,6 +13,7 @@ import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail
 import {InvitacionListComponent} from '../invitacion/invitacion-list/invitacion-list.component';
 import { EmpleadoListComponent } from '../empleado/empleado-list/empleado-list.component';
 import { EmpleadoDetailComponent } from '../empleado/empleado-detail/empleado-detail.component';
+import { EmpleadoCreateComponent } from '../empleado/empleado-create/empleado-create.component';
 
 const routes: Routes = [
 
@@ -98,6 +99,11 @@ const routes: Routes = [
             {
                 path:'list',
                 component: EmpleadoListComponent
+            },
+            {
+                path: 'add',
+                component: EmpleadoCreateComponent,
+                runGuardsAndResolvers: 'always'
             },
             {
                 path: ':id',

@@ -1,7 +1,7 @@
-import { Calificacion } from "../calificaciones/calificaciones";
-import { Propuesta } from "../propuesta/propuesta";
-import { Area } from "../areas/areas";
-import { Idioma } from "../idiomas/idiomas";
+import { Calificacion } from '../calificaciones/calificaciones';
+import { Propuesta } from '../propuesta/propuesta';
+import { Area } from '../areas/areas';
+import { Idioma } from '../idiomas/idiomas';
 
 export class EmpleadoDetail {
         /**

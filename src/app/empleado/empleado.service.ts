@@ -30,7 +30,14 @@ export class EmpleadoService {
     getEmpleados(): Observable<Empleado[]> {
     return this.http.get<Empleado[]>(API_URL + empleados);
   }
-
+  /**
+    * Creates an empleado
+    * @param empleado The new empleado
+    * @returns The new empleado with the new id
+    */
+   createEmpleado(empleado): Observable<Empleado> {
+    return this.http.post<Empleado>(API_URL + empleados, empleado);
+}
   /**
   * Returns the Observable object with the details of a empleado retrieved from the API
   * @returns The client details
