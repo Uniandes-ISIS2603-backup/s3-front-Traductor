@@ -37,7 +37,7 @@ import { EmpleadoModule } from './empleado/empleado.module';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({timeOut: 8600, preventDuplicates: true}),
   ],
   bootstrap: [AppComponent]
 })
