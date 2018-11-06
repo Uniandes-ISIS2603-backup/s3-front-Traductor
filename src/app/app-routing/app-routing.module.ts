@@ -15,6 +15,7 @@ import { EmpleadoListComponent } from '../empleado/empleado-list/empleado-list.c
 import {PropuestaDetailComponent} from '../propuesta/propuesta-detail/propuesta-detail.component';
 import { EmpleadoDetailComponent } from '../empleado/empleado-detail/empleado-detail.component';
 import { EmpleadoCreateComponent } from '../empleado/empleado-create/empleado-create.component';
+import {PropuestaCreateComponent} from '../propuesta/propuesta-create/propuesta-create.component';
 
 const routes: Routes = [
 
@@ -37,6 +38,11 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: PropuestaListComponent
+            },
+			{
+                path: 'add',
+				component: PropuestaCreateComponent,
+                runGuardsAndResolvers: 'always'
             },
 			{
                 path: ':id',

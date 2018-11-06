@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br>
+        <h2 class="text-center">Crear nueva propuesta</h2>
+        <br>
+        <form name="propuesta" (ngSubmit)="f.form.valid && createPropuesta()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="propuestaCosto"><b>Costo de la propuesta</b></label>
+                <input type="text" name="propuestaCosto" class="form-control" id="propuestaCosto" [(ngModel)]="propuesta.costo"
+                    #propuestaCosto="ngModel" [ngClass]="{ 'is-invalid': f.submitted && propuestaCosto.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Por favor ingrese el valor a cobrar por la propuesta de trabajo</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="propuestaIdEmpleado"><b>Identificador del empleado que realiza la propuesta</b></label>
+                <input type="number" min ="0" name="propuestaIdEmpleado" class="form-control" id="propuestaIdEmpleado" [(ngModel)]="propuesta.idEmpleado"
+                    #propuestaIdEmpleado="ngModel" [ngClass]="{ 'is-invalid': f.submitted && propuestaIdEmpleado.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>La identificacion del empleado es un campo obligatorio</div>
+                </div>
+            </div>  
+
+            <div class="form-group">
+                <label for="propuestaDescripcion"><b>Descripcion de la propuesta</b></label>
+                <input type="text" name="propuestaDescripcion" class="form-control" id="propuestaDescripcion" [(ngModel)]="propuesta.descripcion"
+                    #propuestaDescripcion="ngModel" [ngClass]="{ 'is-invalid': f.submitted && propuestaDescripcion.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>La descripcion de la propuesta es un campo obligatorio</div>
+                </div>
+            </div>		
+
+            <div class="form-group">
+                <label for="propuestaTiempo"><b>Tiempo estimado de entrega</b></label>
+				<div [ngClass]="{ 'is-invalid': f.submitted && propuestaTiempo.invalid }">
+					<input class="form-control" id="propuestaTiempo" name="propuestaTiempo" [(ngModel)]="propuesta.tiempoEstimado"
+                        ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" #propuestaTiempo="ngModel" [ngClass]="{'is-invalid': f.submitted && (propuestaTiempo.untouched || propuestaTiempo.invalid) }"
+                        required>
+                    <div class="invalid-feedback">
+                        <div>Por favor ingrese la fecha de estimada de terminacion</div>
+                    </div>
+				</div>
+			</div>
+            
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>

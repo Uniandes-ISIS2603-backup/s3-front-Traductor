@@ -22,6 +22,6 @@ export class Propuesta {
 	estado: String;
 	
 	//Tiempo estimado de entrega.
-	tiempoEstimado: Date;
+	tiempoEstimado: any;
 }
 
