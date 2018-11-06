@@ -12,6 +12,7 @@ import {CalificacionesListComponent} from '../calificaciones/calificaciones-list
 import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
 import {InvitacionListComponent} from '../invitacion/invitacion-list/invitacion-list.component';
 import { EmpleadoListComponent } from '../empleado/empleado-list/empleado-list.component';
+import {PropuestaDetailComponent} from '../propuesta/propuesta-detail/propuesta-detail.component';
 
 const routes: Routes = [
 
@@ -34,6 +35,10 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: PropuestaListComponent
+            },
+			{
+                path: ':id',
+				component: PropuestaDetailComponent
             }
         ]
     },
