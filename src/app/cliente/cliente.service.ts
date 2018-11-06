@@ -24,9 +24,22 @@ export class ClienteService {
     */
    constructor(private http: HttpClient) { }
     
-  
+  /**
+   * Returns the Observable object with the details of the clients retirieved from the API
+   * @returns The clients from the API
+   */
   getClientes() : Observable<Cliente[]> {
-    return this.http.get<Cliente[]>(API_URL + clientes);
+    return this.http.get<Cliente[]>(API_URL + clientes).pipe(catchError(err => this.handleError(err)));
+  }
+
+  /**
+   * Creates a new client
+   * @param cliente The new client
+   * @returns The new client with the new id
+   */
+  createCliente(cliente) : Observable<Cliente>
+  {
+    return this.http.post<Cliente>(API_URL + clientes, cliente).pipe(catchError(err => this.handleError(err)));
   }
 
   /**
