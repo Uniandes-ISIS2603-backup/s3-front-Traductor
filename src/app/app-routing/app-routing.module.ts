@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.component';
+import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
+import { ClienteCreateComponent } from '../cliente/cliente-create/cliente-create.component';
 import { PagosListComponent } from '../pagos/pagos-list/pagos-list.component';
 import { PropuestaListComponent } from '../propuesta/propuesta-list/propuesta-list.component';
 import { TarjetasListComponent } from '../tarjeta-de-credito/tarjetas-list/tarjetas-list.component';
 import {IdiomasListComponent} from '../idiomas/idiomas-list/idiomas-list.component';
 import {AreasListComponent} from '../areas/areas-list/areas-list.component';
 import {CalificacionesListComponent} from '../calificaciones/calificaciones-list/calificaciones-list.component';
-import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
 import {InvitacionListComponent} from '../invitacion/invitacion-list/invitacion-list.component';
 import { EmpleadoListComponent } from '../empleado/empleado-list/empleado-list.component';
 import {PropuestaDetailComponent} from '../propuesta/propuesta-detail/propuesta-detail.component';
@@ -27,9 +28,14 @@ const routes: Routes = [
                 component: ClienteListComponent
             },
             {
+                path: 'add',
+                component: ClienteCreateComponent,
+                runGuardsAndResolvers: 'always'
+            },
+            {
                 path: ':id',
                 component: ClienteDetailComponent
-            }
+            },
         ]
     },
     {

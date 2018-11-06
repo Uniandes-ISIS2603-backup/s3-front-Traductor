@@ -26,3 +26,6 @@
 a{
     color: #43e97b;
 }
+:host{
+    min-height: 90vh;
+}

@@ -6,8 +6,9 @@ import { ClienteDetailComponent } from './cliente-detail/cliente-detail.componen
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ClienteCreateComponent } from './cliente-create/cliente-create.component';
+import { FormsModule}  from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClienteAddTarjetaDeCreditoComponent } from './cliente-add-tarjeta-de-credito/cliente-add-tarjeta-de-credito.component';
 
 @NgModule({
@@ -19,7 +20,7 @@ import { ClienteAddTarjetaDeCreditoComponent } from './cliente-add-tarjeta-de-cr
     FormsModule,
     NgbModule
   ],
-  declarations: [ClienteListComponent, ClienteDetailComponent, ClienteAddTarjetaDeCreditoComponent],
+  declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteAddTarjetaDeCreditoComponent],
   providers: [ClienteService],
   exports: [ClienteListComponent, ClienteDetailComponent]
 })
