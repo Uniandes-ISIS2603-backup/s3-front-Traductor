@@ -1,8 +1,7 @@
 /* 
  * Servicio que permite obtener la lista de propuestas.
  * @author Geovanny Andres Gonzalez
- */
- 
+ */ 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Propuesta} from './propuesta'; //Importa la interfaz propuesta con los tipos basicos.
@@ -42,6 +41,17 @@ export class PropuestaService
 	 {
 		 return this.clienteHttp.get<Propuesta>(API_URL + propuestas + '/' + propuestaId).pipe(catchError(err => this.handleError(err)));
 		 ;
+	 }
+	 
+	 /**
+	  * Crea una nueva propuesta de trabajo
+	  * @param nuevaPropuesta La nueva propuesta de trabajo recibida del componente
+	  * @returns La nueva propuesta con el ID incluido
+	 */
+	 
+	 createPropuesta(nuevaPropuesta: Propuesta): Observable<Propuesta>
+	 {
+		 return this.clienteHttp.post<Propuesta>(API_URL + '/empleados/' + nuevaPropuesta.idEmpleado + '/propuestas', nuevaPropuesta);
 	 }
 	 
   /**
