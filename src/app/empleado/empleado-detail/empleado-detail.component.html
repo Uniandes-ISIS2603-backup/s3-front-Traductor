@@ -18,7 +18,21 @@
             <dt>Años de experiencia:</dt>
             <dd>{{empleado.aniosExperiencia}}</dd>
             <dt>Tipo de Empleado:</dt>
-            <dd>{{empleado.tipoEmpleado}}</dd>
+            <ng-container *ngIf="empleado.tipoEmpleado === 'CORRECTOR'">
+            <dd>Corrector</dd>
+            </ng-container>
+            <ng-container *ngIf="empleado.tipoEmpleado === 'TRADUCTOR'; else elseTemplate">
+            <dd>Traductor</dd>
+            </ng-container>
+            <ng-template #elseTemplate>
+            <dd>Traductor y Corrector</dd>
+            </ng-template>
+            <dt>Trayectoria:</dt>
+            <dd>{{empleado.trayectoria}}</dd>
+            <dt>Estudios:</dt>
+            <dd>{{empleado.estudios}}</dd>
+            <dt>Algunas referencias:</dt>
+            <dd>{{empleado.referencias}}</dd>
         </dl>
-    </div>
+    </div> 
 </div>
