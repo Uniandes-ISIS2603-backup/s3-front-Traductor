@@ -5,16 +5,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { EmpleadoListComponent } from './empleado-list/empleado-list.component';
+import { FormsModule } from '@angular/forms';
+import { EmpleadoDetailComponent } from './empleado-detail/empleado-detail.component';
+import { EmpleadoCreateComponent } from './empleado-create/empleado-create.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     CommonModule
   ],
-  declarations: [EmpleadoListComponent],
+  declarations: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent],
   providers: [EmpleadoService],
-  exports: [EmpleadoListComponent]
+  exports: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent]
 })
-export class EmpleadoeModule { }
+export class EmpleadoModule { }
