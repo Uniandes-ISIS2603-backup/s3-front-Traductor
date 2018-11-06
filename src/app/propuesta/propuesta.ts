@@ -4,7 +4,7 @@
  * @author Geovanny Andrés González 
  */
 
-export interface Propuesta {
+export class Propuesta {
 	
 	//Identificador de la propuesta.
 	propuestaId: number;
