@@ -3,6 +3,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Cliente } from '../cliente';
 import { ClienteService } from '../cliente.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cliente-create',
@@ -18,7 +19,8 @@ export class ClienteCreateComponent implements OnInit
   */
   constructor(
   private clienteService: ClienteService,
-  private toastrService: ToastrService
+  private toastrService: ToastrService,
+  private router: Router
   ) { }
 
   /**
@@ -41,12 +43,13 @@ export class ClienteCreateComponent implements OnInit
   /**
   * Creates an empleado
   */
-  createEmpleado(): Cliente {
+  createCliente(): Cliente {
     console.log(this.cliente);
     this.clienteService.createCliente(this.cliente)
       .subscribe((cliente) => {
         this.cliente = cliente;
         this.create.emit();
+        this.router.navigate(['/clientes/list']);
         this.toastrService.success('El cliente se creó exitosamente!', 'Creación cliente');
       });
     return this.cliente;
@@ -58,6 +61,7 @@ export class ClienteCreateComponent implements OnInit
   */
   cancelCreation(): void {
       this.cancel.emit();
+      this.router.navigate(['/clientes/list']);
   }
   /**
   * This function will initialize the component
