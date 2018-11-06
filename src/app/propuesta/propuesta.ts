@@ -7,13 +7,13 @@
 export interface Propuesta {
 	
 	//Identificador de la propuesta.
-	propuestaID: number;
+	propuestaId: number;
 	
 	//Costo de la propuesta.
 	costo: number;
 	
 	//Identificador del empleado.
-	empleadoID: number;
+	idEmpleado: number;
 	
 	//Descripción de la propuesta.
 	descripcion: String;

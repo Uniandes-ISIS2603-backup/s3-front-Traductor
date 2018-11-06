@@ -41,7 +41,7 @@ describe('PropuestaListComponent', () => {
   it('a propuesta should be a propuesta (first and last)', () => {
     component.propuestas = propuestas;
     //revisar todos los pagos
-    expect(component.propuestas[0].propuestaID).toEqual(propuestas[0].propuestaID);
-    expect(component.propuestas[propuestas.length - 1].propuestaID).toEqual(propuestas[propuestas.length - 1].propuestaID);
+    expect(component.propuestas[0].propuestaId).toEqual(propuestas[0].propuestaId);
+    expect(component.propuestas[propuestas.length - 1].propuestaId).toEqual(propuestas[propuestas.length - 1].propuestaId);
   });
 });

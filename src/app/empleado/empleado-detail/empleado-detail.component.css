@@ -1,0 +1,13 @@
+dt{
+    font-weight: bold;
+}
+dd{
+    margin-left: 1.3em;
+}
+.crd{
+    margin: 5% 12%;
+    background-color: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 12px;
+    padding: 1.2em;
+}

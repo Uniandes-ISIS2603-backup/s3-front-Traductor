@@ -7,8 +7,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Invitacion} from './invitacion'; //Importa la interfaz propuesta con los tipos basicos.
 import { Observable } from 'rxjs'; 
+import { environment } from '../../environments/environment';
 
 //Declaración de constrantes
+//const API_URL = environment.API_URL; //Se usa la direccion del servidor del back
+//const invitaciones = '/clientes/1/invitaciones';
+
 const API_URL = "../../assets/";
 const invitaciones = 'invitaciones.json';
 

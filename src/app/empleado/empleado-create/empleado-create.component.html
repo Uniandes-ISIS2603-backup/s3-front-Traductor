@@ -1,0 +1,110 @@
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br>
+        <h2 class="text-center">Crear un Empleado</h2>
+        <br>
+        <form name="empleado" (ngSubmit)="f.form.valid && createEmpleado()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="empleadoName"><b>Nombre</b></label>
+                <input type="text" name="empleadoName" class="form-control" id="empleadoName" [(ngModel)]="empleado.nombreEmpleado"
+                    #empleadoName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && empleadoName.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>El nombre del empleado es un campo obligatorio</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="empleadoMail"><b>Correo Electronico</b></label>
+                <input type="text" name="empleadoMail" class="form-control" id="empleadoMail" [(ngModel)]="empleado.correoElectronico"
+                    #empleadoMail="ngModel" [ngClass]="{ 'is-invalid': f.submitted && empleadoMail.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>El correo del empleado es un campo obligatorio</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="empleadoAniosExp"><b>Años de experiencia</b></label>
+                <input type="number" min="0" name="empleadoAniosExp" class="form-control" id="empleadoAniosExp" [(ngModel)]="empleado.aniosExperiencia"
+                    #empleadoAniosExp="ngModel" [ngClass]="{ 'is-invalid': f.submitted && empleadoAniosExp.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Campo obligatorio</div>
+                </div>
+            </div>
+           
+
+            <div class="form-group">
+                <label for="empleadoUserName"><b>Nombre de Usuario</b></label>
+                <input type="text" name="empleadoUserName" class="form-control" id="empleadoUserName" [(ngModel)]="empleado.nombreUsuario"
+                    #empleadoUserName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && empleadoUserName.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>El nombre de usuario del empleado es un campo obligatorio</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="empleadoPass"><b>Contraseña</b></label>
+                <input type="text" name="empleadoPass" class="form-control" id="empleadoPass" [(ngModel)]="empleado.contrasenia"
+                    #empleadoPass="ngModel" [ngClass]="{ 'is-invalid': f.submitted && empleadoPass.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>El nombre de usuario del empleado es un campo obligatorio</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="empleadoTrayectoria"><b>Trayectoria</b></label>
+                <textarea name="empleadoTrayectoria" class="form-control" id="empleadoTrayectoria" [(ngModel)]="empleado.trayectoria"
+                    #empleadoTrayectoria="ngModel" [ngClass]="{ 'is-invalid': f.submitted && empleadoTrayectoria.invalid }"
+                    required></textarea>
+                <div class="invalid-feedback">
+                    <div>La trayectoria es un campo obligatorio</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="empleadoHojaVida"><b>Hoja de vida</b></label>
+                <textarea name="empleadoHojaVida" class="form-control" id="empleadoHojaVida" [(ngModel)]="empleado.hojaDeVida"
+                    #empleadoHojaVida="ngModel" [ngClass]="{ 'is-invalid': f.submitted && empleadoHojaVida.invalid }"
+                    required></textarea>
+                <div class="invalid-feedback">
+                    <div>La Hoja de vida es un campo obligatorio</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="empleadoTipo"><b>Tipo de empleado</b></label>
+                <select class="form-control"  id="empleadoTipo" required [(ngModel)]="empleado.tipoEmpleado" name="empleadoTipo">
+                  <option [value]="'CORRECTOR'">corrector</option>
+                  <option [value]="'TRADUCTOR'">traductor</option>
+                  <option [value]="'CORRECTOR_TRADUCTOR'">corrector y traductor</option>
+                </select>
+              </div>
+
+            <div class="form-group">
+                <label for="empleadoEstudios"><b>Trayectoria</b></label>
+                <textarea name="empleadoEstudios" class="form-control" id="empleadoEstudios" [(ngModel)]="empleado.estudios"
+                    #empleadoEstudios="ngModel" [ngClass]="{ 'is-invalid': f.submitted && empleadoEstudios.invalid }"
+                    required></textarea>
+                <div class="invalid-feedback">
+                    <div>los estudios son un campo obligatorio</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="empleadoReferencias"><b>Referencias</b></label>
+                <textarea name="empleadoReferencias" class="form-control" id="empleadoReferencias" [(ngModel)]="empleado.referencias"
+                    #empleadoReferencias="ngModel" [ngClass]="{ 'is-invalid': f.submitted && empleadoReferencias.invalid }"
+                    required></textarea>
+                <div class="invalid-feedback">
+                    <div>Las Referencias es un campo obligatorio</div>
+                </div>
+            </div>
+            
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>
