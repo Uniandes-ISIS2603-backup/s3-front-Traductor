@@ -11,7 +11,7 @@ export class ClienteTarjetasComponent implements OnInit {
 
   @Input() tarjetasCliente : TarjetaDeCredito [];
     
-    public isCollapsed = false;
+    public isCollapsed = true;
     
     /**
      * The function called when a review is posted to update the reviews

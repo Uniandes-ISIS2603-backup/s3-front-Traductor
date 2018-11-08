@@ -9,13 +9,11 @@ import { Pagos } from 'src/app/pagos/pagos';
 export class ClientePagosComponent implements OnInit {
   @Input() pagosCliente : Pagos [];
 
-  public isCollapsed = false;
-
-  constructor() { }
+  public isCollapsed = true;
 
   updatePagos(pagos:Pagos[]): void {
     this.pagosCliente = pagos;
-}
+  }
 
   ngOnInit() {
   }

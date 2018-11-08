@@ -6,7 +6,6 @@ import { Cliente } from '../cliente';
 import { ClienteService } from '../cliente.service';
 import {ClienteTarjetasComponent} from '../cliente-tarjetas/cliente-tarjetas.component';
 import {ClienteAddTarjetaDeCreditoComponent} from '../cliente-add-tarjeta-de-credito/cliente-add-tarjeta-de-credito.component';
-import { ClienteDetail } from '../cliente-detail';
 import { ClientePagosComponent } from '../cliente-pagos/cliente-pagos.component';
 import { PagosListComponent } from 'src/app/pagos/pagos-list/pagos-list.component';
 
@@ -52,12 +51,6 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
  */
   cliente: Cliente;
 
-
-
-  clienteDetail:ClienteDetail;
-
-
-
   /**
  * The suscription which helps to know when a new client
  * needs to be loaded
@@ -66,48 +59,51 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
 
   @ViewChild(ClienteTarjetasComponent) tarjetaListComponent: ClienteTarjetasComponent;
 
-
   @ViewChild(ClienteAddTarjetaDeCreditoComponent) tarjetaAddComponent: ClienteAddTarjetaDeCreditoComponent;
 
   @ViewChild(ClientePagosComponent) pagosListComponent: ClientePagosComponent;
 
   
   toggleTarjetas(): void {
-    if (this.tarjetaAddComponent.isCollapsed == false) {
-        this.tarjetaAddComponent.isCollapsed = true;
+    if (this.tarjetaAddComponent.isCollapsed == false) 
+    {
+      this.tarjetaAddComponent.isCollapsed = true;
     }
     this.tarjetaListComponent.isCollapsed = !this.tarjetaListComponent.isCollapsed;
-}
+  }
 
-togglePagos(): void {
- 
-  this.pagosListComponent.isCollapsed = !this.pagosListComponent.isCollapsed;
-}
+  togglePagos(): void 
+  {
+    this.pagosListComponent.isCollapsed = !this.pagosListComponent.isCollapsed;
+  }
 
-toggleCreateTarjeta(): void {
-    if (this.tarjetaListComponent.isCollapsed == false) {
+  toggleCreateTarjeta(): void {
+    if (this.tarjetaListComponent.isCollapsed == false) 
+    {
         this.tarjetaListComponent.isCollapsed = true;
     }
     this.tarjetaAddComponent.isCollapsed = !this.tarjetaAddComponent.isCollapsed;
-}
+  }
   
 
-    updateTarjetas(): void {
-      this.getClienteDetail();
-      this.tarjetaListComponent.updateTarjetas(this.clienteDetail.tarjetas);
-      this.tarjetaListComponent.isCollapsed = false;
-      this.tarjetaAddComponent.isCollapsed = true;
+  updateTarjetas(): void {
+    this.getCliente();
+    this.tarjetaListComponent.updateTarjetas(this.cliente.tarjetas);
+    this.tarjetaListComponent.isCollapsed = false;
+    this.tarjetaAddComponent.isCollapsed = true;
   }
 
   updatePagos(): void {
-    this.getClienteDetail();
-    this.pagosListComponent.updatePagos(this.clienteDetail.pagos);
+    this.getCliente();
+    this.pagosListComponent.updatePagos(this.cliente.pagos);
     this.pagosListComponent.isCollapsed = false;
     this.pagosListComponent.isCollapsed = true;
-}
+  }
+
   /**
   * The method which retrieves the details of the client that
   * we want to show
+  * @returns The client with its information (details)
   */
   getCliente(): void {
     this.clienteService.getCliente(this.cliente_id)
@@ -117,20 +113,6 @@ toggleCreateTarjeta(): void {
           this.toastrService.error(err, "Error");
     });
   }
-
-   /**
-    * Returns the Observable object with the details of an author retrieved from the API
-    * @returns The author details
-    */
-   getClienteDetail(): void {
-    this.clienteService.getClienteDetail(this.cliente_id)
-        .subscribe(clienteDetail => {
-            this.clienteDetail = clienteDetail;
-        });
-}
-
-
-
 
   /**
   * The method which initilizes the component
