@@ -1,4 +1,4 @@
-import { TarjetaDeCredito } from "../tarjeta-de-credito/tarjetaDeCredito";
+import { TarjetaDeCredito } from "./tarjetaDeCredito";
 import { Propuesta } from "../propuesta/propuesta";
 import { Pagos } from "../pagos/pagos";
 

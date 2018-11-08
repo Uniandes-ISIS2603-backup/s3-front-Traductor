@@ -8,13 +8,13 @@ import { Cliente } from "./cliente";
 
 export class TarjetaDeCredito {
 	
-idTarjeta:number;
-numeroTarjetaCredito:number;
-ccv:number;
-anioExpiracion:number;
-mesExpiracion:number;
-redBancaria:String;
-nombreTitular:String;
-cliente:Cliente;
+    idTarjeta:number;
+    numeroTarjetaCredito:number;
+    ccv:number;
+    anioExpiracion:number;
+    mesExpiracion:number;
+    redBancaria:string;
+    nombreTitular:string;
+    cliente:Cliente;
 }
 
