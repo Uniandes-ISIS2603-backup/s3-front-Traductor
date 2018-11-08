@@ -25,7 +25,7 @@
                 <dd>Persona Natural</dd>
             </ng-template> 
         </dl>
-        <p *ngIf="cliente.tarjetas !== undefined && cliente.tarjetas.length > 0">
+        <p *ngIf="cliente.tarjetas != undefined && cliente.tarjetas.length > 0">
             <button type="button" class="btn" [ngClass]="{ 'btn-primary': tarjetaListComponent.isCollapsed,'btn-outline-primary':tarjetaListComponent.isCollapsed}" (click)="toggleTarjetas()">
                 Tarjetas registradas
             </button>
@@ -35,7 +35,7 @@
                 Agregar tarjeta
             </button>
         </p>
-        <p *ngIf="cliente.pagos !== undefined && cliente.pagos.length > 0">
+        <p *ngIf="cliente.pagos != undefined && cliente.pagos.length > 0">
             <button type="button" class="btn" [ngClass]="{ 'btn-primary': pagosListComponent.isCollapsed,'btn-outline-primary':pagosListComponent.isCollapsed}" (click)="togglePagos()">
                 Ver pagos
             </button>
