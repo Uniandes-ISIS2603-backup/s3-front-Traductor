@@ -25,5 +25,38 @@
                 <dd>Persona Natural</dd>
             </ng-template> 
         </dl>
+        <div >
+            <div class="row">
+                <div class="col-md-3">
+                    <p *ngIf="clienteDetail.tarjetas.length > 0">
+                        <button type="button" class="btn" [ngClass]="{ 'btn-primary': tarjetaListComponent.isCollapsed,'btn-outline-primary':tarjetaListComponent.isCollapsed}" (click)="toggleTarjetas()">
+                            Tarjetas registradas
+                        </button>
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <p>
+                        <button type="button" class="btn" [ngClass]="{ 'btn-primary': tarjetaAddComponent.isCollapsed,'btn-outline-primary':!tarjetaAddComponent.isCollapsed}" (click)="toggleCreateTarjeta()">
+                            Agregar tarjeta
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <app-cliente-tarjetas [tarjetasCliente]="clienteDetail.tarjetas"></app-cliente-tarjetas>
+                    <app-cliente-add-tarjeta-de-credito [cliente]="clienteDetail" (updateTarjetas)="updateTarjetas()"></app-cliente-add-tarjeta-de-credito>
+                    <br>
+                    <div >
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p *ngIf="clienteDetail.pagos.length > 0">
+                                        <button type="button" class="btn" [ngClass]="{ 'btn-primary': pagosListComponent.isCollapsed,'btn-outline-primary':pagosListComponent.isCollapsed}" (click)="togglePagos()">
+                                            Ver pagos
+                                        </button>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
     </div>
 </div>

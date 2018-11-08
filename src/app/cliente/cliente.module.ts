@@ -10,6 +10,8 @@ import { ClienteCreateComponent } from './cliente-create/cliente-create.componen
 import { FormsModule}  from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClienteAddTarjetaDeCreditoComponent } from './cliente-add-tarjeta-de-credito/cliente-add-tarjeta-de-credito.component';
+import { ClienteTarjetasComponent } from './cliente-tarjetas/cliente-tarjetas.component';
+import { ClientePagosComponent } from './cliente-pagos/cliente-pagos.component';
 
 @NgModule({
   imports: [
@@ -20,7 +22,7 @@ import { ClienteAddTarjetaDeCreditoComponent } from './cliente-add-tarjeta-de-cr
     FormsModule,
     NgbModule
   ],
-  declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteAddTarjetaDeCreditoComponent],
+  declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteAddTarjetaDeCreditoComponent, ClienteTarjetasComponent, ClientePagosComponent],
   providers: [ClienteService],
   exports: [ClienteListComponent, ClienteDetailComponent]
 })
