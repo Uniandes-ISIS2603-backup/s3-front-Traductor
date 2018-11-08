@@ -52,10 +52,7 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
  */
   cliente: Cliente;
 
-  /**
- * The other clients shown in the sidebar
- */
-  other_clientes: Cliente[];
+
 
   clienteDetail:ClienteDetail;
 
@@ -69,9 +66,7 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
 
   @ViewChild(ClienteTarjetasComponent) tarjetaListComponent: ClienteTarjetasComponent;
 
-  /**
-   * The child BookReviewListComponent
-   */
+
   @ViewChild(ClienteAddTarjetaDeCreditoComponent) tarjetaAddComponent: ClienteAddTarjetaDeCreditoComponent;
 
   @ViewChild(ClientePagosComponent) pagosListComponent: ClientePagosComponent;
@@ -96,9 +91,7 @@ toggleCreateTarjeta(): void {
     this.tarjetaAddComponent.isCollapsed = !this.tarjetaAddComponent.isCollapsed;
 }
   
- /**
-     * The function called when a review is posted, so that the child component can refresh the list
-     */
+
     updateTarjetas(): void {
       this.getClienteDetail();
       this.tarjetaListComponent.updateTarjetas(this.clienteDetail.tarjetas);
@@ -137,19 +130,7 @@ toggleCreateTarjeta(): void {
 }
 
 
-  /**
-  * This method retrieves all the clients in the Prometeus to show them in the list
-  */
-  getAllClientes(): void {
-    this.clienteService.getCliente(this.cliente_id)
-    this.clienteService.getClientes()
-          .subscribe(clientes => {
-              this.other_clientes = clientes;
-              this.other_clientes = this.other_clientes.filter(cliente => cliente.id !== this.cliente_id);
-          }, err => {
-              this.toastrService.error(err, "Error");
-          });
-  }
+
 
   /**
   * The method which initilizes the component
