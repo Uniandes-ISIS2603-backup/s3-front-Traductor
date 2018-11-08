@@ -39,10 +39,10 @@ public isCollapsed = true;
 @Output() updateTarjetas = new EventEmitter();
 
 /**
-* This function posts a review
-* @param tarjetaForm The form of the review
+* This function posts a card
+* @param tarjetaForm The form of the card
 */
-postReview(tarjetaForm: NgForm): TarjetaDeCredito {
+postTarjeta(tarjetaForm: NgForm): TarjetaDeCredito {
     this.tarjeta.cliente = this.cliente;
     this.clienteService.createTarjetaDeCredito(this.cliente.id,this.tarjeta)
         .subscribe(() => {
