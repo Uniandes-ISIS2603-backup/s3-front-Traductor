@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="col-md-2">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+
+          <th>Empleado</th>
+          <th>Cliente</th>
+          <th>Estado</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let solciitudActual of solicitudes">
+
+          <td>{{solciitudActual.empleado}}</td>
+
+          <td>{{solciitudActual.cliente}}</td>
+          
+          <td>{{solciitudActual.estado}}</td>
+
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

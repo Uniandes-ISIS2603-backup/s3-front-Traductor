@@ -13,5 +13,6 @@ anioExpiracion:number;
 mesExpiracion:number;
 redBancaria:String;
 nombreTitular:String;
+
 }
 

@@ -15,6 +15,7 @@ import {IdiomasModule} from './idiomas/idiomas.module';
 import {AreasModule} from './areas/areas.module';
 import { InvitacionModule } from './invitacion/invitacion.module';
 import {CalificacionesModule} from './calificaciones/calificaciones.module';
+import {SolicitudesModule} from './solicitudes/solicitudes.module';
 import { EmpleadoModule } from './empleado/empleado.module';
 
 
@@ -34,6 +35,7 @@ import { EmpleadoModule } from './empleado/empleado.module';
     CalificacionesModule,
     InvitacionModule,
     AreasModule,
+    SolicitudesModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,

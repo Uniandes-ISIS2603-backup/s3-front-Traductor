@@ -17,6 +17,7 @@ import {PropuestaDetailComponent} from '../propuesta/propuesta-detail/propuesta-
 import { EmpleadoDetailComponent } from '../empleado/empleado-detail/empleado-detail.component';
 import { EmpleadoCreateComponent } from '../empleado/empleado-create/empleado-create.component';
 import {PropuestaCreateComponent} from '../propuesta/propuesta-create/propuesta-create.component';
+import { SolicitudesListComponent } from '../solicitudes/solicitudes-list/solicitudes-list.component';
 
 const routes: Routes = [
 
@@ -125,6 +126,15 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: EmpleadoDetailComponent
+            }
+        ]
+    },
+    {
+        path: 'solicitudes',
+        children: [
+            {
+                path: 'list',
+                component: SolicitudesListComponent
             }
         ]
     }
