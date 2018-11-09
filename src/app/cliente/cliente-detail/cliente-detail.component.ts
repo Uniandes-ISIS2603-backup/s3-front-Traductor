@@ -51,6 +51,7 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
  */
   cliente: Cliente;
 
+
   /**
  * The suscription which helps to know when a new client
  * needs to be loaded
@@ -68,21 +69,26 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
     if (this.tarjetaAddComponent.isCollapsed == false) 
     {
       this.tarjetaAddComponent.isCollapsed = true;
+      
     }
     this.tarjetaListComponent.isCollapsed = !this.tarjetaListComponent.isCollapsed;
+    
   }
 
   togglePagos(): void 
   {
     this.pagosListComponent.isCollapsed = !this.pagosListComponent.isCollapsed;
+    
   }
 
   toggleCreateTarjeta(): void {
     if (this.tarjetaListComponent.isCollapsed == false) 
     {
         this.tarjetaListComponent.isCollapsed = true;
+       
     }
     this.tarjetaAddComponent.isCollapsed = !this.tarjetaAddComponent.isCollapsed;
+    
   }
   
 
