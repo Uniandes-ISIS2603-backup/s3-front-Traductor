@@ -26,7 +26,7 @@
             </ng-template> 
         </dl>
         <p *ngIf="cliente.tarjetas != undefined && cliente.tarjetas.length > 0">
-            <button type="button" class="btn" [ngClass]="{ 'btn-primary': tarjetaListComponent.isCollapsed,'btn-outline-primary':tarjetaListComponent.isCollapsed}" (click)="toggleTarjetas()">
+            <button type="button" class="btn" [ngClass]="{ 'btn-primary': tarjetaListComponent.isCollapsed,'btn-outline-primary':!tarjetaListComponent.isCollapsed}" (click)="toggleTarjetas()">
                 Tarjetas registradas
             </button>
         </p>
@@ -35,17 +35,18 @@
                 Agregar tarjeta
             </button>
         </p>
-        <!-- <p *ngIf="cliente.pagos != undefined && cliente.pagos.length > 0">
-            <button type="button" class="btn" [ngClass]="{ 'btn-primary': pagosListComponent.isCollapsed,'btn-outline-primary':pagosListComponent.isCollapsed}" (click)="togglePagos()">
+    <p *ngIf="cliente.pagos != undefined && cliente.pagos.length > 0">
+            <button type="button" class="btn" [ngClass]="{ 'btn-primary': pagosListComponent.isCollapsed,'btn-outline-primary':!pagosListComponent.isCollapsed}" (click)="togglePagos()">
                 Ver pagos
             </button>
-        </p> -->
+        </p> 
     </div>
 </div>     
-    <div class="crd row justify-content-center">
+    <div  class="crd row justify-content-center">
         <app-cliente-tarjetas [tarjetasCliente]="cliente.tarjetas"></app-cliente-tarjetas>
         <app-cliente-add-tarjeta-de-credito [cliente]="cliente" (updateTarjetas)="updateTarjetas()"></app-cliente-add-tarjeta-de-credito>
     </div>
     <br>
-    <!-- <div class="crd row justify-content-center">
-    </div> -->
+     <div  class="crd row justify-content-center">
+            <app-cliente-pagos [pagosCliente]="cliente.pagos"></app-cliente-pagos>
+    </div> 
