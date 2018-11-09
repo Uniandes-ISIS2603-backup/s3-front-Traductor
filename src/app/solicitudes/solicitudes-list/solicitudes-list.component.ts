@@ -19,7 +19,10 @@ solicitudes : Solicitud[];
 
 getSolicitudes() : void
 {
-  this.solicitudService.getSolicitudes().subscribe(solicitudes => this.solicitudes = this.solicitudes);
+  this.solicitudService.getSolicitudes()
+    .subscribe(solicitudes => {this.solicitudes = solicitudes}, err => {
+          this.toastrService.error(err, "Error");
+    });
 }
 
 
