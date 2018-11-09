@@ -4,16 +4,16 @@
  * @author Geovanny Andrés González 
  */
 
-export interface Propuesta {
+export class Propuesta {
 	
 	//Identificador de la propuesta.
-	propuestaID: number;
+	propuestaId: number;
 	
 	//Costo de la propuesta.
 	costo: number;
 	
 	//Identificador del empleado.
-	empleadoID: number;
+	idEmpleado: number;
 	
 	//Descripción de la propuesta.
 	descripcion: String;
@@ -22,6 +22,6 @@ export interface Propuesta {
 	estado: String;
 	
 	//Tiempo estimado de entrega.
-	tiempoEstimado: Date;
+	tiempoEstimado: any;
 }
 

@@ -1,0 +1,18 @@
+<div class="crd row justify-content-center">
+    <div class="col-md-10">
+        <span class="figure-caption">Informacion de la propuesta</span>
+        <h3 class="card-title">Identificador de la propuesta: {{propuesta.propuestaId}}</h3>
+        <dl>
+            <dt>Valor de ejecucion: </dt>
+            <dd>{{propuesta.costo}}</dd>
+            <dt>Identificador del empleado: </dt>
+            <dd>{{propuesta.idEmpleado}}</dd>
+            <dt>Descripcion: </dt>
+            <dd>{{propuesta.descripcion}}</dd>
+            <dt>Estado de ejecucion: </dt>            
+			<dd>{{propuesta.estado}}</dd>
+			<dt>Tiempo estimado de entrega: </dt>            
+			<dd>{{propuesta.tiempoEstimado | date:'dd/MM/yyyy'}}</dd>
+        </dl>
+    </div>
+</div>

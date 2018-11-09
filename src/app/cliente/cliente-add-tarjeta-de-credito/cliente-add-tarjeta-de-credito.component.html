@@ -1,0 +1,65 @@
+<div id="collapseAddTarjeta" [ngbCollapse]="isCollapsed">
+  <div class="container-fluid">
+      <h3>Agregar Tarjeta de Credito</h3>
+      <form name="post" (ngSubmit)="tarjetaForm.form.valid && postTarjeta(tarjetaForm)" #tarjetaForm="ngForm" novalidate>
+            <div class="row">
+              <div class="col">
+                  <div class="form-group">
+                      <label for="numeroTarjeta"><b>Numero tarjeta</b></label>
+                      <input type="text" name="numeroTarjeta" class="form-control" id="numeroTarjeta" [(ngModel)]="tarjeta.numeroTarjetaCredito"
+                             #numeroTarjeta="ngModel" [ngClass]="{ 'is-invalid': tarjetaForm.submitted && numeroTarjeta.invalid }" required>
+                             <div class="invalid-feedback">
+                          <div></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col">
+                  <div class="form-group">
+                      <label for="ccvTarjeta"><b>CCV</b></label>
+                      <input type="number" name="ccvTarjeta" class="form-control" id="ccvTarjeta" [(ngModel)]="tarjeta.ccv"
+                             #ccvTarjeta="ngModel" [ngClass]="{ 'is-invalid': tarjetaForm.submitted && ccvTarjeta.invalid }" required>
+                             <div class="invalid-feedback">
+                          <div></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                    <label for="expiracionTarjeta"><b>Fecha de expiracion</b></label>
+                    <input type="number" name="mesExpiracionTarjeta" class="form-control" id="mesExpiracionTarjeta" [(ngModel)]="tarjeta.mesExpiracion"
+                           #mesExpiracion="ngModel" [ngClass]="{ 'is-invalid': tarjetaForm.submitted && mesExpiracionTarjeta.invalid }" required>
+                           /
+                    <input type="number" name="anioExpiracionTarjeta" class="form-control" id="anioExpiracionTarjeta" [(ngModel)]="tarjeta.anioExpiracion"
+                           #ccvTarjeta="ngModel" [ngClass]="{ 'is-invalid': tarjetaForm.submitted && anioExpiracionTarjeta.invalid }" required>
+                           <div class="invalid-feedback">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                  <label for="redTarjeta"><b>Red Bancaria</b></label>
+                  <input type="text" name="redTarjeta" class="form-control" id="redTarjeta" [(ngModel)]="tarjeta.redBancaria"
+                         #ccvTarjeta="ngModel" [ngClass]="{ 'is-invalid': tarjetaForm.submitted && redTarjeta.invalid }" required>
+                         <div class="invalid-feedback">
+                      <div></div>
+                  </div>
+              </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+                <label for="nombreTarjeta"><b>Nombre del Titular</b></label>
+                <input type="text" name="nombreTarjeta" class="form-control" id="nombreTarjeta" [(ngModel)]="tarjeta.nombreTitutar"
+                       #ccvTarjeta="ngModel" [ngClass]="{ 'is-invalid': tarjetaForm.submitted && nombreTarjeta.invalid }" required>
+                       <div class="invalid-feedback">
+                    <div></div>
+                </div>
+            </div>
+          </div>
+          <div class="row form-inline justify-content-center align-self-center">
+              <button type="submit" class="btn btn-primary">Agregar</button>
+          </div>
+        </div>
+      </form>
+  </div>
+</div>

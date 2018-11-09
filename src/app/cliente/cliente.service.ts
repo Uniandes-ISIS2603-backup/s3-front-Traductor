@@ -4,11 +4,13 @@ import { Cliente } from './cliente';
 import { Observable, throwError } from 'rxjs';
 import { environment } from '../../environments/environment'; 
 import { catchError } from 'rxjs/operators';
+import { TarjetaDeCredito } from './tarjetaDeCredito';
 //import 'rxjs/add/operator/catch';
 //import { HttpErrorInterceptor } from '../interceptors/httperrorinterceptor.service';
 
 const API_URL = environment.API_URL;
 const clientes = '/clientes';
+const tarjetas = '/tarjetas';
 // const API_URL = '../../assets';
 // const clientes = '/clientes.json';
 
@@ -24,9 +26,22 @@ export class ClienteService {
     */
    constructor(private http: HttpClient) { }
     
-  
+  /**
+   * Returns the Observable object with the details of the clients retirieved from the API
+   * @returns The clients from the API
+   */
   getClientes() : Observable<Cliente[]> {
-    return this.http.get<Cliente[]>(API_URL + clientes);
+    return this.http.get<Cliente[]>(API_URL + clientes).pipe(catchError(err => this.handleError(err)));
+  }
+
+  /**
+   * Creates a new client
+   * @param cliente The new client
+   * @returns The new client with the new id
+   */
+  createCliente(cliente) : Observable<Cliente>
+  {
+    return this.http.post<Cliente>(API_URL + clientes, cliente).pipe(catchError(err => this.handleError(err)));
   }
 
   /**
@@ -43,5 +58,9 @@ export class ClienteService {
   */
   private handleError(error: any) { 
     return throwError(error.error.errorMessage);  
+  }
+
+  createTarjetaDeCredito(idCliente, tarjeta): Observable<TarjetaDeCredito> {
+    return this.http.post<TarjetaDeCredito>(API_URL + clientes + '/' + idCliente + tarjetas, tarjeta);
   }
 }

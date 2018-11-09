@@ -1,0 +1,58 @@
+<div class="align-items-center justify-content-center">
+  <div class="col-6 crd-create">
+      <h2 class="text-center">Crear un Cliente</h2>
+      <form name="cliente" (ngSubmit)="f.form.valid && createCliente()" #f="ngForm" novalidate>
+          <div class="form-group">
+              <label for="clienteName"><b>Nombre</b></label>
+              <input type="text" name="clienteName" class="form-control" id="clienteName" [(ngModel)]="cliente.nombre"
+                  #clienteName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteName.invalid }" required>
+              <div class="invalid-feedback">
+                  <div>El nombre es un campo obligatorio</div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="clienteUsername"><b>Nombre de Usuario</b></label>
+              <input type="text" name="clienteUsername" class="form-control" id="clienteUsername" [(ngModel)]="cliente.nombreUsuario"
+                  #clienteUsername="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteUsername.invalid }" required>
+              <div class="invalid-feedback">
+                  <div>El nombre de usuario es un campo obligatorio</div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="clienteMail"><b>Correo Electronico</b></label>
+              <input type="text" name="clienteMail" class="form-control" id="clienteMail" [(ngModel)]="cliente.correoElectronico"
+                  #clienteMail="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteMail.invalid }" required>
+              <div class="invalid-feedback">
+                  <div>El correo es un campo obligatorio</div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="clienteIdentity"><b>Identificación (NIT/ID)</b></label>
+              <input type="text" name="clienteIdentity" class="form-control" id="clienteIdentity" [(ngModel)]="cliente.identificacion"
+                  #clienteIdentity="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteIdentity.invalid }" required>
+              <div class="invalid-feedback">
+                  <div>La identificación es un campo obligatorio</div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="clientePass"><b>Contraseña</b></label>
+              <input type="password" minlength="6" name="clientePass" class="form-control" id="clientePass" [(ngModel)]="cliente.contrasenia"
+                  #clientePass="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clientePass.invalid }" required>
+              <div class="invalid-feedback">
+                  <div>La contrasenia es obligatoria. Debe tener mas de 6 caracteres.</div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="clienteTipo"><b>Tipo de Cliente</b></label>
+              <select class="form-control"  id="clienteTipo" [(ngModel)]="cliente.tipoCliente" name="clienteTipo" required>
+                <option [value]="'PERSONA_NATURAL'">Persona Natural</option>
+                <option [value]="'EMPRESA'">Empresa</option>
+              </select>
+          </div>
+          <div class="row form-inline justify-content-center align-self-center">
+              <button type="submit" class="btn btn-primary">Crear</button>
+              <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
+          </div>
+      </form>
+  </div>
+</div>

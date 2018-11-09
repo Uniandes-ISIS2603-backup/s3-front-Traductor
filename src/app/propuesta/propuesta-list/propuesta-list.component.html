@@ -13,8 +13,10 @@
             </thead>
             <tbody>                       
                 <tr *ngFor = "let p of propuestas">
-                  <td>{{p.propuestaID}}</td>                  
-				  <td>{{p.empleadoID}}</td>
+                  <td style="cursor: pointer;">
+						<dd class="figure-caption" routerLink="/propuestas/{{p.propuestaId}}">{{p.propuestaId}}</dd>						
+				  </td>                  
+				  <td>{{p.idEmpleado}}</td>
 				  <td>{{p.costo}}</td>
 				  <td>{{p.descripcion}}</td>
 				  <td>{{p.estado}}</td>
@@ -22,5 +24,9 @@
                 </tr>
             </tbody>
         </table>
-	</div>
+	</div>	
+	
+	 <div class="text-center">
+        <button type="button" class="btn btn-primary" routerLink="/propuestas/add">Crear nueva propuesta</button>
+    </div>	
 </div>
