@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Solicitud } from '../solicitudes';
+import { Solicitud } from '../solicitud';
 import { SolicitudService } from '../solicitudes.service';
+
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-solicitudes-list',
@@ -9,7 +11,7 @@ import { SolicitudService } from '../solicitudes.service';
 })
 export class SolicitudesListComponent implements OnInit {
 
-  constructor(private solicitudService : SolicitudService) { }
+  constructor(private solicitudService : SolicitudService, private toastrService: ToastrService) { }
 
 /**
  * Lista de solicitudes
@@ -27,6 +29,7 @@ getSolicitudes() : void
 
 
   ngOnInit() {
+    this.getSolicitudes();
   }
 
 }

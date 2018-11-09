@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Solicitud} from './solicitudes'; 
+import {Solicitud} from './solicitud'; 
 import { Observable } from 'rxjs';
 
-const API_URL = "../../assets/";
-const solicitudes = 'solicitudes.json';
+const API_URL = "../../assets";
+const solicitudes = '/solicitudes.json';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class SolicitudService {
 
    constructor(private clienteHttp: HttpClient){}

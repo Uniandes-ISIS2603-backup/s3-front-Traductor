@@ -1,10 +1,62 @@
-[{"empleado":"Berny","cliente":"Serene","estado":3},
-{"empleado":"Shaughn","cliente":"Buckie","estado":2},
-{"empleado":"Sydney","cliente":"Leandra","estado":2},
-{"empleado":"Pansy","cliente":"Hale","estado":3},
-{"empleado":"Barde","cliente":"Roddie","estado":2},
-{"empleado":"Harrison","cliente":"Saloma","estado":1},
-{"empleado":"Stephana","cliente":"Lillian","estado":2},
-{"empleado":"Emmalynn","cliente":"Trudey","estado":1},
-{"empleado":"Abagail","cliente":"Stefan","estado":3},
-{"empleado":"Duffy","cliente":"Hunfredo","estado":2}]
+[
+    {
+        "idSolicitud": 1,
+        "empleado": "Berny",
+        "cliente": "Serene",
+        "estado": 3
+    },
+    {
+        "idSolicitud": 2,
+        "empleado": "Shaughn",
+        "cliente": "Buckie",
+        "estado": 2
+    },
+    {
+        "idSolicitud": 3,
+        "empleado": "Sydney",
+        "cliente": "Leandra",
+        "estado": 2
+    },
+    {
+        "idSolicitud": 4,
+        "empleado": "Pansy",
+        "cliente": "Hale",
+        "estado": 3
+    },
+    {
+        "idSolicitud": 5,
+        "empleado": "Barde",
+        "cliente": "Roddie",
+        "estado": 2
+    },
+    {
+        "idSolicitud": 6,
+        "empleado": "Harrison",
+        "cliente": "Saloma",
+        "estado": 1
+    },
+    {
+        "idSolicitud": 7,
+        "empleado": "Stephana",
+        "cliente": "Lillian",
+        "estado": 2
+    },
+    {
+        "idSolicitud": 8,
+        "empleado": "Emmalynn",
+        "cliente": "Trudey",
+        "estado": 1
+    },
+    {
+        "idSolicitud": 9,
+        "empleado": "Abagail",
+        "cliente": "Stefan",
+        "estado": 3
+    },
+    {
+        "idSolicitud": 10,
+        "empleado": "Duffy",
+        "cliente": "Hunfredo",
+        "estado": 2
+    }
+]
