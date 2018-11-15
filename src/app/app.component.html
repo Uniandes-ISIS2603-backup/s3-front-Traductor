@@ -1,45 +1,43 @@
-<div class="all">
-  <div class="app-component">
-    <h1>Welcome to {{ title }}!</h1>
-    <nav>
-      <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a id="clientesTag" class="nav-link" routerLink="/clientes/list">Clientes</a>
-        </li>
-        <li class="nav-item">
-          <a id="propuestasTag" class="nav-link" routerLink="/propuestas/list">Propuestas</a>
-        </li>
-        <li class="nav-item">
-          <a id="tarjetasTag" class="nav-link" routerLink="/tarjetasDeCredito/list">Tarjetas de Credito</a>
-        </li>
-        <li class="nav-item">
-          <a id="pagosTag" class="nav-link" routerLink="/pagos/list">Pagos</a>
-        </li>
-        <li class="nav-item">
-          <a id="idiomasTag" class="nav-link" routerLink="/idiomas/list">Idiomas</a>
-        </li>
-        <li class="nav-item">
-          <a id="areasTag" class="nav-link" routerLink="/areas/list">Areas de conocimiento</a>
-        </li>
-        <li class="nav-item">
-          <a id="calificacionTag" class="nav-link" routerLink="/calificaciones/list">Calificaciones</a>
-        </li>
-        <li class="nav-item">
-          <a id="solcitiudTag" class="nav-link" routerLink="/solicitudes/list">Solicitudes</a>
-        </li>
-		    <li class="nav-item">
-          <a id="invitacionTag" class="nav-link" routerLink="/invitaciones/list">Invitaciones</a>
-        </li>
-        <li class="nav-item">
-          <a id="EmpleadosTag" class="nav-link" routerLink="/empleados/list">Empleados</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-  <div class="cont">
-    <router-outlet></router-outlet>
-  </div>
+<div class="bar">
+  <nav class="navbar sticky-top">
+    <div class="navbar-brand">
+      <a routerLink="/"><img class="logo" src="../assets/img/logo.svg" alt="Logo"></a>
+    </div>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a id="clientesTag" class="nav-link" routerLink="/clientes/list">Clientes</a>
+      </li>
+      <li class="nav-item">
+        <a id="propuestasTag" class="nav-link" routerLink="/propuestas/list">Propuestas</a>
+      </li>
+      <li class="nav-item">
+        <a id="tarjetasTag" class="nav-link" routerLink="/tarjetasDeCredito/list">Tarjetas de Credito</a>
+      </li>
+      <li class="nav-item">
+        <a id="pagosTag" class="nav-link" routerLink="/pagos/list">Pagos</a>
+      </li>
+      <li class="nav-item">
+        <a id="idiomasTag" class="nav-link" routerLink="/idiomas/list">Idiomas</a>
+      </li>
+      <li class="nav-item">
+        <a id="areasTag" class="nav-link" routerLink="/areas/list">Areas de conocimiento</a>
+      </li>
+      <li class="nav-item">
+        <a id="calificacionTag" class="nav-link" routerLink="/calificaciones/list">Calificaciones</a>
+      </li>
+      <li class="nav-item">
+        <a id="solcitiudTag" class="nav-link" routerLink="/solicitudes/list">Solicitudes</a>
+      </li>
+      <li class="nav-item">
+        <a id="invitacionTag" class="nav-link" routerLink="/invitaciones/list">Invitaciones</a>
+      </li>
+      <li class="nav-item">
+        <a id="EmpleadosTag" class="nav-link" routerLink="/empleados/list">Empleados</a>
+      </li>
+    </ul>
+  </nav>
 </div>
-
-
-
+<div class="cont">
+  <router-outlet></router-outlet>
+</div>
+<footer></footer>
