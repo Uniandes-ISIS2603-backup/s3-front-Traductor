@@ -1,14 +1,13 @@
-.all{
-    background: #43e97b;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #43e97b, #38f9d7);  /* Chrome 10-25, Safari 5.1-6 */
-    background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
-}
-.app-component{
+.bar{
     text-align: center;
     background-color: white;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
+.logo{
+    max-width: 16vw;
+    margin-left: 2vw;
+}
 .cont{
-    padding: 4% 0;
+    padding: 3% 0;
     min-height: 90vh;
 }
