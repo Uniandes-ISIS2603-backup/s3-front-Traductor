@@ -1,42 +1,39 @@
-<div class="bar">
-  <nav class="navbar sticky-top">
-    <div class="navbar-brand">
-      <a routerLink="/"><img class="logo" src="../assets/img/logo.svg" alt="Logo"></a>
-    </div>
-    <ul class="nav nav-tabs">
+<header>
+  <nav class="navbar navbar-expand-md fixed-top bar">
+    <a class="navbar-brand" routerLink="/"><img class="logo" src="../assets/img/logo.svg" alt="Logo"></a>
+    <ul class="navbar-nav ml-auto align-items-start align-items-md-center">
       <li class="nav-item">
-        <a id="clientesTag" class="nav-link" routerLink="/clientes/list">Clientes</a>
+        <a id="EmpleadosTag" class="nav-link" routerLink="/empleados/list">Nuestro Equipo</a>
+      </li>
+      <li class="nav-item dropdown" ngbDropdown>
+        <a class="nav-link dropdown-toggle" routerLink="#" id="drop-zonas" ngbDropdownToggle>
+          Zonas de Trabajo
+        </a>
+        <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="drop-zonas">
+          <a id="idiomasTag" class="nav-link" routerLink="/idiomas/list">Idiomas</a>
+          <a id="areasTag" class="nav-link" routerLink="/areas/list">Areas de conocimiento</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown" ngbDropdown>
+        <a class="nav-link dropdown-toggle" routerLink="#" id="drop-admin" ngbDropdownToggle>
+          Administrar
+        </a>
+        <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="drop-admin">
+          <a id="clientesTag" class="nav-link" routerLink="/clientes/list">Clientes</a>
+          <a id="propuestasTag" class="nav-link" routerLink="/propuestas/list">Propuestas</a>
+          <a id="tarjetasTag" class="nav-link" routerLink="/tarjetasDeCredito/list">Tarjetas de Credito</a>
+          <a id="pagosTag" class="nav-link" routerLink="/pagos/list">Pagos</a>
+          <a id="calificacionTag" class="nav-link" routerLink="/calificaciones/list">Calificaciones</a>
+          <a id="solcitiudTag" class="nav-link" routerLink="/solicitudes/list">Solicitudes</a>
+          <a id="invitacionTag" class="nav-link" routerLink="/invitaciones/list">Invitaciones</a>
+        </div>
       </li>
       <li class="nav-item">
-        <a id="propuestasTag" class="nav-link" routerLink="/propuestas/list">Propuestas</a>
-      </li>
-      <li class="nav-item">
-        <a id="tarjetasTag" class="nav-link" routerLink="/tarjetasDeCredito/list">Tarjetas de Credito</a>
-      </li>
-      <li class="nav-item">
-        <a id="pagosTag" class="nav-link" routerLink="/pagos/list">Pagos</a>
-      </li>
-      <li class="nav-item">
-        <a id="idiomasTag" class="nav-link" routerLink="/idiomas/list">Idiomas</a>
-      </li>
-      <li class="nav-item">
-        <a id="areasTag" class="nav-link" routerLink="/areas/list">Areas de conocimiento</a>
-      </li>
-      <li class="nav-item">
-        <a id="calificacionTag" class="nav-link" routerLink="/calificaciones/list">Calificaciones</a>
-      </li>
-      <li class="nav-item">
-        <a id="solcitiudTag" class="nav-link" routerLink="/solicitudes/list">Solicitudes</a>
-      </li>
-      <li class="nav-item">
-        <a id="invitacionTag" class="nav-link" routerLink="/invitaciones/list">Invitaciones</a>
-      </li>
-      <li class="nav-item">
-        <a id="EmpleadosTag" class="nav-link" routerLink="/empleados/list">Empleados</a>
+        <a class="btn btn-primario" routerLink="#">Acceder</a>
       </li>
     </ul>
   </nav>
-</div>
+</header>
 <div class="cont">
   <router-outlet></router-outlet>
 </div>

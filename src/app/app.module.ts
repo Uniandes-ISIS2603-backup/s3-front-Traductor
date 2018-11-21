@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ClienteModule } from './cliente/cliente.module';
 import { PropuestaModule } from './propuesta/propuesta.module';
@@ -38,8 +39,9 @@ import { EmpleadoModule } from './empleado/empleado.module';
     SolicitudesModule,
     AppRoutingModule,
     FormsModule,
+    NgbModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot({timeOut: 8600, preventDuplicates: true, positionClass: 'toast-bottom-right'}),
+    ToastrModule.forRoot({timeOut: 9600, preventDuplicates: true, positionClass: 'toast-bottom-right'}),
   ],
   bootstrap: [AppComponent]
 })
