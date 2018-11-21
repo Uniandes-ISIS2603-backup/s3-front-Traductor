@@ -48,7 +48,7 @@ a {
     border-color: #4ab8a1;
 }
 .btn-primario:hover {
-    /* opacity: 0.85; */
+    opacity: 0.85;
     -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
