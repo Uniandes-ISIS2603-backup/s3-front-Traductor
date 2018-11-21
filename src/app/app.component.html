@@ -2,6 +2,9 @@
   <nav class="navbar navbar-expand-md fixed-top bar">
     <a class="navbar-brand" routerLink="/"><img class="logo" src="../assets/img/logo.svg" alt="Logo"></a>
     <ul class="navbar-nav ml-auto align-items-start align-items-md-center">
+      <li class="nav-item">
+        <a id="EmpleadosTag" class="nav-link" routerLink="/empleados/list">Nuestro Equipo</a>
+      </li>
       <li class="nav-item dropdown" ngbDropdown>
         <a class="nav-link dropdown-toggle" routerLink="#" id="drop-zonas" ngbDropdownToggle>
           Zonas de Trabajo
@@ -26,7 +29,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <a id="EmpleadosTag" class="nav-link" routerLink="/empleados/list">Nuestro Equipo</a>
+        <a class="btn btn-primario" routerLink="#">Acceder</a>
       </li>
     </ul>
   </nav>
