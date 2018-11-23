@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { HttpErrorInterceptor } from './interceptors/httperrorinterceptor.service';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
@@ -43,6 +44,11 @@ import { EmpleadoModule } from './empleado/empleado.module';
     BrowserAnimationsModule,
     ToastrModule.forRoot({timeOut: 9600, preventDuplicates: true, positionClass: 'toast-bottom-right'}),
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpErrorInterceptor,
+    multi: true
+  }]
 })
 export class AppModule {}

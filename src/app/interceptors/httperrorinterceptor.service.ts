@@ -28,11 +28,11 @@ export class HttpErrorInterceptor  extends HttpErrorResponse {
                   }
                   else {  // Server Side Error                       
                       if (error.status == 0) {
-                          errMsg = `Error Code: ${error.status},  Message: ${error.statusText} `;    
-                          errorType = 'Major Error';
+                          errMsg = `Código de Error: ${error.status}, Mensaje: ${error.statusText} `;    
+                          errorType = 'Error Grave';
                       }                      
                       else {
-                           errMsg = `Error Code: ${error.status},  Message: ${error.message}`;                             
+                           errMsg = `Código de Error: ${error.status}, Mensaje: ${error.message}`;                             
                       }                      
                       this.toastrService.error(errMsg, errorType);
                   }
