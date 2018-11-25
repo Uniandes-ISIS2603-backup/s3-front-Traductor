@@ -159,7 +159,7 @@ const routes: Routes = [
                 }
             },
             {
-                path: 'registro',
+                path: ':registro',
                 component: RegistroComponent,
                 canActivate: [NgxPermissionsGuard],
                 data: {

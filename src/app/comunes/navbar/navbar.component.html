@@ -32,9 +32,14 @@
         ACCEDER
       </a>
       <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="drop-acceso">
-        <a routerLink="/autenticacion/registo" class="nav-link">Registrarse</a>
-        <a routerLink="/autenticacion/login" class="nav-link">Ingresar</a>
+        <a routerLink="/autenticacion/registo" class="nav-link"><span class="fas fa-user-plus pulse"></span> Registrarse</a>
+        <a routerLink="/autenticacion/login" class="nav-link"><span class="fas fa-sign-in-alt pulse"></span> Ingresar</a>
       </div>
+    </li>
+    <li class="nav-item" *ngxPermissionsOnly="['CLIENTE', 'EMPLEADO', 'ADMIN']">
+      <a class="but btn-peligro" (click)="logout()">
+        SALIR
+      </a>
     </li>
   </ul>
 </nav>

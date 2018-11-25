@@ -20,7 +20,7 @@
           </div>
           <div class="form-group">
               <label for="clienteMail"><b>Correo Electronico</b></label>
-              <input type="text" name="clienteMail" class="form-control" id="clienteMail" [(ngModel)]="cliente.correoElectronico"
+              <input type="email" name="clienteMail" class="form-control" id="clienteMail" [(ngModel)]="cliente.correoElectronico"
                   #clienteMail="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteMail.invalid }" required>
               <div class="invalid-feedback">
                   <div>El correo es un campo obligatorio</div>
@@ -28,7 +28,7 @@
           </div>
           <div class="form-group">
               <label for="clienteIdentity"><b>Identificación (NIT/ID)</b></label>
-              <input type="text" name="clienteIdentity" class="form-control" id="clienteIdentity" [(ngModel)]="cliente.identificacion"
+              <input type="number" name="clienteIdentity" class="form-control" id="clienteIdentity" [(ngModel)]="cliente.identificacion"
                   #clienteIdentity="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteIdentity.invalid }" required>
               <div class="invalid-feedback">
                   <div>La identificación es un campo obligatorio</div>

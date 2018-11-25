@@ -55,14 +55,14 @@ body::-webkit-scrollbar-thumb
     border-color: #4ab8a1 !important;
 }
 .btn-secundario{
-    color: #fff;
-    background-color: #C5D86D;
-    border-color: #C5D86D;
+    color: #fff !important;
+    background-color: #C5D86D !important;
+    border-color: #C5D86D !important;
 }
 .btn-peligro{
-    color: #fff;
-    background-color: #ED254E;
-    border-color: #ED254E;
+    color: #fff !important;
+    background-color: #ED254E !important;
+    border-color: #ED254E !important;
 }
 .btn-primario:hover, .btn-secundario:hover, .btn-peligro:hover{
     opacity: 0.85 !important;
@@ -82,16 +82,16 @@ body::-webkit-scrollbar-thumb
     border-color: #4ab8a1 !important;
 }
 .btn-outline-secundario{
-    color: #C5D86D;
+    color: #C5D86D !important;
     background-color: transparent;
     background-image: none;
-    border-color: #C5D86D;
+    border-color: #C5D86D !important;
 }
 .btn-outline-peligro{
-    color: #ED254E;
+    color: #ED254E !important;
     background-color: transparent;
     background-image: none;
-    border-color: #ED254E;
+    border-color: #ED254E !important;
 }
 .btn-outline-primario:hover {
     color: #fff !important;
@@ -101,16 +101,16 @@ body::-webkit-scrollbar-thumb
     transition: all 0.4s;
 }
 .btn-outline-secundario:hover{
-    color: #fff;
-    background-color: #C5D86D;
-    border-color: #C5D86D;
+    color: #fff !important;
+    background-color: #C5D86D !important;
+    border-color: #C5D86D !important;
     -webkit-transition: all 0.4s;
     transition: all 0.4s;
 }
 .btn-outline-peligro:hover{
-    color: #fff;
-    background-color: #ED254E;
-    border-color: #ED254E;
+    color: #fff !important;
+    background-color: #ED254E !important;
+    border-color: #ED254E !important;
     -webkit-transition: all 0.4s;
     transition: all 0.4s;
 }
