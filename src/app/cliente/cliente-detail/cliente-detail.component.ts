@@ -78,11 +78,7 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
   }
 
   togglePropuestas(): void {
-    if (this.propuestaListComponent.isCollapsed == false) 
-    {
-      this.propuestaListComponent.isCollapsed = true;
-      
-    }
+    
     this.propuestaListComponent.isCollapsed = !this.propuestaListComponent.isCollapsed;
     
   }

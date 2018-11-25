@@ -5,7 +5,7 @@
  */
 import {Propuesta} from '../propuesta/propuesta'
 
-export interface Pagos {
+export class Pagos {
  
 idTransaccion:number;
 pagoAprobado:number;
