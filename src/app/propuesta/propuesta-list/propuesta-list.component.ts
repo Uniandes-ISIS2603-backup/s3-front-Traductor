@@ -7,7 +7,9 @@
 
 import { Component, OnInit } from '@angular/core';
 import {Propuesta} from '../propuesta';
+import {Pagos} from '../../pagos/pagos';
 import {PropuestaService} from '../propuesta.service';
+import { ClienteService } from 'src/app/cliente/cliente.service';
 
 @Component({
   //Declaración del selector para llamarlo en el archivo html y que pueda mostrar el contenido.
@@ -23,7 +25,7 @@ export class PropuestaListComponent implements OnInit {
 * @param propuestaService El proveedor de las propuestas, la logica.
 */ 
    
-constructor(private propuestaService: PropuestaService) {}
+constructor(private propuestaService: PropuestaService,private clienteService: ClienteService) {}
 
 /**
  * Arreglo de propuestas
@@ -38,6 +40,15 @@ propuestas: Propuesta[];
  getPropuestas(): void {
 	 this.propuestaService.getPropuestas().subscribe(propuestas => this.propuestas = propuestas);
  }
+
+ pagar(idPropuesta:number)
+{
+   let pago:Pagos;
+  // pago.pagoAprobado=1;
+  // pago.propuesta=this.clienteService.
+console.log(idPropuesta);
+//this.clienteService.createPago();
+}
 
 /**
  * Inicializa el componente, recuperando en primer lugar las propuestas del servicio suscrito.

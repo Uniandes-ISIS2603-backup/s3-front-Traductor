@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable} from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Empleado } from './empleado';
+import { Propuesta } from '../propuesta/propuesta';
 import { EmpleadoDetail } from './empleado-detail';
 // import 'rxjs/add/operator/catch';
 // import { HttpErrorInterceptor } from '../interceptors/httperrorinterceptor.service';
@@ -43,5 +44,19 @@ export class EmpleadoService {
   */
   getEmpleado(empleadoId): Observable<EmpleadoDetail> {
     return this.http.get<EmpleadoDetail>(API_URL + empleados + '/' + empleadoId) ;
+  }
+  /**
+	  * Crea una nueva propuesta de trabajo
+	  * @param nuevaPropuesta La nueva propuesta de trabajo recibida del componente
+	  * @returns La nueva propuesta con el ID incluido
+	 */
+	 
+  createPropuesta(idEmpleado:number,nuevaPropuesta: Propuesta): Observable<Propuesta>
+  {
+    return this.http.post<Propuesta>(API_URL + '/empleados/' +idEmpleado + '/propuestas', nuevaPropuesta);
+  }
+
+  getPropuestas(empleadoId): Observable<EmpleadoDetail> {
+    return this.http.get<EmpleadoDetail>(API_URL + empleados + '/' + empleadoId+'/propuestas') ;
   }
 }

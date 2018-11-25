@@ -20,7 +20,7 @@
 				  <td>{{p.descripcion}}</td>
 				  <td>{{p.estado}}</td>
                   <td>{{p.tiempoEstimado}}</td>
-                  <td><button _ngcontent-c1="" class="btn btn-primario" (click)="pagar(p.id)"  type="button" tabindex="0" >Pagar</button></td>
+                  <td><button _ngcontent-c1="" class="btn btn-primario" (click)="pagar(p.id,p.costo,p.descripcion,p.estado,p.tiempoEstimado)"  type="button" tabindex="0" >Pagar</button></td>
                 </tr>
             </tbody>
         </table>
