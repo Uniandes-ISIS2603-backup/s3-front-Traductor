@@ -21,12 +21,14 @@ import { CalificacionesModule } from './calificaciones/calificaciones.module';
 import { SolicitudesModule } from './solicitudes/solicitudes.module';
 import { EmpleadoModule } from './empleado/empleado.module';
 import { MainMenuComponent } from './comunes/main-menu/main-menu.component';
+import { NavbarComponent } from './comunes/navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainMenuComponent
+    MainMenuComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
