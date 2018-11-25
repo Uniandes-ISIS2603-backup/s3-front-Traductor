@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { NgxPermissionsGuard } from 'ngx-permissions';
 
 import { MainMenuComponent } from '../comunes/main-menu/main-menu.component';
 import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.component';
@@ -9,16 +10,18 @@ import { ClienteCreateComponent } from '../cliente/cliente-create/cliente-create
 import { PagosListComponent } from '../pagos/pagos-list/pagos-list.component';
 import { PropuestaListComponent } from '../propuesta/propuesta-list/propuesta-list.component';
 import { TarjetasListComponent } from '../tarjeta-de-credito/tarjetas-list/tarjetas-list.component';
-import {IdiomasListComponent} from '../idiomas/idiomas-list/idiomas-list.component';
-import {AreasListComponent} from '../areas/areas-list/areas-list.component';
-import {CalificacionesListComponent} from '../calificaciones/calificaciones-list/calificaciones-list.component';
-import {InvitacionListComponent} from '../invitacion/invitacion-list/invitacion-list.component';
+import { IdiomasListComponent } from '../idiomas/idiomas-list/idiomas-list.component';
+import { AreasListComponent } from '../areas/areas-list/areas-list.component';
+import { CalificacionesListComponent } from '../calificaciones/calificaciones-list/calificaciones-list.component';
+import { InvitacionListComponent } from '../invitacion/invitacion-list/invitacion-list.component';
 import { EmpleadoListComponent } from '../empleado/empleado-list/empleado-list.component';
-import {PropuestaDetailComponent} from '../propuesta/propuesta-detail/propuesta-detail.component';
+import { PropuestaDetailComponent } from '../propuesta/propuesta-detail/propuesta-detail.component';
 import { EmpleadoDetailComponent } from '../empleado/empleado-detail/empleado-detail.component';
 import { EmpleadoCreateComponent } from '../empleado/empleado-create/empleado-create.component';
-import {PropuestaCreateComponent} from '../propuesta/propuesta-create/propuesta-create.component';
+import { PropuestaCreateComponent } from '../propuesta/propuesta-create/propuesta-create.component';
 import { SolicitudesListComponent } from '../solicitudes/solicitudes-list/solicitudes-list.component';
+import { LoginComponent } from '../auth/login/login.component';
+import { RegistroComponent } from '../auth/registro/registro.component';
 
 const routes: Routes = [
     {
@@ -50,26 +53,26 @@ const routes: Routes = [
                 path: 'list',
                 component: PropuestaListComponent
             },
-			{
+            {
                 path: 'add',
-				component: PropuestaCreateComponent,
+                component: PropuestaCreateComponent,
                 runGuardsAndResolvers: 'always'
             },
-			{
+            {
                 path: ':id',
-				component: PropuestaDetailComponent
+                component: PropuestaDetailComponent
             }
         ]
     },
-	{
-		path: 'invitaciones',
-		children:[
-			{
-				path: 'list',
-				component: InvitacionListComponent				
-			}			
-		]		
-	},
+    {
+        path: 'invitaciones',
+        children: [
+            {
+                path: 'list',
+                component: InvitacionListComponent
+            }
+        ]
+    },
     {
         path: 'tarjetasDeCredito',
         children: [
@@ -89,37 +92,37 @@ const routes: Routes = [
         ]
     },
     {
-        path:'idiomas',
-        children:[
+        path: 'idiomas',
+        children: [
             {
-                path:'list',
-                component:IdiomasListComponent
+                path: 'list',
+                component: IdiomasListComponent
             }
         ]
     },
     {
-        path:'areas',
-        children:[
+        path: 'areas',
+        children: [
             {
-                path:'list',
+                path: 'list',
                 component: AreasListComponent
             }
         ]
     },
     {
-        path:'calificaciones',
-        children:[
+        path: 'calificaciones',
+        children: [
             {
-                path:'list',
+                path: 'list',
                 component: CalificacionesListComponent
             }
         ]
     },
     {
-        path:'empleados',
-        children:[
+        path: 'empleados',
+        children: [
             {
-                path:'list',
+                path: 'list',
                 component: EmpleadoListComponent
             },
             {
@@ -141,13 +144,38 @@ const routes: Routes = [
                 component: SolicitudesListComponent
             }
         ]
-    }
+    },
+    {
+        path: 'autenticacion',
+        children: [
+            {
+                path: 'login',
+                component: LoginComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['INVITADO']
+                    }
+                }
+            },
+            {
+                path: 'registro',
+                component: RegistroComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['INVITADO']
+                    }
+                }
+            }
+        ]
+    },
 ];
 
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})
+        RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })
     ],
     exports: [RouterModule],
     declarations: []

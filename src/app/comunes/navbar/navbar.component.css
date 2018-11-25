@@ -33,7 +33,10 @@ a {
     padding-left: 8px;
 /* .dropdown-toggle::after{
     display: none !important; */
-} 
+}
+.but.btn-primario.dropdown-toggle::after{
+    display: none;
+}
 
 /* ==========================================
     LOGO

@@ -28,7 +28,7 @@ export class HttpErrorInterceptor  extends HttpErrorResponse {
                   }
                   else {  // Server Side Error                       
                       if (error.status == 0) {
-                          errMsg = `Código de Error: ${error.status}, Mensaje: ${error.statusText} `;    
+                          errMsg = `Código de Error: ${error.status}, Mensaje: No hay conexión con el servidor! `;    
                           errorType = 'Error Grave';
                       }                      
                       else {

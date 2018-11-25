@@ -27,8 +27,14 @@
         <a id="invitacionTag" class="nav-link" routerLink="/invitaciones/list">Invitaciones</a>
       </div>
     </li>
-    <li class="nav-item">
-      <a class="but btn-primario">ACCEDER</a>
+    <li class="nav-item dropdown" *ngxPermissionsOnly="['INVITADO']" ngbDropdown>
+      <a class="but btn-primario dropdown-toggle" id="drop-acceso" ngbDropdownToggle>
+        ACCEDER
+      </a>
+      <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="drop-acceso">
+        <a routerLink="/autenticacion/registo" class="nav-link">Registrarse</a>
+        <a routerLink="/autenticacion/login" class="nav-link">Ingresar</a>
+      </div>
     </li>
   </ul>
 </nav>
