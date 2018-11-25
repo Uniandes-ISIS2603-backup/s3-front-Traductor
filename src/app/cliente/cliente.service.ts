@@ -12,7 +12,7 @@ import { Pagos } from '../pagos/pagos';
 
 const API_URL = environment.API_URL;
 const clientes = '/clientes';
-const tarjetas = '/tarjetas';
+const tarjetas = '/tarjetasDeCredito';
 // const API_URL = '../../assets';
 // const clientes = '/clientes.json';
 

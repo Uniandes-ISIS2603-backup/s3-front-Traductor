@@ -26,11 +26,15 @@
               <div class="col">
                 <div class="form-group">
                     <label for="expiracionTarjeta"><b>Fecha de expiracion</b></label>
-                    <input type="number" name="mesExpiracionTarjeta" class="form-control" id="mesExpiracionTarjeta" [(ngModel)]="tarjeta.mesExpiracion"
-                           #mesExpiracion="ngModel" [ngClass]="{ 'is-invalid': tarjetaForm.submitted && mesExpiracionTarjeta.invalid }" required>
-                           /
-                    <input type="number" name="anioExpiracionTarjeta" class="form-control" id="anioExpiracionTarjeta" [(ngModel)]="tarjeta.anioExpiracion"
-                           #ccvTarjeta="ngModel" [ngClass]="{ 'is-invalid': tarjetaForm.submitted && anioExpiracionTarjeta.invalid }" required>
+                    <select name="mesExpiracionTarjeta" class="form-control" id="mesExpiracionTarjeta" [(ngModel)]="tarjeta.mesExpiracion"
+                    #mesExpiracion="ngModel" [ngClass]="{ 'is-invalid': tarjetaForm.submitted && mesExpiracionTarjeta.invalid }" required>
+                        <option *ngFor="let mes of darMeses()" value="{{mes}}">{{mes}}</option>
+                        
+                      </select>
+                      <input type="number" name="anioExpiracionTarjeta" class="form-control" id="anioExpiracionTarjeta" [(ngModel)]="tarjeta.anioExpiracion"
+                      #anioExpiracionTarjeta="ngModel" [ngClass]="{ 'is-invalid': tarjetaForm.submitted && anioExpiracionTarjeta.invalid }" required>
+                    
+                   
                            <div class="invalid-feedback">
                         <div></div>
                     </div>

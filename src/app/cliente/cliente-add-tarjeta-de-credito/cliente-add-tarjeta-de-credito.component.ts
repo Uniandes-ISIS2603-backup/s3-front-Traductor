@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { TarjetaDeCredito } from '../tarjetaDeCredito';
 import { ClienteService } from '../cliente.service';
 import { Cliente } from '../../cliente/cliente';
+import { animation } from '@angular/animations';
 
 @Component({
   selector: 'app-cliente-add-tarjeta-de-credito',
@@ -30,6 +31,10 @@ export class ClienteAddTarjetaDeCreditoComponent implements OnInit, OnChanges {
 
 tarjeta: TarjetaDeCredito;
 
+
+ anio:any=new Date().getFullYear;
+ 
+
 public isCollapsed = true;
 
 /**
@@ -37,6 +42,12 @@ public isCollapsed = true;
 * so that the list of reviews refreshes
 */
 @Output() updateTarjetas = new EventEmitter();
+
+darMeses():number[]
+{
+return [1,2,3,4,5,6,7,8,9,10,11,12];
+}
+
 
 /**
 * This function posts a card
