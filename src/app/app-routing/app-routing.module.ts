@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
+import { MainMenuComponent } from '../comunes/main-menu/main-menu.component';
 import { ClienteListComponent } from '../cliente/cliente-list/cliente-list.component';
 import { ClienteDetailComponent } from '../cliente/cliente-detail/cliente-detail.component';
 import { ClienteCreateComponent } from '../cliente/cliente-create/cliente-create.component';
@@ -20,7 +21,10 @@ import {PropuestaCreateComponent} from '../propuesta/propuesta-create/propuesta-
 import { SolicitudesListComponent } from '../solicitudes/solicitudes-list/solicitudes-list.component';
 
 const routes: Routes = [
-
+    {
+        path: '',
+        component: MainMenuComponent
+    },
     {
         path: 'clientes',
         children: [

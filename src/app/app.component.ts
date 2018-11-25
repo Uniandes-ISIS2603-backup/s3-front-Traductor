@@ -6,21 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit { 
-  /**
-     * The title that appears on the NavBar and the web browser
-     */
-    title: String;
+export class AppComponent implements OnInit {
 
-    /**
+  /**
      * Assigns a title to the web page
      */
-    ngOnInit(): void {
-        this.title = 's3-Prometeus-Traductor';
-    }
+  ngOnInit(): void{
 
-    /**
-     * @ignore
-     */
-    constructor() {}
+  }
+
+  /**
+   * @ignore
+   */
+  constructor() { }
 }
