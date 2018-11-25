@@ -1,0 +1,44 @@
+/* ==========================================
+    BARRA DE NAVEGACIÓN
+========================================== */
+nav.bar{
+    height: 10vh;
+    margin-bottom: 70px;
+    text-align: center;
+    background-color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+a {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    
+}
+.nav-item, .nav-item.dropdown, .nav-link{
+    color: #555;
+    font-weight: 600;
+}
+.nav-item:hover, .nav-item.dropdown:hover, .nav-link:hover{
+    color: #4ab8a1;
+    cursor: pointer;
+    text-decoration: none;
+}
+.nav-item{
+    padding-right: 8px;
+    padding-left: 8px;
+/* .dropdown-toggle::after{
+    display: none !important; */
+} 
+
+/* ==========================================
+    LOGO
+========================================== */
+.logo{
+    max-width: 200px;
+    margin-left: 1.6vw;
+}
