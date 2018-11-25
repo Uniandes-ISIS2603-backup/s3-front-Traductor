@@ -38,7 +38,7 @@ export class PropuestaCreateComponent implements OnInit {
 propuesta: Propuesta;
 
 //Terminar de escribir.
-
+/**
 createPropuesta(): Propuesta
 {
 	console.log(this.propuesta); //Mostrar en consola para verificar que no hayan errores
@@ -55,7 +55,7 @@ createPropuesta(): Propuesta
            
 	return this.propuesta;
 }
-
+*/
 /**
   * Emits the signal to tell the parent component that the
   * user no longer wants to create an user

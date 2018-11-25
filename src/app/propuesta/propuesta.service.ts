@@ -11,7 +11,7 @@ import { catchError } from 'rxjs/operators';
 
 //Declaración de constrantes
 const API_URL = environment.API_URL; //Se usa la direccion del servidor del back
-const propuestas = '/empleados/2/propuestas'; 
+const propuestas = '/empleados/200/propuestas'; 
 const API_URL_B = "../../assets/";
 const propuestas_B = 'propuestas.json';
 
@@ -43,15 +43,5 @@ export class PropuestaService
 		 ;
 	 }
 	 
-	 /**
-	  * Crea una nueva propuesta de trabajo
-	  * @param nuevaPropuesta La nueva propuesta de trabajo recibida del componente
-	  * @returns La nueva propuesta con el ID incluido
-	 */
-	 
-	 createPropuesta(nuevaPropuesta: Propuesta): Observable<Propuesta>
-	 {
-		 return this.clienteHttp.post<Propuesta>(API_URL + '/empleados/' + nuevaPropuesta.idEmpleado + '/propuestas', nuevaPropuesta);
-	 }
 }
 

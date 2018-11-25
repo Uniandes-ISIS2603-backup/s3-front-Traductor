@@ -7,7 +7,7 @@ import { ClienteService } from '../cliente.service';
 import {ClienteTarjetasComponent} from '../cliente-tarjetas/cliente-tarjetas.component';
 import {ClienteAddTarjetaDeCreditoComponent} from '../cliente-add-tarjeta-de-credito/cliente-add-tarjeta-de-credito.component';
 import { ClientePagosComponent } from '../cliente-pagos/cliente-pagos.component';
-import { PagosListComponent } from 'src/app/pagos/pagos-list/pagos-list.component';
+import { PropuestaListComponent } from '../cliente-propuestas/cliente-propuestas.component';
 
 
 
@@ -64,6 +64,8 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
 
   @ViewChild(ClientePagosComponent) pagosListComponent: ClientePagosComponent;
 
+  @ViewChild(PropuestaListComponent) propuestaListComponent: PropuestaListComponent;
+
   
   toggleTarjetas(): void {
     if (this.tarjetaAddComponent.isCollapsed == false) 
@@ -72,6 +74,12 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
       
     }
     this.tarjetaListComponent.isCollapsed = !this.tarjetaListComponent.isCollapsed;
+    
+  }
+
+  togglePropuestas(): void {
+    
+    this.propuestaListComponent.isCollapsed = !this.propuestaListComponent.isCollapsed;
     
   }
 

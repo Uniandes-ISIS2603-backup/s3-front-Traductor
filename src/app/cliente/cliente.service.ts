@@ -5,12 +5,14 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment'; 
 //import { catchError } from 'rxjs/operators';
 import { TarjetaDeCredito } from './tarjetaDeCredito';
+import { Propuesta } from './propuesta';
+import { Pagos } from '../pagos/pagos';
 //import 'rxjs/add/operator/catch';
 //import { HttpErrorInterceptor } from '../interceptors/httperrorinterceptor.service';
 
 const API_URL = environment.API_URL;
 const clientes = '/clientes';
-const tarjetas = '/tarjetas';
+const tarjetas = '/tarjetasDeCredito';
 // const API_URL = '../../assets';
 // const clientes = '/clientes.json';
 
@@ -55,4 +57,14 @@ export class ClienteService {
   createTarjetaDeCredito(idCliente, tarjeta): Observable<TarjetaDeCredito> {
     return this.http.post<TarjetaDeCredito>(API_URL + clientes + '/' + idCliente + tarjetas, tarjeta);
   }
+
+  createPago(idCliente, pago): Observable<Pagos> {
+    return this.http.post<Pagos>(API_URL + clientes + '/' + idCliente + tarjetas, pago);
+  }
+
+  getPropuesta(clienteId:number,propuestaId:number): Observable<Propuesta> {
+    return this.http.get<Propuesta>(API_URL + clientes + '/' + clienteId+"/propuesta/"+propuestaId);
+  }
+
+  
 }

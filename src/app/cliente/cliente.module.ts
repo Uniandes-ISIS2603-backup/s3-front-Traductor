@@ -12,6 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClienteAddTarjetaDeCreditoComponent } from './cliente-add-tarjeta-de-credito/cliente-add-tarjeta-de-credito.component';
 import { ClienteTarjetasComponent } from './cliente-tarjetas/cliente-tarjetas.component';
 import { ClientePagosComponent } from './cliente-pagos/cliente-pagos.component';
+import { PropuestaListComponent } from './cliente-propuestas/cliente-propuestas.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,7 @@ import { ClientePagosComponent } from './cliente-pagos/cliente-pagos.component';
     FormsModule,
     NgbModule
   ],
-  declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteAddTarjetaDeCreditoComponent, ClienteTarjetasComponent, ClientePagosComponent],
+  declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteAddTarjetaDeCreditoComponent, ClienteTarjetasComponent, ClientePagosComponent,PropuestaListComponent],
   providers: [ClienteService],
   exports: [ClienteListComponent, ClienteDetailComponent]
 })
