@@ -65,7 +65,7 @@ export class AuthService {
           this.roleService.flushRoles();
           this.roleService.addRole('CLIENTE', ['dejar_comentario', 'crear_solicitud']);
           localStorage.setItem('rol', 'CLIENTE');
-          this.router.navigate(['/miperfil']);
+          this.router.navigateByUrl('/');
           this.toastrService.success('Bienvenido, ' + this.usuarioActual.nombreUsuario);
         }
       );
@@ -73,19 +73,22 @@ export class AuthService {
       this.clienteService.getClientes().subscribe(
         (clients) => {
           let clientes: Cliente[] = clients;
+          let found: boolean = false;
           clientes.forEach((c) => {
             if (c.nombreUsuario == usuario.nombreUsuario && c.contrasenia == usuario.contrasenia) {
+              found = true;
               this.usuarioActual = c;
               localStorage.setItem('usuario', JSON.stringify(this.usuarioActual));
               this.roleService.flushRoles();
               this.roleService.addRole('CLIENTE', ['dejar_comentario', 'crear_solicitud']);
               localStorage.setItem('rol', 'CLIENTE');
-              this.router.navigate(['/miperfil']);
+              this.router.navigateByUrl('/');
               this.toastrService.success('Hola de nuevo, ' + this.usuarioActual.nombreUsuario);
-            } else {
-              this.toastrService.error("Nombre de usuario o contraseña incorrectos");
-            }
-          })
+            } 
+          }); 
+          if (!found) {
+            this.toastrService.error("Nombre de usuario o contraseña incorrectos");
+          }
         }
       );
     }
@@ -101,7 +104,8 @@ export class AuthService {
           this.roleService.flushRoles();
           this.roleService.addRole('EMPLEADO', ['crear_propuesta']);
           localStorage.setItem('rol', 'EMPLEADO');
-          this.router.navigate(['/miperfil']);
+          // this.router.navigate(['/miperfil']);
+          this.router.navigateByUrl('/');
           this.toastrService.success('Bienvenido, ' + this.usuarioActual.nombreUsuario);
         }
       );
@@ -109,19 +113,23 @@ export class AuthService {
       this.empleadoService.getEmpleados().subscribe(
         (employees) => {
           let empleados: Empleado[] = employees;
+          let found: boolean = false;
           empleados.forEach((e) => {
             if (e.nombreUsuario == usuario.nombreUsuario && e.contrasenia == usuario.contrasenia) {
+              found = true;
               this.usuarioActual = e;
               localStorage.setItem('usuario', JSON.stringify(this.usuarioActual));
               this.roleService.flushRoles();
               this.roleService.addRole('EMPLEADO', ['crear_propuesta']);
               localStorage.setItem('rol', 'EMPLEADO');
-              this.router.navigate(['/miperfil']);
+              //this.router.navigate(['/miperfil']);
+              this.router.navigateByUrl('/');
               this.toastrService.success('Hola de nuevo, ' + this.usuarioActual.nombreUsuario);
-            } else {
-              this.toastrService.error("Nombre de usuario o contraseña incorrectos");
-            }
-          })
+            } 
+          });
+          if (!found) {
+            this.toastrService.error("Nombre de usuario o contraseña incorrectos");
+          }
         }
       );
     }
@@ -131,6 +139,7 @@ export class AuthService {
     this.roleService.flushRoles();
     this.roleService.addRole('ADMIN', ['edit_cliente_permission', 'delete_cliente_permission', 'edit_empleado_permission', 'delete_empleado_permission']);
     localStorage.setItem('rol', 'ADMIN');
+    this.router.navigateByUrl('/');
   }
 
   printRole(): void {
