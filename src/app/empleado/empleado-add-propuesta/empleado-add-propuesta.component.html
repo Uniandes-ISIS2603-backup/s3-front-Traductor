@@ -1,8 +1,9 @@
-<div id="collapseAddTarjeta" [ngbCollapse]="isCollapsed">
+<div id="collapseCreatePropuesta" [ngbCollapse]="isCollapsed">
 <div class="align-items-center justify-content-center container fluid">
    
         <h3 class="text-center">Crear nueva propuesta</h3>
         <form name="post" (ngSubmit)="propuestaForm.form.valid && createPropuesta(propuestaForm)" #propuestaForm="ngForm" novalidate>
+           
             <div class="form-group">
                 <label for="propuestaCosto"><b>Costo de la propuesta</b></label>
                 <input type="number" name="propuestaCosto" class="form-control" id="propuestaCosto" [(ngModel)]="propuesta.costo"
@@ -22,14 +23,13 @@
 
             <div class="form-group">
                 <label for="propuestaTiempo"><b>Tiempo estimado de entrega</b></label>
-				<div [ngClass]="{ 'is-invalid': propuestaForm.submitted && propuestaTiempo.invalid }">
-					<input class="form-control" id="propuestaTiempo" name="propuestaTiempo" [(ngModel)]="propuesta.tiempoEstimado"
-                        ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" #propuestaTiempo="ngModel" [ngClass]="{'is-invalid': f.submitted && (propuestaTiempo.untouched || propuestaTiempo.invalid) }"
+				<input class="form-control" id="propuestaTiempo" name="propuestaTiempo" [(ngModel)]="propuesta.tiempoEstimado"
+                        ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" #propuestaTiempo="ngModel" [ngClass]="{'is-invalid': propuestaForm.submitted && (propuestaTiempo.untouched || propuestaTiempo.invalid) }"
                         required>
                     <div class="invalid-feedback">
                         <div>Por favor ingrese la fecha de estimada de terminacion</div>
                     </div>
-				</div>
+				
 			</div>
             
             <div class="row form-inline justify-content-center align-self-center">

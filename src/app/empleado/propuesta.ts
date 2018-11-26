@@ -1,3 +1,5 @@
+import { Invitacion } from "../invitacion/invitacion";
+
 /* 
  * Interfaz donde se definen los atributos y valores que recibe una propuesta.
  * Analogo a los DTO pero en el front-end.
@@ -13,12 +15,14 @@ export class Propuesta {
 	costo: number;
 	
 	//Descripción de la propuesta.
-	descripcion: String;
+	descripcion: string;
 	
 	//Estado de la propuesta.
-	estado: String;
+	estado: string;
 	
 	//Tiempo estimado de entrega.
 	tiempoEstimado: any;
+
+	invitacion:Invitacion;
 }
 

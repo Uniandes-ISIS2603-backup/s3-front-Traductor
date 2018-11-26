@@ -50,14 +50,14 @@
     </div>
 </div>     
     <div  class="crd row justify-content-center" >
-        <app-cliente-tarjetas [tarjetasCliente]="cliente.tarjetas"></app-cliente-tarjetas>
+        <app-cliente-tarjetas [tarjetasCliente]="cliente?.tarjetas"></app-cliente-tarjetas>
         <app-cliente-add-tarjeta-de-credito [cliente]="cliente" (updateTarjetas)="updateTarjetas()"></app-cliente-add-tarjeta-de-credito>
     </div>
     <br>
      <div  class="crd row justify-content-center">
-            <app-cliente-pagos [pagosCliente]="cliente.pagos"></app-cliente-pagos>
+            <app-cliente-pagos [pagosCliente]="cliente?.pagos"></app-cliente-pagos>
     </div> 
     <div  class="crd row justify-content-center">
-        <app-cliente-propuestas [propuestasCliente]="cliente.propuestas"></app-cliente-propuestas>
+        <app-cliente-propuestas [propuestasCliente]="cliente?.propuestas"></app-cliente-propuestas>
        
     </div>

@@ -37,7 +37,7 @@ propuesta: Propuesta;
 
 isCollapsed=true;
 
-postTarjeta(propuestaForm: NgForm): Propuesta {
+createPropuesta(propuestaForm: NgForm): Propuesta {
   this.empleadoService.createPropuesta(this.empleado.id,this.propuesta)
       .subscribe(() => {
         propuestaForm.resetForm();

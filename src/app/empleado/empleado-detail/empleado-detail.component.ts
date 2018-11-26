@@ -76,7 +76,8 @@ export class EmpleadoDetailComponent implements OnInit, OnDestroy {
        
     }
   this.propuestaListComponent.isCollapsed = !this.propuestaListComponent.isCollapsed;
-    
+  
+  console.log(this.empleado.propuestas);
   }
 
   toggleCreatePropuesta(): void {
@@ -108,6 +109,7 @@ export class EmpleadoDetailComponent implements OnInit, OnDestroy {
       }, err => {
           this.toastrService.error(err, 'Error');
     });
+    
   }
 
   /**

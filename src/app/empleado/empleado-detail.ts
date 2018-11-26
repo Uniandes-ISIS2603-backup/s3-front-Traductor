@@ -1,5 +1,5 @@
 import { Calificacion } from '../calificaciones/calificaciones';
-import { Propuesta } from '../propuesta/propuesta';
+import { Propuesta } from './propuesta';
 import { Area } from '../areas/areas';
 import { Idioma } from '../idiomas/idiomas';
 
