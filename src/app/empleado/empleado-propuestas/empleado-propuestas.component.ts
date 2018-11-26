@@ -24,7 +24,7 @@ export class PropuestaListComponent implements OnInit {
  */
 
   @Input() propuestasEmpleado : Propuesta [];
-
+  
   public isCollapsed = true;
 
   /**

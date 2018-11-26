@@ -10,6 +10,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EmpleadoDetailComponent } from './empleado-detail/empleado-detail.component';
 import { EmpleadoCreateComponent } from './empleado-create/empleado-create.component';
 import { PropuestaListComponent } from './empleado-propuestas/empleado-propuestas.component';
+import { PropuestaCreateComponent } from './empleado-add-propuesta/empleado-add-propuesta.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { PropuestaListComponent } from './empleado-propuestas/empleado-propuesta
     CommonModule,
     NgbModule
   ],
-  declarations: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent,PropuestaListComponent],
+  declarations: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent,PropuestaListComponent,PropuestaCreateComponent],
   providers: [EmpleadoService],
   exports: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent]
 })

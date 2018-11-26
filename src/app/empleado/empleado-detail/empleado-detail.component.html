@@ -41,7 +41,7 @@
             </button>
         </div>
         <div class="col-md-2">
-            <button type="button" class="btn"  (click)="toggleCreatePropuesta()">
+            <button type="button" class="btn" [ngClass]="{ 'btn-primary': propuestaCreateComponent.isCollapsed,'btn-outline-primary':!propuestaCreateComponent.isCollapsed}"  (click)="toggleCreatePropuesta()">
                 Agregar Propuesta
             </button>
         </div>
@@ -51,5 +51,6 @@
 </div>
 <div  class="crd row justify-content-center" >
     <app-empleado-propuestas [propuestasEmpleado]="empleado.propuestas"></app-empleado-propuestas>
+    <app-propuesta-create [empleado]="empleado" (updateTarjetas)="updateTarjetas()"></app-propuesta-create>
    
 </div>

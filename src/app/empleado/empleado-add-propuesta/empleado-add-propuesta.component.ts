@@ -4,18 +4,20 @@ import { ToastrService } from 'ngx-toastr'
 import {Propuesta} from '../propuesta'; //Importa la interfaz propuesta con los tipos basicos.
 import {Empleado} from '../empleado';
 import { NgForm } from '@angular/forms';
+import { EmpleadoService } from '../empleado.service';
 
 @Component({
   selector: 'app-propuesta-create',
-  templateUrl: './propuesta-create.component.html',
-  styleUrls: ['./propuesta-create.component.css'],
+  templateUrl: './empleado-add-propuesta.component.html',
+  styleUrls: ['./empleado-add-propuesta.component.css'],
   providers : [DatePipe]
 })
 export class PropuestaCreateComponent implements OnInit {
 
   constructor(
   private dp : DatePipe,
-  private toastrService: ToastrService
+  private toastrService: ToastrService,
+  private empleadoService:EmpleadoService
   )
   {}
 
@@ -33,9 +35,10 @@ export class PropuestaCreateComponent implements OnInit {
 
 propuesta: Propuesta;
 
+isCollapsed=true;
+
 postTarjeta(propuestaForm: NgForm): Propuesta {
-  
-  /** this.empleadoService.createPropuesta(this.empleado.id,this.propuesta)
+  this.empleadoService.createPropuesta(this.empleado.id,this.propuesta)
       .subscribe(() => {
         propuestaForm.resetForm();
           this.updateTarjetas.emit();
@@ -43,7 +46,7 @@ postTarjeta(propuestaForm: NgForm): Propuesta {
       }, err => {
           this.toastrService.error(err, 'Error');
       });
-      */
+      
   return this.propuesta;
   
 }

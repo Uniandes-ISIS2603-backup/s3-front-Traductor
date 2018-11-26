@@ -9,6 +9,7 @@ import { EmpleadoService } from '../empleado.service';
 import { Empleado } from '../empleado';
 import { EmpleadoDetail } from '../empleado-detail';
 import { PropuestaListComponent } from '../empleado-propuestas/empleado-propuestas.component';
+import { PropuestaCreateComponent } from '../empleado-add-propuesta/empleado-add-propuesta.component';
 
 
 @Component({
@@ -64,10 +65,17 @@ export class EmpleadoDetailComponent implements OnInit, OnDestroy {
 
   @ViewChild(PropuestaListComponent) propuestaListComponent: PropuestaListComponent;
 
+  @ViewChild(PropuestaCreateComponent) propuestaCreateComponent: PropuestaCreateComponent;
+
 
   togglePropuestas(): void {
     
-    this.propuestaListComponent.isCollapsed = !this.propuestaListComponent.isCollapsed;
+    if (this.propuestaCreateComponent.isCollapsed == false) 
+    {
+        this.propuestaCreateComponent.isCollapsed = true;
+       
+    }
+  this.propuestaListComponent.isCollapsed = !this.propuestaListComponent.isCollapsed;
     
   }
 
@@ -77,7 +85,7 @@ export class EmpleadoDetailComponent implements OnInit, OnDestroy {
         this.propuestaListComponent.isCollapsed = true;
        
     }
-    //this.propuestaAddComponent.isCollapsed = !this.propuestaAddComponent.isCollapsed;
+  this.propuestaCreateComponent.isCollapsed = !this.propuestaCreateComponent.isCollapsed;
     
   }
   

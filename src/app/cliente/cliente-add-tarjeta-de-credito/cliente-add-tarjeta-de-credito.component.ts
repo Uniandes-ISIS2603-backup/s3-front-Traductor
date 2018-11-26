@@ -30,9 +30,6 @@ export class ClienteAddTarjetaDeCreditoComponent implements OnInit, OnChanges {
 
 
 tarjeta: TarjetaDeCredito;
-
-
- anio:any=new Date().getFullYear;
  
 
 public isCollapsed = true;
