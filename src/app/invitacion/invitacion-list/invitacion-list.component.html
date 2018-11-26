@@ -1,9 +1,10 @@
 <div class="container-fluid">
+    <h2>Invitaciones enviadas por el cliente</h2>
     <div class="col-md-2">
         <table class="table table-striped">
-            <thead class="thead-dark">
+            <thead class="encabezado">
                 <tr>
-                    <th>ID Invitacion</th>    
+                    <th class="figure-caption" routerLink="/propuestas/{{p.id}">ID Invitacion</th>    
 					<th>ID Cliente</th>
 					<th>ID Solicitud</th>
 					<th>ID Empleado</th>
@@ -12,7 +13,7 @@
             </thead>
             <tbody>                       
                 <tr *ngFor = "let i of invitaciones">
-                  <td>{{i.idInvitacion}}</td>                  
+                  <td style="cursor: pointer;" (click)="onSelected(i.idInvitacion)">{{i.idInvitacion}}</td>                  
 				  <td>{{i.idCliente}}</td>
 				  <td>{{i.solicitudId}}</td>
 				  <td>{{i.idEmpleado}}</td>
@@ -20,5 +21,19 @@
                 </tr>
             </tbody>
         </table>
-	</div>
+        <div class="row justify-content-center align-self-center">
+        <button [ngClass]="{'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+        (click)="showHideCreate()">Crear una nueva invitacion</button>
+    </div>
+</div>
+
+<div class="col-4">
+    <div *ngIf="showView">
+        <app-invitacion-detail [invitacion]="selectedInvitacion"></app-invitacion-detail>
+    </div>
+
+    <div *ngIf="showCreate">
+        <app-invitacion-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-invitacion-create>
+    </div>
+</div>
 </div>
