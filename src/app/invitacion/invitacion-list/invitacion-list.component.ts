@@ -24,35 +24,58 @@ export class InvitacionListComponent implements OnInit {
   invitaciones: Invitacion[];
 
   //Mostrar el detalle de la invitacion.
-  showView : boolean
+  showView : boolean;
 
-   /**
-    * The id of invitacion that the user wants to view
-    */
+  //Mostrar el componente create de la invitación
+  showCreate : boolean;
+
+  /**
+   * The id of invitacion that the user wants to view
+   */
 
   invitacion_id: number;
 
-  selectedInvitacion : Invitacion;
-  
-  //Obtiene las invitaciones del servicio al cual esta suscrito.
-  getInvitaciones(): void
-  {
-	  this.invitacionService.getInvitaciones().subscribe(pInvitacion => this.invitaciones = pInvitacion);
-  }
+  /**
+   * Invitación seleccionada por el usuario.
+   */
+
+  selectedInvitacion : Invitacion;  
 
    /**
-    * Shows the author
+    * Muestra una invitación seleccionada por el usuario.
     */
 
    onSelected(invitacion_id: number): void {
     if(this.showView) {this.showView = false;}
     else {    
     console.log("Entrando a mirar con el id:" + invitacion_id);
+    this.hideAllComponents();
     this.showView = true;
     this.invitacion_id = invitacion_id;
     this.selectedInvitacion = new Invitacion();
     this.getInvitacion();
     }
+  }
+
+  hideAllComponents() : void {
+    this.showView = false;
+    this.showCreate = false;
+  }
+
+  /**
+   * Muestra o esconde el componente Create de la invitación.
+   */
+
+  showHideCreate() : void
+  {
+    if (this.showCreate) {this.hideAllComponents()}
+    else {this.hideAllComponents();this.showCreate = !this.showCreate;}
+  }
+
+  //Obtiene las invitaciones del servicio al cual esta suscrito.
+  getInvitaciones(): void
+  {
+	  this.invitacionService.getInvitaciones().subscribe(pInvitacion => this.invitaciones = pInvitacion);
   }
 
   getInvitacion(): void {
@@ -68,6 +91,7 @@ export class InvitacionListComponent implements OnInit {
     this.selectedInvitacion = undefined;
     this.invitacion_id = undefined;
     this.showView = false;
+    this.showCreate = false;
 	  this.getInvitaciones();
   }
 }

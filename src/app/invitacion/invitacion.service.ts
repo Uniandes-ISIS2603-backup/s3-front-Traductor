@@ -1,4 +1,4 @@
-/* 
+	/* 
  * Provee el servicio con las operaciones CRUD para acceder al Back-end
  * @author Geovanny Andres Gonzalez
  */
@@ -46,10 +46,19 @@ export class InvitacionService
   	* @returns The invitacion details
 	*/
 		  
- getInvitacion(invitacionId): Observable<Invitacion> {
-	 console.log("[InvitacionService] Trayendo del back la invitacion con ID:" + invitacionId);
-    return this.http.get<Invitacion>(API_URL + invitaciones + '/' + invitacionId);
-  }
+ 	getInvitacion(invitacionId): Observable<Invitacion> {
+	 	console.log("[InvitacionService] Trayendo del back la invitacion con ID:" + invitacionId);
+    	return this.http.get<Invitacion>(API_URL + invitaciones + '/' + invitacionId);
+	}
+	  
+	/**
+	 * Permite crear una nueva invitación en el sistema
+	 */
+
+	createInvitacion(invitacion : Invitacion) : Observable<Invitacion>
+	{
+		return this.http.post<Invitacion>(API_URL + invitaciones + '/', invitacion);
+	}
 }
 
 
