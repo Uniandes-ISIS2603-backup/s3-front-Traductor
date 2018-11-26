@@ -1,13 +1,14 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy,ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 
-import { TarjetaDeCredito } from '../../tarjeta-de-credito/tarjetaDeCredito';
-import { Pagos } from '../../pagos/pagos';
+
+import { Propuesta } from '../propuesta';
 import { EmpleadoService } from '../empleado.service';
 import { Empleado } from '../empleado';
 import { EmpleadoDetail } from '../empleado-detail';
+import { PropuestaListComponent } from '../empleado-propuestas/empleado-propuestas.component';
 
 
 @Component({
@@ -60,6 +61,33 @@ export class EmpleadoDetailComponent implements OnInit, OnDestroy {
  * needs to be loaded
  */
   navigationSubscription;
+
+  @ViewChild(PropuestaListComponent) propuestaListComponent: PropuestaListComponent;
+
+
+  togglePropuestas(): void {
+    
+    this.propuestaListComponent.isCollapsed = !this.propuestaListComponent.isCollapsed;
+    
+  }
+
+  toggleCreatePropuesta(): void {
+    if (this.propuestaListComponent.isCollapsed == false) 
+    {
+        this.propuestaListComponent.isCollapsed = true;
+       
+    }
+    //this.propuestaAddComponent.isCollapsed = !this.propuestaAddComponent.isCollapsed;
+    
+  }
+  
+
+  updatePropuestas(): void {
+    this.getEmpleado();
+    this.propuestaListComponent.updatePropuestas(this.empleado.propuestas);
+    this.propuestaListComponent.isCollapsed = false;
+    this.propuestaListComponent.isCollapsed = true;
+  }
 
   /**
   * The method which retrieves the details of the empleado that

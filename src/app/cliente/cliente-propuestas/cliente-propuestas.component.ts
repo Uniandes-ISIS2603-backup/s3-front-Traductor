@@ -14,7 +14,7 @@ import { ToastrService } from 'ngx-toastr';
 
 @Component({
   //Declaración del selector para llamarlo en el archivo html y que pueda mostrar el contenido.
-  selector: 'app-propuesta-list',
+  selector: 'app-cliente-propuestas',
   templateUrl: './cliente-propuestas.component.html',
   styleUrls: ['./cliente-propuestas.component.css']
 })

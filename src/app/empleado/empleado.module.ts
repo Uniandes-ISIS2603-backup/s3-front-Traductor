@@ -6,8 +6,10 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { EmpleadoListComponent } from './empleado-list/empleado-list.component';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EmpleadoDetailComponent } from './empleado-detail/empleado-detail.component';
 import { EmpleadoCreateComponent } from './empleado-create/empleado-create.component';
+import { PropuestaListComponent } from './empleado-propuestas/empleado-propuestas.component';
 
 @NgModule({
   imports: [
@@ -15,9 +17,10 @@ import { EmpleadoCreateComponent } from './empleado-create/empleado-create.compo
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    NgbModule
   ],
-  declarations: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent],
+  declarations: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent,PropuestaListComponent],
   providers: [EmpleadoService],
   exports: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent]
 })

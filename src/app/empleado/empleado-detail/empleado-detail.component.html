@@ -34,5 +34,22 @@
             <dt>Algunas referencias:</dt>
             <dd>{{empleado.referencias}}</dd>
         </dl>
+        <div class="row">
+        <div *ngIf="empleado.propuestas != undefined && empleado.propuestas.length > 0" class="col-md-2">
+            <button type="button" class="btn" [ngClass]="{ 'btn-primary': propuestaListComponent.isCollapsed,'btn-outline-primary':!propuestaListComponent.isCollapsed}" (click)="togglePropuestas()">
+                Propuestas Enviadas
+            </button>
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn"  (click)="toggleCreatePropuesta()">
+                Agregar Propuesta
+            </button>
+        </div>
+        </div>
     </div> 
+   
+</div>
+<div  class="crd row justify-content-center" >
+    <app-empleado-propuestas [propuestasEmpleado]="empleado.propuestas"></app-empleado-propuestas>
+   
 </div>
