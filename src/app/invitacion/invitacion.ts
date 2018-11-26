@@ -3,7 +3,7 @@
  * @author Geovanny Andres Gonzalez
 */
 
-export interface Invitacion
+export class Invitacion
 {
 	//Identificador de la invitacion
 	idInvitacion: number;

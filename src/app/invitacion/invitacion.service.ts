@@ -11,10 +11,17 @@ import { environment } from '../../environments/environment';
 
 //Declaración de constrantes
 //const API_URL = environment.API_URL; //Se usa la direccion del servidor del back
-//const invitaciones = '/clientes/1/invitaciones';
 
-const API_URL = "../../assets/";
-const invitaciones = 'invitaciones.json';
+/**
+ * Estrategia. Pondremos todo a funcionar con el cliente con ID 100
+ * Luego meteremos todo como subrecurso.
+ * 
+ * Geovanny
+ */
+
+const API_URL = environment.API_URL;
+const invitaciones = '/clientes/100/invitaciones';
+
 
 @Injectable()
 export class InvitacionService
@@ -33,6 +40,16 @@ export class InvitacionService
 	getInvitaciones(): Observable<Invitacion[]>	{
 		return this.http.get<Invitacion[]>(API_URL + invitaciones);
 	}
+
+	/**
+  	* Returns the Observable object with the details of a client retrieved from the API
+  	* @returns The invitacion details
+	*/
+		  
+ getInvitacion(invitacionId): Observable<Invitacion> {
+	 console.log("[InvitacionService] Trayendo del back la invitacion con ID:" + invitacionId);
+    return this.http.get<Invitacion>(API_URL + invitaciones + '/' + invitacionId);
+  }
 }
 
 
