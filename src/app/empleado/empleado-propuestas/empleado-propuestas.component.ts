@@ -19,7 +19,7 @@ import { EmpleadoService } from '../empleado.service';
   styleUrls: ['./empleado-propuestas.component.css']
 })
 
-export class PropuestaListComponent implements OnInit {
+export class EmpleadoPropuestasListComponent implements OnInit {
 
   
   /**

@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EmpleadoDetailComponent } from './empleado-detail/empleado-detail.component';
 import { EmpleadoCreateComponent } from './empleado-create/empleado-create.component';
-import { PropuestaListComponent } from './empleado-propuestas/empleado-propuestas.component';
+import { EmpleadoPropuestasListComponent } from './empleado-propuestas/empleado-propuestas.component';
 import { PropuestaCreateComponent } from './empleado-add-propuesta/empleado-add-propuesta.component';
 import { EmpleadoEditPropuestaComponent } from './empleado-edit-propuesta/empleado-edit-propuesta.component';
 import {CalificacionesModule} from 'src/app/calificaciones/calificaciones.module';
@@ -24,7 +24,7 @@ import {CalificacionesModule} from 'src/app/calificaciones/calificaciones.module
     NgbModule,
     CalificacionesModule
   ],
-  declarations: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent,PropuestaListComponent,PropuestaCreateComponent, EmpleadoEditPropuestaComponent],
+  declarations: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent,EmpleadoPropuestasListComponent,PropuestaCreateComponent, EmpleadoEditPropuestaComponent],
   providers: [EmpleadoService],
   exports: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent]
 })
