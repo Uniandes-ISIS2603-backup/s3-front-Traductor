@@ -42,6 +42,9 @@ export class EmpleadoDetailComponent implements OnInit, OnDestroy {
       });
   }
 
+  //Mostrar la seccion de calificaciones
+  mostrarCalificacion = false;
+
   /**
   * The client's id retrieved from the address
   */
@@ -89,6 +92,10 @@ export class EmpleadoDetailComponent implements OnInit, OnDestroy {
   this.propuestaCreateComponent.isCollapsed = !this.propuestaCreateComponent.isCollapsed;
     
   }
+
+  toggleCalificaciones(): void {
+    this.mostrarCalificacion = !this.mostrarCalificacion;        
+  }
   
 
   updatePropuestas(): void {
@@ -135,6 +142,7 @@ export class EmpleadoDetailComponent implements OnInit, OnDestroy {
     this.empleado_id = +this.route.snapshot.paramMap.get('id')
     this.empleado = new EmpleadoDetail();
     this.getEmpleado();
+    this.mostrarCalificacion = false;
     // this.getAllEmpleados();
   }
 
