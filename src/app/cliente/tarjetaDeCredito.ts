@@ -15,6 +15,5 @@ export class TarjetaDeCredito {
     mesExpiracion:number;
     redBancaria:string;
     nombreTitular:string;
-    cliente:Cliente;
 }
 

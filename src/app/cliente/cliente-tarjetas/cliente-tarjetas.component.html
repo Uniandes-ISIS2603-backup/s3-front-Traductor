@@ -10,6 +10,7 @@
         <th>Fecha expiracion</th>
         <th>Red Bancaria</th>
         <th>Nombre Titular</th>
+        <th></th>
               </tr>
           </thead>
           <tbody>                       
@@ -20,10 +21,16 @@
         <td>{{tarjetaActual.mesExpiracion}}/{{tarjetaActual.anioExpiracion}}</td>
         <td>{{tarjetaActual.redBancaria}}</td>
         <td>{{tarjetaActual.nombreTitular}}</td>
+        <td >
+                <button class="btn btn-primario" (click)="guardarTarjeta(tarjetaActual.idTarjeta,tarjetaActual.ccv,tarjetaActual.anioExpiracion,tarjetaActual.mesExpiracion,tarjetaActual.nombreTitular,tarjetaActual.numeroTarjetaCredito,tarjetaActual.redBancaria)"><span class="fas fa-edit" ></span></button>
+            </td>
   
               </tr>
           </tbody>
       </table>
 </div>
+<div *ngIf="showEdit">
+        <app-cliente-edit-tarjeta-de-credito [idCliente]="idCliente" [tarjeta]="tarjetaSeleccionada" ></app-cliente-edit-tarjeta-de-credito>
+    </div>
 </div>
 </div>

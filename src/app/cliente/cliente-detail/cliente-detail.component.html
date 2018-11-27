@@ -50,7 +50,7 @@
     </div>
 </div>     
     <div  class="crd row justify-content-center" >
-        <app-cliente-tarjetas [tarjetasCliente]="cliente?.tarjetas"></app-cliente-tarjetas>
+        <app-cliente-tarjetas [tarjetasCliente]="cliente?.tarjetas" [idCliente]="cliente?.id"></app-cliente-tarjetas>
         <app-cliente-add-tarjeta-de-credito [cliente]="cliente" (updateTarjetas)="updateTarjetas()"></app-cliente-add-tarjeta-de-credito>
     </div>
     <br>

@@ -51,7 +51,6 @@ return [1,2,3,4,5,6,7,8,9,10,11,12];
 * @param tarjetaForm The form of the card
 */
 postTarjeta(tarjetaForm: NgForm): TarjetaDeCredito {
-    this.tarjeta.cliente = this.cliente;
     this.clienteService.createTarjetaDeCredito(this.cliente.id,this.tarjeta)
         .subscribe(() => {
           tarjetaForm.resetForm();
