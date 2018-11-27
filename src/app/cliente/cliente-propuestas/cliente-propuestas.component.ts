@@ -19,7 +19,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./cliente-propuestas.component.css']
 })
 
-export class PropuestaListComponent implements OnInit {
+export class ClientePropuestasListComponent implements OnInit {
 
   /**
  * Arreglo de propuestas

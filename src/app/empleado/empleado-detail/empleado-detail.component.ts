@@ -8,7 +8,7 @@ import { Propuesta } from '../propuesta';
 import { EmpleadoService } from '../empleado.service';
 import { Empleado } from '../empleado';
 import { EmpleadoDetail } from '../empleado-detail';
-import { PropuestaListComponent } from '../empleado-propuestas/empleado-propuestas.component';
+import { EmpleadoPropuestasListComponent } from '../empleado-propuestas/empleado-propuestas.component';
 import { PropuestaCreateComponent } from '../empleado-add-propuesta/empleado-add-propuesta.component';
 
 
@@ -66,7 +66,7 @@ export class EmpleadoDetailComponent implements OnInit, OnDestroy {
  */
   navigationSubscription;
 
-  @ViewChild(PropuestaListComponent) propuestaListComponent: PropuestaListComponent;
+  @ViewChild(EmpleadoPropuestasListComponent) propuestaListComponent: EmpleadoPropuestasListComponent;
 
   @ViewChild(PropuestaCreateComponent) propuestaCreateComponent: PropuestaCreateComponent;
 

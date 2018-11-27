@@ -7,7 +7,7 @@ import { ClienteService } from '../cliente.service';
 import {ClienteTarjetasComponent} from '../cliente-tarjetas/cliente-tarjetas.component';
 import {ClienteAddTarjetaDeCreditoComponent} from '../cliente-add-tarjeta-de-credito/cliente-add-tarjeta-de-credito.component';
 import { ClientePagosComponent } from '../cliente-pagos/cliente-pagos.component';
-import { PropuestaListComponent } from '../cliente-propuestas/cliente-propuestas.component';
+import { ClientePropuestasListComponent } from '../cliente-propuestas/cliente-propuestas.component';
 import {ClienteInvitacionesComponent} from '../cliente-invitaciones/cliente-invitaciones.component';
 
 
@@ -67,7 +67,7 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
 
   @ViewChild(ClientePagosComponent) pagosListComponent: ClientePagosComponent;
 
-  @ViewChild(PropuestaListComponent) propuestaListComponent: PropuestaListComponent;
+  @ViewChild(ClientePropuestasListComponent) propuestaListComponent: ClientePropuestasListComponent;
   
   toggleTarjetas(): void {
     if (this.tarjetaAddComponent.isCollapsed == false) 
