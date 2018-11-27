@@ -4,7 +4,7 @@
  *  @author Geovanny Andres Gonzalez
  */
  
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import {Invitacion} from '../invitacion';
 import {InvitacionService} from '../invitacion.service';
 
@@ -13,7 +13,7 @@ import {InvitacionService} from '../invitacion.service';
   templateUrl: './invitacion-list.component.html',
   styleUrls: ['./invitacion-list.component.css']
 })
-export class InvitacionListComponent implements OnInit {
+export class InvitacionListComponent implements OnInit, OnChanges {  
 
   //Constructor del componente, recibe de parametro el servicio que le provee 
   //los datos.
@@ -127,5 +127,9 @@ updateInvitacion(): void {
     this.showCreate = false;
     this.showEdit = false;
 	  this.getInvitaciones();
+  }
+
+  ngOnChanges(): void {
+    this.ngOnInit(); //Refrescar los cambios   
   }
 }
