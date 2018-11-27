@@ -1,20 +1,39 @@
 <div class="container-fluid">
-  <div class="col-md-5">
-      <table class="table table-striped">
-          <thead class="thead-dark">
-              <tr>
-                  <th>ID empleado</th>
-                  <th>comentario calificacion</th>
-                  <th>valor calificacion</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr *ngFor = "let calificacion of calificaciones">
-                  <td>{{calificacion.idEmpleado}}</td>
-                  <td>{{calificacion.comentario}}</td> 
-                  <td>{{calificacion.valor}}</td>
-              </tr>
-          </tbody>
-      </table>
-  </div>
+    <div class="col-md-5">
+        <table class="table table-striped">
+            <thead class="encabezado">
+                <tr>
+                    <th>ID Calificacion</th>
+                    <th>Comentario recibido</th>
+                    <th>Calificacion</th>
+                    <th>Nombre del cliente calificador</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of calificaciones">
+                    <td style="cursor: pointer;" (click)="onSelected(i.id)">{{i.id}}</td>
+                    <td>{{i.comentario}}</td>
+                    <td>{{i.valor}}</td>
+                    <td>{{i.nombreCalificador}}</td>
+                    <td>
+                        <button class="btn btn-danger iconoEliminar" (click)="deleteInvitacion(i.idInvitacion)"><i
+                                class="fas fa-eraser"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="col justify-content-center align-self-center" *ngxPermissionsOnly="['ADMIN', 'CLIENTE']">
+            <button [ngClass]="{'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                (click)="showHideCreate()">Crear una nueva calificacion</button>
+        </div>
+    </div>
+    <div class="col-4">
+        <div *ngIf="showView">
+            <app-calificaciones-detail [empleadoId]="empleadoId" [calificacion]="selectedCalificacion"></app-calificaciones-detail>
+        </div>
+  
+        <div *ngIf="showCreate">
+            <app-calificaciones-create [empleadoId]="empleadoId" (cancel)="showHideCreate()" (create)="ngOnInit()"></app-calificaciones-create>
+        </div>        
+    </div>
 </div>

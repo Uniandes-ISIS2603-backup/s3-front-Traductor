@@ -51,17 +51,19 @@
                     Propuestas
                 </button>
             </div>
-            <button type="button" class="btn" [ngClass]="{ 'btn-primary': invitacionComponent.isCollapsed,'btn-outline-primary':!invitacionComponent.isCollapsed}"
-                (click)="toggleInvitaciones()">
-                Invitaciones
-            </button>
+            <div class="col-md-2" *ngxPermissionsOnly="['ADMIN', 'CLIENTE']">
+                <button type="button" class="btn" [ngClass]="{ 'btn-primary': mostrarInvitacion,'btn-outline-primary':!mostrarInvitacion}"
+                    (click)="toggleInvitaciones()">
+                    Invitaciones
+                </button>
+            </div>
         </div>
     </div>
 </div>
-<div class="crd row justify-content-center">
-    <app-cliente-invitaciones [clienteId]="cliente_id"></app-cliente-invitaciones>    
+<div *ngIf="mostrarInvitacion" class="crd row justify-content-center">
+    <app-cliente-invitaciones [clienteId]="cliente_id"></app-cliente-invitaciones>
 </div>
-<div class="crd row justify-content-center">
+<div class="crd row justify-content-center">    
     <app-cliente-tarjetas [tarjetasCliente]="cliente?.tarjetas" [idCliente]="cliente?.id"></app-cliente-tarjetas>
     <app-cliente-add-tarjeta-de-credito [cliente]="cliente" (updateTarjetas)="updateTarjetas()"></app-cliente-add-tarjeta-de-credito>
 </div>
