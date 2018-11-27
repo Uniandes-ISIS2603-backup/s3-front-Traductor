@@ -21,7 +21,10 @@
                   <td>
                     <button class="
                         btn btn-primary iconoEditar" (click)="showHideEdit(i.idInvitacion)"><i class="fas fa-pen-fancy"></i></button>
-                        </td>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger iconoEliminar" (click)="deleteInvitacion(i.idInvitacion)"><i class="fas fa-eraser"></i></button>
+                  </td>
                 </tr>
                 </tbody>
         </table>
