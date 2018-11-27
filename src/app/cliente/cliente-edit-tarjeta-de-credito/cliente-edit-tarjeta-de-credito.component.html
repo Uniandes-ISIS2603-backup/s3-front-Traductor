@@ -27,7 +27,7 @@
                   <div class="form-group">
                       <label for="expiracionTarjeta"><b>Fecha de expiracion</b></label>
                       <select name="mesExpiracionTarjeta" class="form-control" id="mesExpiracionTarjeta" [(ngModel)]="tarjeta.mesExpiracion"
-                      #mesExpiracion="ngModel" [ngClass]="{ 'is-invalid': tarjetaForm.submitted && mesExpiracionTarjeta.invalid }" required>
+                      #mesExpiracionTarjeta="ngModel" [ngClass]="{ 'is-invalid': tarjetaForm.submitted && mesExpiracionTarjeta.invalid }" required>
                           <option *ngFor="let mes of darMeses()" value="{{mes}}">{{mes}}</option>
                           
                         </select>
@@ -66,7 +66,7 @@
                 <div class="col-12">
                     <div class="row form-inline justify-content-center align-self-center">
                         <button style="padding-right: 1em;" class="but btn-primario" (click)="editTarjeta()"><span class="fas fa-save" ></span></button>
-                         
+                        <div class="divider"></div>
                         <button  class="but btn-primario" (click)="cancelEdition()"><span class="fas fa-ban" ></span></button>
                     </div>
                 </div>
