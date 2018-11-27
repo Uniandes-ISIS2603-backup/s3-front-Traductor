@@ -1,4 +1,4 @@
-	/* 
+/* 
  * Provee el servicio con las operaciones CRUD para acceder al Back-end
  * @author Geovanny Andres Gonzalez
  */
@@ -58,6 +58,24 @@ export class InvitacionService
 	createInvitacion(invitacion : Invitacion) : Observable<Invitacion>
 	{
 		return this.http.post<Invitacion>(API_URL + invitaciones + '/', invitacion);
+	}
+
+	/** Updates an invitacion
+    * @param invitacion The invitacion's information updated
+    * @returns The confirmation that the invitacion was updated
+    */
+    updateInvitacion(invitacion : Invitacion): Observable<Invitacion> {
+		return this.http.put<Invitacion>(API_URL + invitaciones + '/' + invitacion.idInvitacion, invitacion);
+	}
+
+	/**
+	* Deletes an invitacion from the BookStore
+	* @param authorId The id of the author
+	* @returns The confirmation that the invitacion was deleted
+	*/
+
+	deleteInvitacion(invitacionId): Observable<boolean> {
+		return this.http.delete<boolean>(API_URL + invitaciones + '/' + invitacionId);
 	}
 }
 

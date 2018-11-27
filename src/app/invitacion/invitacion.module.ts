@@ -9,6 +9,7 @@ import { InvitacionListComponent } from './invitacion-list/invitacion-list.compo
 import {InvitacionService} from './invitacion.service';
 import { InvitacionDetailComponent } from './invitacion-detail/invitacion-detail.component';
 import { InvitacionCreateComponent } from './invitacion-create/invitacion-create.component';
+import { InvitacionEditComponent } from './invitacion-edit/invitacion-edit.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { InvitacionCreateComponent } from './invitacion-create/invitacion-create
     FormsModule,
     NgbModule
   ],
-  declarations: [InvitacionListComponent, InvitacionDetailComponent, InvitacionCreateComponent],
+  declarations: [InvitacionListComponent, InvitacionDetailComponent, InvitacionCreateComponent, InvitacionEditComponent],
   providers: [InvitacionService],
   exports: [InvitacionListComponent,InvitacionDetailComponent,InvitacionCreateComponent]
 })

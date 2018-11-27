@@ -29,6 +29,9 @@ export class InvitacionListComponent implements OnInit {
   //Mostrar el componente create de la invitación
   showCreate : boolean;
 
+  //Mostrar el componente de edición
+  showEdit : boolean;
+
   /**
    * The id of invitacion that the user wants to view
    */
@@ -60,6 +63,7 @@ export class InvitacionListComponent implements OnInit {
   hideAllComponents() : void {
     this.showView = false;
     this.showCreate = false;
+    this.showEdit = false;
   }
 
   /**
@@ -71,6 +75,33 @@ export class InvitacionListComponent implements OnInit {
     if (this.showCreate) {this.hideAllComponents()}
     else {this.hideAllComponents();this.showCreate = !this.showCreate;}
   }
+
+  /**
+    * Shows or hides the edition component
+    */
+   showHideEdit(invitacion_id: number): void {
+    if (!this.showEdit || (this.showEdit && invitacion_id != this.selectedInvitacion.idInvitacion)) {
+        this.showView = false;
+        this.showCreate = false;
+        this.showEdit = true;
+        this.invitacion_id = invitacion_id;
+        this.selectedInvitacion = new Invitacion();
+        this.getInvitacion();
+    }
+    else {
+        this.showEdit = false;
+        this.showView = true;
+    }
+}
+
+/**
+ * Alterna entre la vista de detalle y la vista de edición
+ */
+
+updateInvitacion(): void {
+  this.showEdit = false;
+  this.showView = true;
+}
 
   //Obtiene las invitaciones del servicio al cual esta suscrito.
   getInvitaciones(): void
@@ -92,6 +123,7 @@ export class InvitacionListComponent implements OnInit {
     this.invitacion_id = undefined;
     this.showView = false;
     this.showCreate = false;
+    this.showEdit = false;
 	  this.getInvitaciones();
   }
 }

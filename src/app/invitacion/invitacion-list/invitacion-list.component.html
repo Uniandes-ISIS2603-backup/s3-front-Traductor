@@ -17,7 +17,10 @@
 				  <td>{{i.idCliente}}</td>
 				  <td>{{i.solicitudId}}</td>
 				  <td>{{i.idEmpleado}}</td>
-				  <td>{{i.descripcion}}</td>				  
+                  <td>{{i.descripcion}}</td>
+                  <td>
+                    <button class="btn btn-primary" (click)="showHideEdit(i.idInvitacion)"><span class="fa fa-pencil"></span></button>
+                  </td>				  
                 </tr>
             </tbody>
         </table>
@@ -34,6 +37,10 @@
 
     <div *ngIf="showCreate">
         <app-invitacion-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-invitacion-create>
+    </div>
+
+    <div *ngIf="showEdit">
+        <app-invitacion-edit [invitacion]="selectedInvitacion" (cancel)="showHideEdit(selectedInvitacion.idInvitacion)" (update)="updateAuthor()" ></app-invitacion-edit>
     </div>
 </div>
 </div>
