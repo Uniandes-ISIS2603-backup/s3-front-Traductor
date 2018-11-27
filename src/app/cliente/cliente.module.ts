@@ -14,6 +14,11 @@ import { ClienteTarjetasComponent } from './cliente-tarjetas/cliente-tarjetas.co
 import { ClientePagosComponent } from './cliente-pagos/cliente-pagos.component';
 import { PropuestaListComponent } from './cliente-propuestas/cliente-propuestas.component';
 import { ClienteEditTarjetaDeCreditoComponent } from './cliente-edit-tarjeta-de-credito/cliente-edit-tarjeta-de-credito.component';
+import { ClienteInvitacionesComponent } from './cliente-invitaciones/cliente-invitaciones.component';
+import { ClienteAddInvitacionComponent } from './cliente-add-invitacion/cliente-add-invitacion.component';
+import { ClienteEditInvitacionComponent } from './cliente-edit-invitacion/cliente-edit-invitacion.component';
+import { ClienteInvitacionDetailComponent } from './cliente-invitacion-detail/cliente-invitacion-detail.component';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 @NgModule({
   imports: [
@@ -22,9 +27,10 @@ import { ClienteEditTarjetaDeCreditoComponent } from './cliente-edit-tarjeta-de-
     HttpClientModule,
     CommonModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    NgxPermissionsModule
   ],
-  declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteAddTarjetaDeCreditoComponent, ClienteTarjetasComponent, ClientePagosComponent,PropuestaListComponent, ClienteEditTarjetaDeCreditoComponent],
+  declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteAddTarjetaDeCreditoComponent, ClienteTarjetasComponent, ClientePagosComponent,PropuestaListComponent, ClienteEditTarjetaDeCreditoComponent, ClienteInvitacionesComponent, ClienteAddInvitacionComponent, ClienteEditInvitacionComponent, ClienteInvitacionDetailComponent],
   providers: [ClienteService],
   exports: [ClienteListComponent, ClienteDetailComponent]
 })

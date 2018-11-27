@@ -2,7 +2,7 @@ export class Usuario {
     /**
     * El nombre de usuario 
     */
-    nombreDeUsuario: string;
+    nombreUsuario: string;
 
     /**
      * El correo para cuando se registra

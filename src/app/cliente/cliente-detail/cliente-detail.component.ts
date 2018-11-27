@@ -8,6 +8,7 @@ import {ClienteTarjetasComponent} from '../cliente-tarjetas/cliente-tarjetas.com
 import {ClienteAddTarjetaDeCreditoComponent} from '../cliente-add-tarjeta-de-credito/cliente-add-tarjeta-de-credito.component';
 import { ClientePagosComponent } from '../cliente-pagos/cliente-pagos.component';
 import { PropuestaListComponent } from '../cliente-propuestas/cliente-propuestas.component';
+import {ClienteInvitacionesComponent} from '../cliente-invitaciones/cliente-invitaciones.component';
 
 
 
@@ -51,6 +52,8 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
  */
   cliente: Cliente;
 
+  //Ocultar o mostrar el modulo de invitaciones del cliente.
+  mostrarInvitacion = false;
 
   /**
  * The suscription which helps to know when a new client
@@ -65,7 +68,6 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
   @ViewChild(ClientePagosComponent) pagosListComponent: ClientePagosComponent;
 
   @ViewChild(PropuestaListComponent) propuestaListComponent: PropuestaListComponent;
-
   
   toggleTarjetas(): void {
     if (this.tarjetaAddComponent.isCollapsed == false) 
@@ -98,6 +100,13 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
     }
     this.tarjetaAddComponent.isCollapsed = !this.tarjetaAddComponent.isCollapsed;
     
+  }
+
+  toggleInvitaciones(): void {
+    console.log("[Cliente Detail - toggleInvitaciones] Se procede a colapsar la sección de invitaciones");
+    console.log("[Cliente Detail - toggleInvitaciones] Valor inicial del colapse de invitacionComponent" + this.mostrarInvitacion);
+    this.mostrarInvitacion = !this.mostrarInvitacion;    
+    console.log("[Cliente Detail - toggleInvitaciones] Valor final del colapse de invitacionComponent" + this.mostrarInvitacion);
   }
   
 
@@ -138,8 +147,9 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.cliente_id = +this.route.snapshot.paramMap.get('id');
     this.cliente = new Cliente();
+    this.mostrarInvitacion = false;
     this.getCliente();
-    //this.getAllClientes();
+    //this.getAllClientes();    
   }
   
   /**

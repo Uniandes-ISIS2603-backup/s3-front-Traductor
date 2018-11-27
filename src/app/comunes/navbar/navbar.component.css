@@ -3,7 +3,7 @@
 ========================================== */
 nav.bar{
     height: 10vh;
-    margin-bottom: 70px;
+    /* margin-bottom: 70px; */
     text-align: center;
     background-color: white;
     padding-top: 15px;
@@ -13,6 +13,10 @@ nav.bar{
     background: #fff;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
+}
+#navbarSupportedContent{
+    background-color: white;
+    height: auto;
 }
 a {
     -webkit-transition: all 0.3s;
@@ -37,6 +41,11 @@ a {
 .but.btn-primario.dropdown-toggle::after{
     display: none;
 }
+#logout.nav-link:hover{
+    color: #ED254E;
+    cursor: pointer;
+    text-decoration: none;
+}
 
 /* ==========================================
     LOGO
@@ -45,3 +54,4 @@ a {
     max-width: 200px;
     margin-left: 1.6vw;
 }
+

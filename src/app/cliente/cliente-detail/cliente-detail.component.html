@@ -4,7 +4,8 @@
             <img class="card-img-top" src="https://i.postimg.cc/ryWSLQhy/icons8-organization-96.png" alt="Card {{cliente.nombre}}}">
         </ng-container>
         <ng-template #elseBlock>
-            <img class="card-img-top" src="https://i.postimg.cc/xdGMrCjf/icons8-circled-user-male-skin-type-1-2-100.png" alt="Card {{cliente.nombre}}}">
+            <img class="card-img-top" src="https://i.postimg.cc/xdGMrCjf/icons8-circled-user-male-skin-type-1-2-100.png"
+                alt="Card {{cliente.nombre}}}">
         </ng-template>
     </div>
     <div class="col-md-10">
@@ -23,41 +24,53 @@
             </ng-container>
             <ng-template #elseTemplate>
                 <dd>Persona Natural</dd>
-            </ng-template> 
+            </ng-template>
         </dl>
         <div class="row">
-        <div *ngIf="cliente.tarjetas != undefined && cliente.tarjetas.length > 0" class="col-md-2">
-            <button type="button" class="btn" [ngClass]="{ 'btn-primary': tarjetaListComponent.isCollapsed,'btn-outline-primary':!tarjetaListComponent.isCollapsed}" (click)="toggleTarjetas()">
-                Tarjetas registradas
-            </button>
-        </div>
-        <div class="col-md-2">
-            <button type="button" class="btn" [ngClass]="{ 'btn-primary': tarjetaAddComponent.isCollapsed,'btn-outline-primary':!tarjetaAddComponent.isCollapsed}" (click)="toggleCreateTarjeta()">
-                Agregar tarjeta
-            </button>
-        </div>
-    <div *ngIf="cliente.pagos != undefined && cliente.pagos.length > 0" class="col-md-2">
-            <button type="button" class="btn" [ngClass]="{ 'btn-primary': pagosListComponent.isCollapsed,'btn-outline-primary':!pagosListComponent.isCollapsed}" (click)="togglePagos()">
-                Ver pagos
-            </button>
-        </div> 
-        <div *ngIf="cliente.propuestas != undefined && cliente.propuestas.length > 0" class="col-md-2">
-            <button type="button" class="btn" [ngClass]="{ 'btn-primary': propuestaListComponent.isCollapsed,'btn-outline-primary':!propuestaListComponent.isCollapsed}" (click)="togglePropuestas()">
-                Propuestas
-            </button>
-        </div>
+            <div *ngIf="cliente.tarjetas != undefined && cliente.tarjetas.length > 0" class="col-md-2">
+                <button type="button" class="btn" [ngClass]="{ 'btn-primary': tarjetaListComponent.isCollapsed,'btn-outline-primary':!tarjetaListComponent.isCollapsed}"
+                    (click)="toggleTarjetas()">
+                    Tarjetas registradas
+                </button>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn" [ngClass]="{ 'btn-primary': tarjetaAddComponent.isCollapsed,'btn-outline-primary':!tarjetaAddComponent.isCollapsed}"
+                    (click)="toggleCreateTarjeta()">
+                    Agregar tarjeta
+                </button>
+            </div>
+            <div *ngIf="cliente.pagos != undefined && cliente.pagos.length > 0" class="col-md-2">
+                <button type="button" class="btn" [ngClass]="{ 'btn-primary': pagosListComponent.isCollapsed,'btn-outline-primary':!pagosListComponent.isCollapsed}"
+                    (click)="togglePagos()">
+                    Ver pagos
+                </button>
+            </div>
+            <div *ngIf="cliente.propuestas != undefined && cliente.propuestas.length > 0" class="col-md-2">
+                <button type="button" class="btn" [ngClass]="{ 'btn-primary': propuestaListComponent.isCollapsed,'btn-outline-primary':!propuestaListComponent.isCollapsed}"
+                    (click)="togglePropuestas()">
+                    Propuestas
+                </button>
+            </div>
+            <div class="col-md-2" *ngxPermissionsOnly="['ADMIN', 'CLIENTE']">
+                <button type="button" class="btn" [ngClass]="{ 'btn-primary': mostrarInvitacion,'btn-outline-primary':!mostrarInvitacion}"
+                    (click)="toggleInvitaciones()">
+                    Invitaciones
+                </button>
+            </div>
         </div>
     </div>
-</div>     
-    <div  class="crd row justify-content-center" >
-        <app-cliente-tarjetas [tarjetasCliente]="cliente?.tarjetas" [idCliente]="cliente?.id"></app-cliente-tarjetas>
-        <app-cliente-add-tarjeta-de-credito [cliente]="cliente" (updateTarjetas)="updateTarjetas()"></app-cliente-add-tarjeta-de-credito>
-    </div>
-    <br>
-     <div  class="crd row justify-content-center">
-            <app-cliente-pagos [pagosCliente]="cliente?.pagos"></app-cliente-pagos>
-    </div> 
-    <div  class="crd row justify-content-center">
-        <app-cliente-propuestas [propuestasCliente]="cliente?.propuestas"></app-cliente-propuestas>
-       
-    </div>
+</div>
+<div *ngIf="mostrarInvitacion" class="crd row justify-content-center">
+    <app-cliente-invitaciones [clienteId]="cliente_id"></app-cliente-invitaciones>
+</div>
+<div class="crd row justify-content-center">    
+    <app-cliente-tarjetas [tarjetasCliente]="cliente?.tarjetas" [idCliente]="cliente?.id"></app-cliente-tarjetas>
+    <app-cliente-add-tarjeta-de-credito [cliente]="cliente" (updateTarjetas)="updateTarjetas()"></app-cliente-add-tarjeta-de-credito>
+</div>
+<br>
+<div class="crd row justify-content-center">
+    <app-cliente-pagos [pagosCliente]="cliente?.pagos"></app-cliente-pagos>
+</div>
+<div class="crd row justify-content-center">
+    <app-cliente-propuestas [propuestasCliente]="cliente?.propuestas"></app-cliente-propuestas>
+</div>
