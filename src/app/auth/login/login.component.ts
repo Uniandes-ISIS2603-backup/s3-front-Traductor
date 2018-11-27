@@ -31,8 +31,7 @@ export class LoginComponent implements OnInit {
   * Logs the usuario in with the selected role
   */
   login(): void {
-    this.authService.login(this.usuario.rol);
-    this.toastrService.success('Hola de nuevo, ' + this.usuario.nombreDeUsuario);
+    this.authService.login(this.usuario);
   }
 
   /**

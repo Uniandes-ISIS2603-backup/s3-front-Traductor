@@ -29,8 +29,7 @@ export class RegistroComponent implements OnInit {
   * Sign the usuario up with the selected role
   */
   registro(): void {
-    this.authService.login(this.usuario.rol);
-    this.toastrService.success('Bienvenido, ' + this.usuario.nombreDeUsuario);
+    this.authService.registrar(this.usuario);
   }
 
   /**
