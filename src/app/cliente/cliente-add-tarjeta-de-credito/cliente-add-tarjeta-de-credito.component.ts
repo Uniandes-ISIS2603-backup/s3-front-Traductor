@@ -76,6 +76,4 @@ ngOnInit() {
 ngOnChanges() {
     this.ngOnInit();
 }
-
-
 }

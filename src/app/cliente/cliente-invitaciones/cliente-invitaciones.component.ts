@@ -15,7 +15,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './cliente-invitaciones.component.html',
   styleUrls: ['./cliente-invitaciones.component.css']
 })
-export class ClienteInvitacionesComponent implements OnInit {
+export class ClienteInvitacionesComponent implements OnInit, OnChanges {
 
   constructor(
     private clienteService: ClienteService,
@@ -26,8 +26,6 @@ export class ClienteInvitacionesComponent implements OnInit {
 
   //Identificador del cliente
   @Input() clienteId: number;
-
-  public isCollapsed: boolean;
 
   //Arreglo de invitaciones
   invitaciones: Invitacion[];
@@ -163,8 +161,7 @@ export class ClienteInvitacionesComponent implements OnInit {
     this.showView = false;
     this.showCreate = false;
     this.showEdit = false;
-    this.getInvitaciones();
-    this.isCollapsed = false;
+    this.getInvitaciones();    
   }
 
   ngOnChanges(): void {

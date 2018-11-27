@@ -18,6 +18,7 @@ import { ClienteInvitacionesComponent } from './cliente-invitaciones/cliente-inv
 import { ClienteAddInvitacionComponent } from './cliente-add-invitacion/cliente-add-invitacion.component';
 import { ClienteEditInvitacionComponent } from './cliente-edit-invitacion/cliente-edit-invitacion.component';
 import { ClienteInvitacionDetailComponent } from './cliente-invitacion-detail/cliente-invitacion-detail.component';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { ClienteInvitacionDetailComponent } from './cliente-invitacion-detail/cl
     HttpClientModule,
     CommonModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    NgxPermissionsModule
   ],
   declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteAddTarjetaDeCreditoComponent, ClienteTarjetasComponent, ClientePagosComponent,PropuestaListComponent, ClienteEditTarjetaDeCreditoComponent, ClienteInvitacionesComponent, ClienteAddInvitacionComponent, ClienteEditInvitacionComponent, ClienteInvitacionDetailComponent],
   providers: [ClienteService],

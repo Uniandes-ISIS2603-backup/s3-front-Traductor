@@ -52,6 +52,8 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
  */
   cliente: Cliente;
 
+  //Ocultar o mostrar el modulo de invitaciones del cliente.
+  mostrarInvitacion = false;
 
   /**
  * The suscription which helps to know when a new client
@@ -66,9 +68,6 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
   @ViewChild(ClientePagosComponent) pagosListComponent: ClientePagosComponent;
 
   @ViewChild(PropuestaListComponent) propuestaListComponent: PropuestaListComponent;
-
-  @ViewChild(ClienteInvitacionesComponent) invitacionComponent: ClienteInvitacionesComponent;
-
   
   toggleTarjetas(): void {
     if (this.tarjetaAddComponent.isCollapsed == false) 
@@ -104,12 +103,10 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
   }
 
   toggleInvitaciones(): void {
-    if (this.invitacionComponent.isCollapsed == false) 
-    {
-        this.invitacionComponent.isCollapsed = true;
-       
-    }
-    this.invitacionComponent.isCollapsed = !this.tarjetaAddComponent.isCollapsed;
+    console.log("[Cliente Detail - toggleInvitaciones] Se procede a colapsar la sección de invitaciones");
+    console.log("[Cliente Detail - toggleInvitaciones] Valor inicial del colapse de invitacionComponent" + this.mostrarInvitacion);
+    this.mostrarInvitacion = !this.mostrarInvitacion;    
+    console.log("[Cliente Detail - toggleInvitaciones] Valor final del colapse de invitacionComponent" + this.mostrarInvitacion);
   }
   
 
@@ -150,6 +147,7 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.cliente_id = +this.route.snapshot.paramMap.get('id');
     this.cliente = new Cliente();
+    this.mostrarInvitacion = false;
     this.getCliente();
     //this.getAllClientes();    
   }
