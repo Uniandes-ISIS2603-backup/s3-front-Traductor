@@ -1,0 +1,41 @@
+<div id="collapseCreatePropuesta" [ngbCollapse]="isCollapsed">
+<div class="align-items-center justify-content-center container fluid">
+   
+        <h3 class="text-center">Crear nueva propuesta</h3>
+        <form name="post" (ngSubmit)="propuestaForm.form.valid && createPropuesta(propuestaForm)" #propuestaForm="ngForm" novalidate>
+           
+            <div class="form-group">
+                <label for="propuestaCosto"><b>Costo de la propuesta</b></label>
+                <input type="number" name="propuestaCosto" class="form-control" id="propuestaCosto" [(ngModel)]="propuesta.costo"
+                    #propuestaCosto="ngModel" [ngClass]="{ 'is-invalid': propuestaForm.submitted && propuestaCosto.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Por favor ingrese el valor a cobrar por la propuesta de trabajo</div>
+                </div>
+            </div> 
+            <div class="form-group">
+                <label for="propuestaDescripcion"><b>Descripcion de la propuesta</b></label>
+                <input type="text" name="propuestaDescripcion" class="form-control" id="propuestaDescripcion" [(ngModel)]="propuesta.descripcion"
+                    #propuestaDescripcion="ngModel" [ngClass]="{ 'is-invalid': propuestaForm.submitted && propuestaDescripcion.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>La descripcion de la propuesta es un campo obligatorio</div>
+                </div>
+            </div>		
+
+            <div class="form-group">
+                <label for="propuestaTiempo"><b>Tiempo estimado de entrega</b></label>
+				<input class="form-control" id="propuestaTiempo" name="propuestaTiempo" [(ngModel)]="propuesta.tiempoEstimado"
+                        ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" #propuestaTiempo="ngModel" [ngClass]="{'is-invalid': propuestaForm.submitted && (propuestaTiempo.untouched || propuestaTiempo.invalid) }"
+                        required>
+                    <div class="invalid-feedback">
+                        <div>Por favor ingrese la fecha de estimada de terminacion</div>
+                    </div>
+				
+			</div>
+            
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+        </form>
+ 
+</div>
+</div>

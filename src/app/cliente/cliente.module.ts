@@ -13,6 +13,7 @@ import { ClienteAddTarjetaDeCreditoComponent } from './cliente-add-tarjeta-de-cr
 import { ClienteTarjetasComponent } from './cliente-tarjetas/cliente-tarjetas.component';
 import { ClientePagosComponent } from './cliente-pagos/cliente-pagos.component';
 import { PropuestaListComponent } from './cliente-propuestas/cliente-propuestas.component';
+import { ClienteEditTarjetaDeCreditoComponent } from './cliente-edit-tarjeta-de-credito/cliente-edit-tarjeta-de-credito.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,7 @@ import { PropuestaListComponent } from './cliente-propuestas/cliente-propuestas.
     FormsModule,
     NgbModule
   ],
-  declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteAddTarjetaDeCreditoComponent, ClienteTarjetasComponent, ClientePagosComponent,PropuestaListComponent],
+  declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteAddTarjetaDeCreditoComponent, ClienteTarjetasComponent, ClientePagosComponent,PropuestaListComponent, ClienteEditTarjetaDeCreditoComponent],
   providers: [ClienteService],
   exports: [ClienteListComponent, ClienteDetailComponent]
 })

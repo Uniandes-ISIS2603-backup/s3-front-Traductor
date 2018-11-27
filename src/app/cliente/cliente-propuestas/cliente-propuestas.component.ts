@@ -7,14 +7,14 @@
 
 import { Component, OnInit,Input } from '@angular/core';
 import {Propuesta} from '../propuesta';
-import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {Pagos} from '../pagos';
 import { ClienteService } from 'src/app/cliente/cliente.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
   //Declaración del selector para llamarlo en el archivo html y que pueda mostrar el contenido.
-  selector: 'app-propuesta-list',
+  selector: 'app-cliente-propuestas',
   templateUrl: './cliente-propuestas.component.html',
   styleUrls: ['./cliente-propuestas.component.css']
 })

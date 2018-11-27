@@ -66,5 +66,13 @@ export class ClienteService {
     return this.http.get<Propuesta>(API_URL + clientes + '/' + clienteId+"/propuesta/"+propuestaId);
   }
 
+   /**
+    * Updates an author
+    * @param author The author's information updated
+    * @returns The confirmation that the author was updated
+    */
+   updateTarjeta(idCliente,tarjeta): Observable<TarjetaDeCredito> {
+    return this.http.put<TarjetaDeCredito>(API_URL + clientes + '/' + idCliente+"/tarjetasDeCredito/"+tarjeta.idTarjeta, tarjeta);
+}
   
 }

@@ -1,13 +1,15 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy,ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 
-import { TarjetaDeCredito } from '../../tarjeta-de-credito/tarjetaDeCredito';
-import { Pagos } from '../../pagos/pagos';
+
+import { Propuesta } from '../propuesta';
 import { EmpleadoService } from '../empleado.service';
 import { Empleado } from '../empleado';
 import { EmpleadoDetail } from '../empleado-detail';
+import { PropuestaListComponent } from '../empleado-propuestas/empleado-propuestas.component';
+import { PropuestaCreateComponent } from '../empleado-add-propuesta/empleado-add-propuesta.component';
 
 
 @Component({
@@ -61,6 +63,41 @@ export class EmpleadoDetailComponent implements OnInit, OnDestroy {
  */
   navigationSubscription;
 
+  @ViewChild(PropuestaListComponent) propuestaListComponent: PropuestaListComponent;
+
+  @ViewChild(PropuestaCreateComponent) propuestaCreateComponent: PropuestaCreateComponent;
+
+
+  togglePropuestas(): void {
+    
+    if (this.propuestaCreateComponent.isCollapsed == false) 
+    {
+        this.propuestaCreateComponent.isCollapsed = true;
+       
+    }
+  this.propuestaListComponent.isCollapsed = !this.propuestaListComponent.isCollapsed;
+  
+  console.log(this.empleado.propuestas);
+  }
+
+  toggleCreatePropuesta(): void {
+    if (this.propuestaListComponent.isCollapsed == false) 
+    {
+        this.propuestaListComponent.isCollapsed = true;
+       
+    }
+  this.propuestaCreateComponent.isCollapsed = !this.propuestaCreateComponent.isCollapsed;
+    
+  }
+  
+
+  updatePropuestas(): void {
+    this.getEmpleado();
+    this.propuestaListComponent.updatePropuestas(this.empleado.propuestas);
+    this.propuestaListComponent.isCollapsed = false;
+    this.propuestaListComponent.isCollapsed = true;
+  }
+
   /**
   * The method which retrieves the details of the empleado that
   * we want to show
@@ -72,6 +109,7 @@ export class EmpleadoDetailComponent implements OnInit, OnDestroy {
       }, err => {
           this.toastrService.error(err, 'Error');
     });
+    
   }
 
   /**

@@ -3,8 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Observable} from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Empleado } from './empleado';
-import { Propuesta } from '../propuesta/propuesta';
+import { Propuesta } from './propuesta';
 import { EmpleadoDetail } from './empleado-detail';
+import { Invitacion } from '../invitacion/invitacion';
 // import 'rxjs/add/operator/catch';
 // import { HttpErrorInterceptor } from '../interceptors/httperrorinterceptor.service';
 
@@ -53,6 +54,9 @@ export class EmpleadoService {
 	 
   createPropuesta(idEmpleado:number,nuevaPropuesta: Propuesta): Observable<Propuesta>
   {
+    let invitacion:Invitacion;
+
+    nuevaPropuesta.invitacion=invitacion;
     return this.http.post<Propuesta>(API_URL + '/empleados/' +idEmpleado + '/propuestas', nuevaPropuesta);
   }
 

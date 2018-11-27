@@ -80,6 +80,7 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
   togglePropuestas(): void {
     
     this.propuestaListComponent.isCollapsed = !this.propuestaListComponent.isCollapsed;
+    console.log(this.cliente.propuestas[0].descripcion);
     
   }
 
@@ -126,6 +127,7 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
       }, err => {
           this.toastrService.error(err, "Error");
     });
+   
   }
 
   /**
