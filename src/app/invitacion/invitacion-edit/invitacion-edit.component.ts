@@ -38,6 +38,9 @@ export class InvitacionEditComponent implements OnInit, OnChanges {
    */
    @Output() update = new EventEmitter();
 
+   //Indica si el componente se colapsa
+   public isCollapsed: boolean;
+
    /**
     * Actualiza la informacion de la invitacion
     */
