@@ -8,6 +8,7 @@ import {ClienteTarjetasComponent} from '../cliente-tarjetas/cliente-tarjetas.com
 import {ClienteAddTarjetaDeCreditoComponent} from '../cliente-add-tarjeta-de-credito/cliente-add-tarjeta-de-credito.component';
 import { ClientePagosComponent } from '../cliente-pagos/cliente-pagos.component';
 import { PropuestaListComponent } from '../cliente-propuestas/cliente-propuestas.component';
+import {ClienteInvitacionesComponent} from '../cliente-invitaciones/cliente-invitaciones.component';
 
 
 
@@ -66,6 +67,8 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
 
   @ViewChild(PropuestaListComponent) propuestaListComponent: PropuestaListComponent;
 
+  @ViewChild(ClienteInvitacionesComponent) invitacionComponent: ClienteInvitacionesComponent;
+
   
   toggleTarjetas(): void {
     if (this.tarjetaAddComponent.isCollapsed == false) 
@@ -98,6 +101,15 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
     }
     this.tarjetaAddComponent.isCollapsed = !this.tarjetaAddComponent.isCollapsed;
     
+  }
+
+  toggleInvitaciones(): void {
+    if (this.invitacionComponent.isCollapsed == false) 
+    {
+        this.invitacionComponent.isCollapsed = true;
+       
+    }
+    this.invitacionComponent.isCollapsed = !this.tarjetaAddComponent.isCollapsed;
   }
   
 
@@ -139,7 +151,7 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
     this.cliente_id = +this.route.snapshot.paramMap.get('id');
     this.cliente = new Cliente();
     this.getCliente();
-    //this.getAllClientes();
+    //this.getAllClientes();    
   }
   
   /**

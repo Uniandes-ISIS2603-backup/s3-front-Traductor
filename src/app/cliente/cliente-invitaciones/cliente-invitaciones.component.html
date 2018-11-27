@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <h2 class="justify-content-center align-self-center">Invitaciones enviadas por el cliente</h2>
+  <div class="col-md-2">
+      <table class="table table-striped">
+          <thead class="encabezado">
+              <tr>
+                  <th class="figure-caption" routerLink="/propuestas/{{p.id}">ID Invitacion</th>    
+        <th>ID Cliente</th>
+        <th>ID Solicitud</th>
+        <th>ID Empleado</th>
+        <th>Descripcion</th>					
+              </tr>
+          </thead>
+          <tbody>                       
+              <tr *ngFor = "let i of invitaciones">
+                <td style="cursor: pointer;" (click)="onSelected(i.idInvitacion)">{{i.idInvitacion}}</td>                  
+        <td>{{i.idCliente}}</td>
+        <td>{{i.solicitudId}}</td>
+        <td>{{i.idEmpleado}}</td>
+                <td>{{i.descripcion}}</td>
+                <td>
+                  <button class="
+                      btn btn-primary iconoEditar" (click)="showHideEdit(i.idInvitacion)"><i class="fas fa-pen-fancy"></i></button>
+                </td>
+                <td>
+                  <button class="btn btn-danger iconoEliminar" (click)="deleteInvitacion(i.idInvitacion)"><i class="fas fa-eraser"></i></button>
+                </td>
+              </tr>
+              </tbody>
+      </table>
+      <div class="col justify-content-center align-self-center">
+          <button [ngClass]="{'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+              (click)="showHideCreate()">Crear una nueva invitacion</button>
+      </div>
+  </div>
+
+  <div class="col-4">
+      <div *ngIf="showView">
+          <app-cliente-invitacion-detail [clienteId]="clienteId" [invitacion]="selectedInvitacion"></app-cliente-invitacion-detail>
+      </div>
+
+      <div *ngIf="showCreate">
+          <app-cliente-add-invitacion [clienteId]="clienteId" (cancel)="showHideCreate()" (create)="ngOnInit()"></app-cliente-add-invitacion>
+      </div>
+
+      <div *ngIf="showEdit">
+          <app-cliente-invitacion-edit [clienteId]="clienteId" [invitacion]="selectedInvitacion" (cancel)="showHideEdit(selectedInvitacion.idInvitacion)"
+              (update)="updateInvitacion()"></app-cliente-invitacion-edit>
+      </div>
+  </div>
+</div>

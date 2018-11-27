@@ -7,12 +7,15 @@ import { environment } from '../../environments/environment';
 import { TarjetaDeCredito } from './tarjetaDeCredito';
 import { Propuesta } from './propuesta';
 import { Pagos } from '../pagos/pagos';
+import {Invitacion} from './invitacion';
 //import 'rxjs/add/operator/catch';
 //import { HttpErrorInterceptor } from '../interceptors/httperrorinterceptor.service';
 
 const API_URL = environment.API_URL;
 const clientes = '/clientes';
 const tarjetas = '/tarjetasDeCredito';
+const invitaciones = '/invitaciones';
+
 // const API_URL = '../../assets';
 // const clientes = '/clientes.json';
 
@@ -73,6 +76,56 @@ export class ClienteService {
     */
    updateTarjeta(idCliente,tarjeta): Observable<TarjetaDeCredito> {
     return this.http.put<TarjetaDeCredito>(API_URL + clientes + '/' + idCliente+"/tarjetasDeCredito/"+tarjeta.idTarjeta, tarjeta);
-}
+  }
+
+  /**
+   * Se acopla los metodos para el funcionamiento de invitación
+   * Geovanny
+   */
+
+  /**
+	 * Permite obtener todas las invitaciones de un cliente registrado en el aplicativo
+	*/
+	
+	getInvitaciones(clienteId : number): Observable<Invitacion[]>	{
+		return this.http.get<Invitacion[]>(API_URL + clientes + '/' + clienteId + invitaciones);
+	}
+
+	/**
+  	* Returns the Observable object with the details of a client retrieved from the API
+  	* @returns The invitacion details
+	*/
+		  
+ 	getInvitacion(clienteId : number, invitacionId): Observable<Invitacion> {
+	 	console.log("[InvitacionService] Trayendo del back la invitacion con ID:" + invitacionId);
+    	return this.http.get<Invitacion>(API_URL + clientes + '/' + clienteId + invitaciones + '/' + invitacionId);
+	}
+	  
+	/**
+	 * Permite crear una nueva invitación en el sistema
+	 */
+
+	createInvitacion(clienteId : number, invitacion : Invitacion) : Observable<Invitacion>
+	{
+		return this.http.post<Invitacion>(API_URL + clientes + '/' + clienteId + invitaciones + '/', invitacion);
+	}
+
+	/** Updates an invitacion
+    * @param invitacion The invitacion's information updated
+    * @returns The confirmation that the invitacion was updated
+    */
+    updateInvitacion(clienteId : number, invitacion : Invitacion): Observable<Invitacion> {
+		return this.http.put<Invitacion>(API_URL + clientes + '/' + clienteId + invitaciones + '/' + invitacion.idInvitacion, invitacion);
+	}
+
+	/**
+	* Deletes an invitacion from the BookStore
+	* @param authorId The id of the author
+	* @returns The confirmation that the invitacion was deleted
+	*/
+
+	deleteInvitacion(clienteId : number, invitacionId): Observable<boolean> {
+		return this.http.delete<boolean>(API_URL + clientes + '/' + clienteId + invitaciones + '/' + invitacionId);
+	}
   
 }
