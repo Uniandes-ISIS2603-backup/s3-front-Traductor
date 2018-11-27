@@ -1,27 +1,28 @@
 import { Component, OnInit,Input,Output,EventEmitter, OnChanges } from '@angular/core';
-import { ClienteService } from '../cliente.service';
+import { EmpleadoService } from '../empleado.service';
 import { ToastrService } from 'ngx-toastr';
-import { TarjetaDeCredito } from '../tarjetaDeCredito';
+import { Propuesta } from '../propuesta';
+
 
 @Component({
-  selector: 'app-cliente-edit-tarjeta-de-credito',
-  templateUrl: './cliente-edit-tarjeta-de-credito.component.html',
-  styleUrls: ['./cliente-edit-tarjeta-de-credito.component.css']
+  selector: 'app-empleado-edit-propuesta',
+  templateUrl: './empleado-edit-propuesta.component.html',
+  styleUrls: ['./empleado-edit-propuesta.component.css']
 })
-export class ClienteEditTarjetaDeCreditoComponent implements OnInit, OnChanges {
+export class EmpleadoEditPropuestaComponent implements OnInit,OnChanges {
 
-  constructor( private clienteService: ClienteService,
+  constructor( private empleadoService: EmpleadoService,
     private toastrService: ToastrService) { }
 
 /**
     * The cliente id as received from the parent component
     */
-   @Input() idCliente: number;
+   @Input() idEmpleado: number;
 
    /**
     * The cliente id as received from the parent component
     */
-   @Input() tarjeta: TarjetaDeCredito;
+   @Input() propuesta: Propuesta;
 
 
    /**
@@ -41,21 +42,17 @@ export class ClienteEditTarjetaDeCreditoComponent implements OnInit, OnChanges {
  /**
     * Updates the information of the client
     */
-   editTarjeta(): void {
+   editPropuesta(): void {
    
-    this.clienteService.updateTarjeta(this.idCliente,this.tarjeta)
+    this.empleadoService.updatePropuesta(this.idEmpleado,this.propuesta)
         .subscribe(() => {
-            this.toastrService.success("La info de la tarjeta se actualizo", "Actualizacion de la tarjeta");
+            this.toastrService.success("La info de la propuesta se actualizo", "Actualizacion de la propuesta");
         });
     this.update.emit();
     this.isCollapsed=true;
     
 }
 
-darMeses():number[]
-{
-return [1,2,3,4,5,6,7,8,9,10,11,12];
-}
 
   /**
     * Emits the signal to tell the parent component that the
@@ -79,6 +76,4 @@ return [1,2,3,4,5,6,7,8,9,10,11,12];
 ngOnChanges() {
     this.ngOnInit();
 }
-
-
 }

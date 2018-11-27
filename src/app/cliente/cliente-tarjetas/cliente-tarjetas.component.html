@@ -11,6 +11,7 @@
         <th>Red Bancaria</th>
         <th>Nombre Titular</th>
         <th></th>
+        <th></th>
               </tr>
           </thead>
           <tbody>                       
@@ -24,7 +25,9 @@
         <td >
                 <button class="btn btn-primario" (click)="guardarTarjeta(tarjetaActual.idTarjeta,tarjetaActual.ccv,tarjetaActual.anioExpiracion,tarjetaActual.mesExpiracion,tarjetaActual.nombreTitular,tarjetaActual.numeroTarjetaCredito,tarjetaActual.redBancaria)"><span class="fas fa-edit" ></span></button>
             </td>
-  
+            <td>
+            <button class="btn btn-danger text-center" (click)="deleteTarjeta(tarjetaActual.idTarjeta)"><span class="fas fa-trash"></span></button>
+            </td>
               </tr>
           </tbody>
       </table>

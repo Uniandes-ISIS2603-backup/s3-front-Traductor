@@ -1,5 +1,10 @@
-import { Component, OnInit,Input } from '@angular/core';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
+import { Component, OnInit,Input,ViewContainerRef } from '@angular/core';
+import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { TarjetaDeCredito } from '../tarjetaDeCredito';
+import { ClienteService } from '../cliente.service';
+
 
 
 @Component({
@@ -12,6 +17,14 @@ export class ClienteTarjetasComponent implements OnInit {
   @Input() tarjetasCliente : TarjetaDeCredito [];
 
   @Input() idCliente : number;
+
+  constructor(
+    private clienteService: ClienteService,
+    private toastrService: ToastrService, 
+    private modalDialogService: ModalDialogService,
+    private viewRef: ViewContainerRef,
+    private router: Router
+) { }
 
   tarjetaSeleccionada:TarjetaDeCredito;
     
@@ -41,6 +54,30 @@ this.tarjetaSeleccionada.numeroTarjetaCredito=numeroTarjetaCredito;
 this.tarjetaSeleccionada.redBancaria=redBancaria;
 this.showHidEdit();
     }
+
+    deleteTarjeta(idTarjeta:number): void {
+      this.modalDialogService.openDialog(this.viewRef, {
+          title: 'Eliminar una tarjeta',
+          childComponent: SimpleModalComponent,
+          data: {text: 'Seguro que quiere eliminar esta tarjeta?'},
+          actionButtons: [
+              {
+                  text: 'Yes',
+                  buttonClass: 'btn btn-danger',
+                  onAction: () => {
+                      this.clienteService.deleteTarjeta(this.idCliente,idTarjeta).subscribe(book => {
+                          this.toastrService.success("Tarjeta  ", "Tarjeta eliminada");
+                          this.router.navigate(['clientes/'+this.idCliente]);
+                      }, err => {
+                          this.toastrService.error(err, "Error");
+                      });
+                      return true;
+                  }
+              },
+              {text: 'No', onAction: () => true}
+          ]
+      });
+  }
 
     showHidEdit(): void {
       this.showEdit = !this.showEdit;

@@ -56,8 +56,8 @@
    
 </div>
 <div  class="crd row justify-content-center" >
-    <app-empleado-propuestas [propuestasEmpleado]="empleado.propuestas"></app-empleado-propuestas>
-    <app-propuesta-create [empleado]="empleado" (updatePropuestas)="updatePropuestas()"></app-propuesta-create>   
+    <app-empleado-propuestas [idEmpleado]="empleado.id"  [propuestasEmpleado]="empleado.propuestas"></app-empleado-propuestas>
+    <app-propuesta-create [empleado]="empleado" (updatePropuestas)="updatePropuestas()"></app-propuesta-create>
 </div>
 <div *ngIf="mostrarCalificacion" class="crd row justify-content-center">
     <list-calificacion [empleadoId]="empleado_id"></list-calificacion>

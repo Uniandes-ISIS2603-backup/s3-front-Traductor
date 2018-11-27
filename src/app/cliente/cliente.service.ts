@@ -76,7 +76,12 @@ export class ClienteService {
     */
    updateTarjeta(idCliente,tarjeta): Observable<TarjetaDeCredito> {
     return this.http.put<TarjetaDeCredito>(API_URL + clientes + '/' + idCliente+"/tarjetasDeCredito/"+tarjeta.idTarjeta, tarjeta);
-  }
+}
+
+deleteTarjeta(clienteId,idTarjeta): Observable<TarjetaDeCredito> {
+  return this.http.delete<TarjetaDeCredito>(API_URL + clientes + '/' + clienteId+tarjetas+"/"+idTarjeta);
+}
+  
 
   /**
    * Se acopla los metodos para el funcionamiento de invitación

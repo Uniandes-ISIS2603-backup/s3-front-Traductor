@@ -62,6 +62,7 @@ this.clienteService.createPago(cliente_id,pago);
 */
 
   ngOnInit() {
+    console.log(this.propuestasCliente);
   }
 
 }
