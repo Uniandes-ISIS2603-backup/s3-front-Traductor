@@ -1,26 +1,38 @@
 <div id="collapsePropuestas" [ngbCollapse]="isCollapsed">
     <div class="container-fluid">
-    <div class="col-md-2">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>ID Propuesta</th> 
-					<th>Costo</th>
-					<th>Descripcion</th>
-					<th>Estado</th>
-                    <th>Fecha Estimada Entrega</th>
-                </tr>
-            </thead>
-            <tbody>                       
-                <tr *ngFor = "let p of propuestas">
-                  <td>{{p.id}}</td>
-				  <td>{{p.costo}}</td>
-				  <td>{{p.descripcion}}</td>
-				  <td>{{p.estado}}</td>
-                  <td>{{p.tiempoEstimado}}</td>
-                </tr>
-            </tbody>
-        </table>
-	</div>	
-</div>
+        <div class="col-md-2">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID Propuesta</th>
+                        <th>Costo</th>
+                        <th>Descripcion</th>
+                        <th>Estado</th>
+                        <th>Fecha Estimada Entrega</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let p of propuestas">
+                        <td>{{p.id}}</td>
+                        <td>{{p.costo}}</td>
+                        <td>{{p.descripcion}}</td>
+                        <td>{{p.estado}}</td>
+                        <td>{{p.tiempoEstimado}}</td>
+                        <td>
+                            <button class="btn btn-primario" (click)="guardarPropuesta(p.id,p.costo,p.descripcion,p.estado,p.tiempoEstimado)"><span
+                                    class="fas fa-edit"></span></button>
+                        </td>
+                        <td>
+                                <button class="btn btn-danger text-center" (click)="deletePropuesta(p.id)"><span class="fas fa-trash"></span></button>
+                                </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="showEdit">
+            <app-empleado-edit-propuesta [idEmpleado]="idEmpleado" [propuesta]="propuestaSeleccionada"></app-empleado-edit-propuesta>
+        </div>
+    </div>
 </div>

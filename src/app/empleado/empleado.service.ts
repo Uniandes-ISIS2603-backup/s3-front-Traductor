@@ -63,4 +63,17 @@ export class EmpleadoService {
   getPropuestas(empleadoId): Observable<EmpleadoDetail> {
     return this.http.get<EmpleadoDetail>(API_URL + empleados + '/' + empleadoId+'/propuestas') ;
   }
+
+  deletePropuesta(idEmpleado,idPropuesta): Observable<Propuesta> {
+    return this.http.delete<Propuesta>(API_URL + empleados + '/' + idEmpleado+"/propuestas/"+idPropuesta);
+  }
+
+     /**
+    * Updates an author
+    * @param author The author's information updated
+    * @returns The confirmation that the author was updated
+    */
+   updatePropuesta(idEmpleado,propuesta): Observable<Propuesta> {
+    return this.http.put<Propuesta>(API_URL + empleados + '/' + idEmpleado+"/propuestas/"+propuesta.id, propuesta);
+}
 }
