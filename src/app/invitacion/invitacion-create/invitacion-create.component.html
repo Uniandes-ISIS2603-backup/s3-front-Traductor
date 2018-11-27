@@ -1,10 +1,7 @@
-<div class="row">
-    <div class="col-3"></div>
-    <div class="col-6">
-        <br>
-        <h2 class="text-center">Crear una nueva invitación</h2>
-        <br>
-        <form name="invitacion" (ngSubmit)="f.form.valid && createInvitacion()" #f="ngForm" novalidate>
+<div class="align-items-center justify-content-center">
+    <div class="col-6 crd-create">
+        <h2 class="text-center">Crear un Cliente</h2>
+          <form name="invitacion" (ngSubmit)="f.form.valid && createInvitacion()" #f="ngForm" novalidate>
             <div class="form-group">
                 <label for="empleado"><b>Identificador del empleado</b></label>
                 <input type="number" name="empleado" class="form-control" id="empleado" [(ngModel)]="invitacion.idEmpleado"
@@ -35,6 +32,5 @@
                 <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
             </div>
         </form>
-    </div>
-    <div class="col-3"></div>
+    </div>    
 </div>

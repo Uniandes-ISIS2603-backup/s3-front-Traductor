@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPermissionsModule } from 'ngx-permissions';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { ModalDialogModule } from 'ngx-modal-dialog';
 //import { FontAwesomeModule } from '@fortawesome/fontawesome-free';
 
 import { ClienteModule } from './cliente/cliente.module';
@@ -52,7 +54,9 @@ import { NavbarComponent } from './comunes/navbar/navbar.component';
     AuthModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({ timeOut: 9600, preventDuplicates: true, positionClass: 'toast-bottom-right' }),
-    NgxPermissionsModule.forRoot()
+    NgxPermissionsModule.forRoot(),
+    ModalDialogModule.forRoot(),
+    NgxPaginationModule
   ],
   bootstrap: [AppComponent],
   providers: [
