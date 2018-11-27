@@ -22,6 +22,7 @@ import { PropuestaCreateComponent } from '../propuesta/propuesta-create/propuest
 import { SolicitudesListComponent } from '../solicitudes/solicitudes-list/solicitudes-list.component';
 import { LoginComponent } from '../auth/login/login.component';
 import { RegistroComponent } from '../auth/registro/registro.component';
+import { InvitacionDetailComponent } from '../invitacion/invitacion-detail/invitacion-detail.component';
 
 const routes: Routes = [
     {
@@ -70,6 +71,10 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: InvitacionListComponent
+            },
+            {
+                path: ':id',
+                component: InvitacionDetailComponent
             }
         ]
     },
