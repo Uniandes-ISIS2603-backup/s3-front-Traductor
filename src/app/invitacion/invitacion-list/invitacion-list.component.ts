@@ -99,8 +99,10 @@ export class InvitacionListComponent implements OnInit {
  */
 
 updateInvitacion(): void {
-  this.showEdit = false;
+  this.hideAllComponents();
   this.showView = true;
+  //Refrescar la vista
+  this.getInvitaciones();
 }
 
   //Obtiene las invitaciones del servicio al cual esta suscrito.
