@@ -65,7 +65,7 @@ export class AuthService {
           this.roleService.flushRoles();
           this.roleService.addRole('CLIENTE', ['dejar_comentario', 'crear_solicitud']);
           localStorage.setItem('rol', 'CLIENTE');
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/clientes/miperfil');
           this.toastrService.success('Bienvenido, ' + this.usuarioActual.nombreUsuario);
         }
       );
@@ -82,7 +82,7 @@ export class AuthService {
               this.roleService.flushRoles();
               this.roleService.addRole('CLIENTE', ['dejar_comentario', 'crear_solicitud']);
               localStorage.setItem('rol', 'CLIENTE');
-              this.router.navigateByUrl('/');
+              this.router.navigateByUrl('/clientes/miperfil');
               this.toastrService.success('Hola de nuevo, ' + this.usuarioActual.nombreUsuario);
             } 
           }); 
@@ -105,7 +105,7 @@ export class AuthService {
           this.roleService.addRole('EMPLEADO', ['crear_propuesta']);
           localStorage.setItem('rol', 'EMPLEADO');
           // this.router.navigate(['/miperfil']);
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/empleados/miperfil');
           this.toastrService.success('Bienvenido, ' + this.usuarioActual.nombreUsuario);
         }
       );
@@ -123,7 +123,7 @@ export class AuthService {
               this.roleService.addRole('EMPLEADO', ['crear_propuesta']);
               localStorage.setItem('rol', 'EMPLEADO');
               //this.router.navigate(['/miperfil']);
-              this.router.navigateByUrl('/');
+              this.router.navigateByUrl('/empleados/miperfil');
               this.toastrService.success('Hola de nuevo, ' + this.usuarioActual.nombreUsuario);
             } 
           });
@@ -189,6 +189,15 @@ export class AuthService {
    */
   getUser(): any {
     return this.usuarioActual;
+  }
+
+  /**
+   * Guarda el usuario que le llega por parámetro
+   * @param nuevo El nuevo usuario a guardar
+   */
+  saveUser(nuevo: any): void {
+    this.usuarioActual = nuevo;
+    localStorage.setItem('usuario', JSON.stringify(this.usuarioActual));
   }
 
 }
