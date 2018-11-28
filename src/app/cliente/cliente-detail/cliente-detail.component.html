@@ -1,11 +1,10 @@
 <div class="crd row justify-content-center">
     <div class="col-md-2">
         <ng-container *ngIf="cliente.tipoCliente === 'EMPRESA'; else elseBlock">
-            <img class="card-img-top" src="https://i.postimg.cc/ryWSLQhy/icons8-organization-96.png" alt="Card {{cliente.nombre}}}">
+            <img class="card-img-top" src="../../../assets/img/company.png" alt="Card {{cliente.nombre}}}">
         </ng-container>
         <ng-template #elseBlock>
-            <img class="card-img-top" src="https://i.postimg.cc/xdGMrCjf/icons8-circled-user-male-skin-type-1-2-100.png"
-                alt="Card {{cliente.nombre}}}">
+            <img class="card-img-top" src="../../../assets/img/client.png" alt="Card {{cliente.nombre}}}">
         </ng-template>
     </div>
     <div class="col-md-10">

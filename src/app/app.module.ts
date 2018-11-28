@@ -27,13 +27,15 @@ import { AuthModule } from './auth/auth.module';
 
 import { MainMenuComponent } from './comunes/main-menu/main-menu.component';
 import { NavbarComponent } from './comunes/navbar/navbar.component';
+import { PerfilComponent } from './comunes/perfil/perfil.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MainMenuComponent,
-    NavbarComponent
+    NavbarComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

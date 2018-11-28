@@ -1,10 +1,9 @@
 <nav class="navbar navbar-expand-md fixed-top bar">
   <a class="navbar-brand" routerLink="/"><img class="logo" src="../assets/img/logo.svg" alt="Logo"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" (click)="isNavbarCollapsed = !isNavbarCollapsed" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon fas fa-bars" style="color: #4ab8a1; font-size: 30px"></span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="fas fa-bars" style="color: #4ab8a1; font-size: 30px"></span>
   </button>
-  <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto align-items-start align-items-md-center">
       <li class="nav-item">
         <a id="EmpleadosTag" class="nav-link" routerLink="/empleados/list">Nuestro Equipo</a>
@@ -19,7 +18,7 @@
         </div>
       </li>
       <li class="nav-item dropdown" ngbDropdown>
-        <a class="nav-link dropdown-toggle" id="drop-admin" ngbDropdownToggle>
+        <a class="nav-link dropdown-toggle" id="drop-admin" *ngxPermissionsOnly="['ADMIN']" ngbDropdownToggle>
           Administrar
         </a>
         <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="drop-admin">
@@ -32,24 +31,29 @@
           <a id="invitacionTag" class="nav-link" routerLink="/invitaciones/list">Invitaciones</a>
         </div>
       </li>
+      <li class="nav-item" *ngxPermissionsOnly="['CLIENTE']">
+        <a class="nav-link" routerLink="/solicitudes/add">Traduce Ahora</a>
+      </li>
+      <li class="nav-item" *ngxPermissionsOnly="['CLIENTE', 'EMPLEADO']" placement="bottom-right" ngbDropdown>
+        <a class="nav-link dropdown-toggle d-flex align-items-center" id="drop-profile" ngbDropdownToggle><span class="fas fa-user-circle"
+            style="font-size: 32px; margin-right: 10px;"></span>
+          {{this.authService.getUser().nombreUsuario}}
+        </a>
+        <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="drop-profile">
+          <a routerLink="/clientes/miperfil" *ngxPermissionsOnly="['CLIENTE']"class="nav-link"><span class="fas fa-user-alt"></span> Mi perfil</a>
+          <a routerLink="/empleados/miperfil" *ngxPermissionsOnly="['EMPLEADO']" class="nav-link"><span class="fas fa-user-alt"></span> Mi perfil</a>
+          <div class="dropdown-divider"></div>
+          <a id="logout" class="nav-link" (click)="logout()"><span class="fas fa-sign-out-alt"></span> Salir</a>
+        </div>
+      </li>
       <li class="nav-item dropdown" *ngxPermissionsOnly="['INVITADO']" ngbDropdown>
         <a class="but btn-primario dropdown-toggle" id="drop-acceso" ngbDropdownToggle>
           ACCEDER
         </a>
         <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="drop-acceso">
-          <a routerLink="/autenticacion/registo" class="nav-link"><span class="fas fa-user-plus pulse"></span>
+          <a routerLink="/autenticacion/registo" class="nav-link"><span class="fas fa-user-plus"></span>
             Registrarse</a>
-          <a routerLink="/autenticacion/login" class="nav-link"><span class="fas fa-sign-in-alt pulse"></span> Ingresar</a>
-        </div>
-      </li>
-      <li class="nav-item" *ngxPermissionsOnly="['CLIENTE', 'EMPLEADO']" ngbDropdown>
-        <a class="nav-link dropdown-toggle d-flex align-items-center" id="drop-profile" ngbDropdownToggle><span class="fas fa-user-circle" style="font-size: 32px; margin-right: 10px;"></span>
-          {{this.authService.getUser().nombre}}
-        </a>
-        <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="drop-profile">
-          <a routerLink="/" class="nav-link"><span class="fas fa-user-alt"></span> Mi perfil</a>
-          <div class="dropdown-divider"></div>
-          <a id="logout" class="nav-link" (click)="logout()"><span class="fas fa-sign-out-alt"></span> Salir</a>
+          <a routerLink="/autenticacion/login" class="nav-link"><span class="fas fa-sign-in-alt"></span> Ingresar</a>
         </div>
       </li>
       <li class="nav-item" *ngxPermissionsOnly="['ADMIN']">

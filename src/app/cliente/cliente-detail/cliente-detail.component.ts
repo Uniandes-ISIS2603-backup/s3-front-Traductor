@@ -19,7 +19,6 @@ import {ClienteInvitacionesComponent} from '../cliente-invitaciones/cliente-invi
 })
 export class ClienteDetailComponent implements OnInit, OnDestroy {
   
-  
   /**
     * The constructor of the component
     * @param clienteService The client service which communicates with the API
@@ -68,6 +67,8 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
   @ViewChild(ClientePagosComponent) pagosListComponent: ClientePagosComponent;
 
   @ViewChild(ClientePropuestasListComponent) propuestaListComponent: ClientePropuestasListComponent;
+
+  //@ViewChild(ClienteInvitacionesComponent) invitacionesListComponent: ClienteInvitacionesComponent;
   
   toggleTarjetas(): void {
     if (this.tarjetaAddComponent.isCollapsed == false) 
@@ -139,7 +140,7 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
 
   /**
   * The method which initilizes the component
-  * We need to initialize the book and its editorial so that
+  * We need to initialize the clients so that
   * they are never considered undefined
   */
   ngOnInit() {
@@ -152,7 +153,7 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
   
   /**
   * This method helps to refresh the view when we need to load another client into it
-  * when one of the other books in the list is clicked
+  * when one of the other clients in the list is clicked
   */
   ngOnDestroy() {
     if (this.navigationSubscription) {
