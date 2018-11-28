@@ -1,9 +1,6 @@
 import { Component, OnInit, OnDestroy,ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-
-
-
 import { Propuesta } from '../propuesta';
 import { EmpleadoService } from '../empleado.service';
 import { Empleado } from '../empleado';
@@ -45,6 +42,9 @@ export class EmpleadoDetailComponent implements OnInit, OnDestroy {
   //Mostrar la seccion de calificaciones
   mostrarCalificacion = false;
 
+  //Mostrar la seccion de invitaciones
+  mostrarInvitacion = false;
+
   /**
   * The client's id retrieved from the address
   */
@@ -70,7 +70,7 @@ export class EmpleadoDetailComponent implements OnInit, OnDestroy {
 
   @ViewChild(PropuestaCreateComponent) propuestaCreateComponent: PropuestaCreateComponent;
 
-
+  
   togglePropuestas(): void {
     
     if (this.propuestaCreateComponent.isCollapsed == false) 
@@ -82,27 +82,32 @@ export class EmpleadoDetailComponent implements OnInit, OnDestroy {
   
   console.log(this.empleado.propuestas);
   }
-
+  
+  
   toggleCreatePropuesta(): void {
     if (this.propuestaListComponent.isCollapsed == false) 
     {
         this.propuestaListComponent.isCollapsed = true;
        
     }
-  this.propuestaCreateComponent.isCollapsed = !this.propuestaCreateComponent.isCollapsed;
+    this.propuestaCreateComponent.isCollapsed = !this.propuestaCreateComponent.isCollapsed;
     
   }
+  
 
   toggleCalificaciones(): void {
     this.mostrarCalificacion = !this.mostrarCalificacion;        
   }
-  
 
+  toggleInvitaciones(): void {
+    this.mostrarInvitacion = !this.mostrarInvitacion;        
+  }
+  
   updatePropuestas(): void {
     this.getEmpleado();
     this.propuestaListComponent.updatePropuestas(this.empleado.propuestas);
     this.propuestaListComponent.isCollapsed = false;
-    this.propuestaListComponent.isCollapsed = true;
+    this.propuestaCreateComponent.isCollapsed = true;
   }
 
   /**
@@ -143,6 +148,7 @@ export class EmpleadoDetailComponent implements OnInit, OnDestroy {
     this.empleado = new EmpleadoDetail();
     this.getEmpleado();
     this.mostrarCalificacion = false;
+    this.mostrarInvitacion = false;
     // this.getAllEmpleados();
   }
 

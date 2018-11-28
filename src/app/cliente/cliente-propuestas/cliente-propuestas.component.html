@@ -9,7 +9,8 @@
 					<th>Descripcion</th>
 					<th>Estado</th>
                     <th>Fecha Estimada Entrega</th>
-                    <th>Pagar</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>                       
@@ -22,6 +23,9 @@
 				  <td>{{p.estado}}</td>
                   <td>{{p.tiempoEstimado}}</td>
                   <td><button _ngcontent-c1="" class="btn btn-primario" (click)="pagar(p.id,p.costo,p.descripcion,p.estado,p.tiempoEstimado)"  type="button" tabindex="0" >Pagar</button></td>
+                  <td>
+                    <button class="btn btn-danger text-center" (click)="deletePropuesta(p.id)"><span class="fas fa-trash"></span></button>
+                    </td>
                 </tr>
             </tbody>
         </table>

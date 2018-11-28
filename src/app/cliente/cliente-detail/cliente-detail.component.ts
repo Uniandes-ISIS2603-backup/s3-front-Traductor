@@ -83,7 +83,6 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
   togglePropuestas(): void {
     
     this.propuestaListComponent.isCollapsed = !this.propuestaListComponent.isCollapsed;
-    console.log(this.cliente.propuestas);
     
   }
 
@@ -122,7 +121,6 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
     this.getCliente();
     this.pagosListComponent.updatePagos(this.cliente.pagos);
     this.pagosListComponent.isCollapsed = false;
-    this.pagosListComponent.isCollapsed = true;
   }
 
   /**

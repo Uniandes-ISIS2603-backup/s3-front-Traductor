@@ -3,12 +3,12 @@
  * Analogo a los DTO pero en el front-end.
  * @author ANDRES
  */
-import {Propuesta} from '../propuesta/propuesta'
+import {Propuesta} from './propuesta'
 
 export class Pagos {
  
 idTransaccion:number;
-pagoAprobado:number;
+pagoAprobado:boolean;
 propuestaDto:Propuesta;
 
 }

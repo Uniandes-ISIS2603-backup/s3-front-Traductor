@@ -2,6 +2,7 @@ import { Component, OnInit,Input,Output,EventEmitter, OnChanges } from '@angular
 import { ClienteService } from '../cliente.service';
 import { ToastrService } from 'ngx-toastr';
 import { TarjetaDeCredito } from '../tarjetaDeCredito';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-cliente-edit-tarjeta-de-credito',
@@ -11,7 +12,8 @@ import { TarjetaDeCredito } from '../tarjetaDeCredito';
 export class ClienteEditTarjetaDeCreditoComponent implements OnInit, OnChanges {
 
   constructor( private clienteService: ClienteService,
-    private toastrService: ToastrService) { }
+    private toastrService: ToastrService,
+    private router: Router) { }
 
 /**
     * The cliente id as received from the parent component
@@ -46,6 +48,7 @@ export class ClienteEditTarjetaDeCreditoComponent implements OnInit, OnChanges {
     this.clienteService.updateTarjeta(this.idCliente,this.tarjeta)
         .subscribe(() => {
             this.toastrService.success("La info de la tarjeta se actualizo", "Actualizacion de la tarjeta");
+            this.router.navigate(['clientes/'+this.idCliente]);
         });
     this.update.emit();
     this.isCollapsed=true;

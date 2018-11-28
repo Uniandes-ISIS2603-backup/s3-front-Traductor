@@ -76,7 +76,7 @@ this.showHidEdit();
               buttonClass: 'btn btn-danger',
               onAction: () => {
                   this.empleadoService.deletePropuesta(this.idEmpleado,id).subscribe(book => {
-                      this.toastrService.success("Tarjeta  ", "Tarjeta eliminada");
+                      this.toastrService.success("Propuesta  ", "Propuesta eliminada");
                       this.router.navigate(['empleados/'+this.idEmpleado]);
                   }, err => {
                       this.toastrService.error(err, "Error");
