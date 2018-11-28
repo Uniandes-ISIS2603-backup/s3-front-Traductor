@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { Empleado } from '../empleado';
 import { EmpleadoService } from '../empleado.service';
 import { ToastrService } from 'ngx-toastr';
@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './empleado-list.component.html',
   styleUrls: ['./empleado-list.component.css']
 })
-export class EmpleadoListComponent implements OnInit {
+export class EmpleadoListComponent implements OnInit, OnChanges {
 
   /**
   * Constructor of the component
@@ -45,4 +45,7 @@ export class EmpleadoListComponent implements OnInit {
     this.getEmpleados();
   }
 
+  ngOnChanges() {
+    this.ngOnInit(); //Actualizar los cambios en la lista
+  }
 }

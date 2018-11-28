@@ -4,7 +4,7 @@
  *  @author Geovanny Andres Gonzalez
  */
 
-import { Component, OnInit, OnChanges, ViewContainerRef, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, ViewContainerRef, Input} from '@angular/core';
 import { ModalDialogService, SimpleModalComponent } from 'ngx-modal-dialog';
 import { Invitacion } from 'src/app/cliente/invitacion';
 import { EmpleadoService } from '../empleado.service';
@@ -23,7 +23,7 @@ export class EmpleadoInvitacionesComponent implements OnInit, OnChanges {
     private modalDialogService: ModalDialogService,
     private viewRef: ViewContainerRef,
     private toastrService: ToastrService
-  ) {}
+  ) {} 
 
   //Objeto empleado que necesita propuesta create!
   @Input() empleado: Empleado
@@ -61,7 +61,7 @@ export class EmpleadoInvitacionesComponent implements OnInit, OnChanges {
        this.showView = true;
        this.invitacion_id = invitacion_id;
        this.selectedInvitacion = new Invitacion();
-       this.getInvitacion();
+       this.getInvitacion();       
      }
    }
  

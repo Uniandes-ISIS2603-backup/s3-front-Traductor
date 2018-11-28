@@ -72,12 +72,13 @@ export class EmpleadoDetailComponent implements OnInit, OnDestroy {
 
   
   togglePropuestas(): void {
-    
+    /*
     if (this.propuestaCreateComponent.isCollapsed == false) 
     {
         this.propuestaCreateComponent.isCollapsed = true;
        
     }
+    */
   this.propuestaListComponent.isCollapsed = !this.propuestaListComponent.isCollapsed;
   
   console.log(this.empleado.propuestas);
