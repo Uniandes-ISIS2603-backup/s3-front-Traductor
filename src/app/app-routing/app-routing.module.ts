@@ -23,6 +23,7 @@ import { SolicitudesListComponent } from '../solicitudes/solicitudes-list/solici
 import { LoginComponent } from '../auth/login/login.component';
 import { RegistroComponent } from '../auth/registro/registro.component';
 import { InvitacionDetailComponent } from '../invitacion/invitacion-detail/invitacion-detail.component';
+import { PerfilComponent } from '../comunes/perfil/perfil.component';
 
 const routes: Routes = [
     {
@@ -32,6 +33,16 @@ const routes: Routes = [
     {
         path: 'clientes',
         children: [
+            {
+                path: 'miperfil',
+                component: PerfilComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['CLIENTE']
+                    }
+                }
+            },
             {
                 path: 'list',
                 component: ClienteListComponent
@@ -44,7 +55,7 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: ClienteDetailComponent
-            },
+            }
         ]
     },
     {
@@ -138,6 +149,16 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: EmpleadoDetailComponent
+            },
+            {
+                path: 'miperfil',
+                component: PerfilComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['EMPLEADO']
+                    }
+                }
             }
         ]
     },

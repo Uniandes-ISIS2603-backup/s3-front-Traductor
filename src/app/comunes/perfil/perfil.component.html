@@ -1,0 +1,83 @@
+<div class="all container-fluid" *ngxPermissionsOnly="['CLIENTE']">
+  <div class="row justify-content-center">
+    <div class="col-md-4 d-flex flex-md-column align-items-center justify-content-center">
+      <span class="figure-caption">Mi Perfil</span>
+      <ng-container *ngIf="this.authService.getUser().tipoCliente == undefined; else defecto">
+        <img src="../../../assets/img/avatar.png" alt="imagen {{this.authService.getUser().nombre}}}">
+      </ng-container>
+      <ng-template #defecto>
+        <img *ngIf="this.authService.getUser().tipoCliente === 'EMPRESA'" src="../../../assets/img/company.png" alt="imagen {{this.authService.getUser().nombre}}}">
+        <img *ngIf="this.authService.getUser().tipoCliente === 'PERSONA_NATURAL'" src="../../../assets/img/client.png" alt="imagen {{this.authService.getUser().nombre}}}">
+      </ng-template>
+      <h3 class="text-center">{{this.authService.getUser().nombre}}</h3>
+      <dl>
+        <dt>Nombre de Usuario:</dt>
+        <dd *ngIf="this.authService.getUser().nombreUsuario != undefined">{{this.authService.getUser().nombreUsuario}}</dd>
+        <dt>Correo Electrónico:</dt>
+        <dd *ngIf="this.authService.getUser().correoElectronico != undefined">{{this.authService.getUser().correoElectronico}}</dd>
+        <dt>Identificación:</dt>
+        <dd *ngIf="this.authService.getUser().identificacion != undefined">{{this.authService.getUser().identificacion}}</dd>
+        <dt>Tipo de Cliente:</dt>
+        <div *ngIf="this.authService.getUser().tipoCliente != undefined">
+          <dd *ngIf="this.authService.getUser().tipoCliente === 'EMPRESA'">Empresa</dd>
+          <dd *ngIf="this.authService.getUser().tipoCliente === 'PERSONA_NATURAL'">Persona Natural</dd>
+        </div>
+      </dl>
+      <br>
+      <a routerLink="/clientes/{{cliente_id}}/edit" class="but btn-secundario">
+        <span class="fas fa-user-edit"></span> Editar perfil
+      </a>
+    </div>
+    <div class="col-md-8">
+      <ul class="nav nav-tabs row justify-content-around align-items-center">
+        <li class="nav-item">
+          <a class="nav-link"  (click)="toggleTarjetas()">
+            Mis tarjetas
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="togglePagos()">
+            Mis pagos
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="togglePropuestas()">
+            Mis Propuestas
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="toggleInvitaciones()">
+            Mis Invitaciones
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="toggleSolicitudes()">
+            Mis solicitudes
+          </a>
+        </li>
+        <li class="nav-item dropdown" placement="bottom-right" ngbDropdown>
+          <a class="dropdown-toggle" id="drop-adds" ngbDropdownToggle>
+            <span class="fas fa-plus-circle"></span>
+          </a>
+          <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="drop-adds">
+            <a (click)="toggleCreateTarjeta()">
+              Agregar tarjeta
+            </a>
+          </div>
+        </li>
+      </ul>
+      <div class="row d-flex justify-content-center container-fluid">
+        <div *ngIf="mostrarInvitacion">
+          <app-cliente-invitaciones [clienteId]="cliente_id"></app-cliente-invitaciones>
+        </div>
+        <app-cliente-tarjetas [tarjetasCliente]="this.authService.getUser()?.tarjetas" [idCliente]="cliente_id"></app-cliente-tarjetas>
+        <app-cliente-add-tarjeta-de-credito [cliente]="this.authService.getUser()" (updateTarjetas)="updateTarjetas()"></app-cliente-add-tarjeta-de-credito>
+        <app-cliente-pagos [pagos]="this.authService.getUser()?.pagos"></app-cliente-pagos>
+        <app-cliente-propuestas [propuestas]="this.authService.getUser()?.propuestas"></app-cliente-propuestas>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="all container" *ngxPermissionsOnly="['EMPLEADO']">
+
+</div>

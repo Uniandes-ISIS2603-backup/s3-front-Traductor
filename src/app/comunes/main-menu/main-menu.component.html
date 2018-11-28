@@ -4,9 +4,14 @@
       <div class="col-md-6 text order-2 order-md-1">
         <h1>Llevando tus ideas al idioma que necesitas!</h1>
         <p class="texto-principal">Traducciones y correcciones de documentos de alta calidad a bajos precios con satisfacción completamente garantizada</p>
-        <div class="CTA d-flex justify-content-end"><a class="but btn-outline-primario">Comienza Ahora</a></div>
+        <div class="CTA d-flex justify-content-end" *ngxPermissionsOnly="['INVITADO']">
+          <a class="but btn-outline-primario" routerLink="/autenticacion/login">Comienza Ahora</a>
+        </div>
+        <div class="CTA d-flex justify-content-end" *ngxPermissionsOnly="['CLIENTE']">
+          <a class="but btn-outline-primario" routerLink="/solicitudes/add">Comienza Ahora</a>
+        </div>
       </div>
-      <div class="col-md-6 order-1 order-md-2"><img src="../assets/img/document.png" alt="..." class="img-fluid doc"></div>
+      <div class="col-md-6 order-1 order-md-2"><img src="../assets/img/document.png" alt="Imagen main" class="img-fluid doc"></div>
     </div>
   </div>
 </section>

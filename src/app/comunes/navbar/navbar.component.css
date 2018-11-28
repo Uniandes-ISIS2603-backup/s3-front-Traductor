@@ -2,12 +2,12 @@
     BARRA DE NAVEGACIÓN
 ========================================== */
 nav.bar{
-    height: 10vh;
+    /* height: 10vh; */
     /* margin-bottom: 70px; */
     text-align: center;
     background-color: white;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    /* padding-top: 15px;
+    padding-bottom: 15px; */
     -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
     background: #fff;
@@ -16,12 +16,11 @@ nav.bar{
 }
 #navbarSupportedContent{
     background-color: white;
-    height: auto;
+    margin: 0;
 }
 a {
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
-    
 }
 .nav-item, .nav-item.dropdown, .nav-link{
     color: #555;

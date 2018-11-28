@@ -29,7 +29,7 @@ import { ToastrService } from 'ngx-toastr';
    @Output() cancel = new EventEmitter();
 
    //Indica si el componente se colapsa
-   public isCollapsed: boolean;
+   public isCollapsed: boolean = true;
 
    /**
    * The output which tells the parent component
