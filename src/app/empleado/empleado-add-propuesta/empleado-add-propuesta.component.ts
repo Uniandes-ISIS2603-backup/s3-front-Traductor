@@ -5,6 +5,7 @@ import {Propuesta} from '../propuesta'; //Importa la interfaz propuesta con los 
 import {Empleado} from '../empleado';
 import { NgForm } from '@angular/forms';
 import { EmpleadoService } from '../empleado.service';
+import { Invitacion } from 'src/app/cliente/invitacion';
 
 @Component({
   selector: 'app-propuesta-create',
@@ -21,13 +22,15 @@ export class PropuestaCreateComponent implements OnInit {
   )
   {}
 
+@Input() invitacionAsociada : Invitacion;
+
 @Input() empleado: Empleado;
 
 /**
 * The Event Emitter which sends the signal when a review has just been posted
 * so that the list of reviews refreshes
 */
-@Output() updateTarjetas = new EventEmitter();
+@Output() updatePropuesta = new EventEmitter();
 
  /**
   * Nueva propuesta que se desea crear.
@@ -38,10 +41,17 @@ propuesta: Propuesta;
 isCollapsed=true;
 
 createPropuesta(propuestaForm: NgForm): Propuesta {
+  //Anidar la invitacion en la propuesta, la invitacion se viene pasando por parametro
+  //Geovanny
+  this.propuesta.invitacion = this.invitacionAsociada;
+
+  //Verificar
+  console.log("Descripcion de la invitacion" + this.propuesta.invitacion.descripcion);
+  console.log("Nueva propuesta, costo" + this.propuesta.costo);
   this.empleadoService.createPropuesta(this.empleado.id,this.propuesta)
       .subscribe(() => {
-        propuestaForm.resetForm();
-          this.updateTarjetas.emit();
+        propuestaForm.resetForm(); //NgForm? Que papas ?
+          this.updatePropuesta.emit();
           this.toastrService.success("La propuesta se agrego correctamente", 'Propuesta Agregada');
       }, err => {
           this.toastrService.error(err, 'Error');
