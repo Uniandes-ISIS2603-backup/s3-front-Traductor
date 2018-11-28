@@ -53,9 +53,13 @@ export class ClienteAddInvitacionComponent implements OnInit {
     this.clienteService.createInvitacion(this.clienteId, this.invitacion).subscribe((invitacion) =>
     {
       this.invitacion = invitacion
+      //Asociar la invitacion al empleado
+      console.log("El ID de la invitacion ahora es:" + this.invitacion.idInvitacion);
+      console.log("El ID del empleado ahora es:" + this.invitacion.idEmpleado);
+      this.clienteService.asociarInvitacion(this.invitacion).subscribe((pI)=>this.invitacion = pI);
       this.create.emit();
       this.toastrService.success("La invitación ha sido creada satisfactoriamente", "Crear invitación");
-    });
+    });    
     return this.invitacion;
   }
 

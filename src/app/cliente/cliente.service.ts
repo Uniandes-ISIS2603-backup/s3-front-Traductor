@@ -116,9 +116,15 @@ deleteTarjeta(clienteId,idTarjeta): Observable<TarjetaDeCredito> {
 
 	createInvitacion(clienteId : number, invitacion : Invitacion) : Observable<Invitacion>
 	{
-		return this.http.post<Invitacion>(API_URL + clientes + '/' + clienteId + invitaciones + '/', invitacion);
-	}
+    return this.http.post<Invitacion>(API_URL + clientes + '/' + clienteId + invitaciones + '/', invitacion);
+  }
 
+  asociarInvitacion(invitacion:Invitacion) : Observable<Invitacion> {
+    let ruta = API_URL + '/empleados' + '/' + invitacion.idEmpleado + invitaciones + '/' + invitacion.idInvitacion
+    console.log("Asociar invitacion" + ruta);
+    return this.http.post<Invitacion>(ruta, invitacion);
+  }
+  
 	/** Updates an invitacion
     * @param invitacion The invitacion's information updated
     * @returns The confirmation that the invitacion was updated
