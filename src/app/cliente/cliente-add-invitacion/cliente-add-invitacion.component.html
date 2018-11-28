@@ -13,7 +13,7 @@
           <div class="form-group">
               <label for="solicitud"><b>Identificador de la solicitud</b></label>
               <input type="number" name="solicitud" class="form-control" id="solicitud" [(ngModel)]="invitacion.solicitudId"
-                  #solicitud="ngModel" [ngClass]="{'is-invalid': f.submitted && solicitud.invalid }">
+                  #solicitud="ngModel" [ngClass]="{'is-invalid': f.submitted && solicitud.invalid }" required>
               <div class="invalid-feedback">
                   <div>Por favor ingrese el identificador de la solicitud sobre la cual se asociará la invitación</div>
               </div>

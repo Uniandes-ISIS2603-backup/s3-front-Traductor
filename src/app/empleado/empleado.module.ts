@@ -14,6 +14,13 @@ import { PropuestaCreateComponent } from './empleado-add-propuesta/empleado-add-
 import { EmpleadoEditPropuestaComponent } from './empleado-edit-propuesta/empleado-edit-propuesta.component';
 import {CalificacionesModule} from 'src/app/calificaciones/calificaciones.module';
 
+/**
+ * Imports de invitacion para el empleado
+ */
+import {EmpleadoInvitacionesComponent} from './empleado-invitaciones/empleado-invitaciones.component';
+import {EmpleadoInvitacionDetailComponent} from './empleado-invitacion-detail/empleado-invitacion-detail.component';
+
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -24,7 +31,7 @@ import {CalificacionesModule} from 'src/app/calificaciones/calificaciones.module
     NgbModule,
     CalificacionesModule
   ],
-  declarations: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent,EmpleadoPropuestasListComponent,PropuestaCreateComponent, EmpleadoEditPropuestaComponent],
+  declarations: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent,EmpleadoPropuestasListComponent,PropuestaCreateComponent, EmpleadoEditPropuestaComponent,EmpleadoInvitacionesComponent,EmpleadoInvitacionDetailComponent],
   providers: [EmpleadoService],
   exports: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent]
 })

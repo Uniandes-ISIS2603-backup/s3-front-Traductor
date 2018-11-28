@@ -6,6 +6,7 @@ import {Empleado} from '../empleado';
 import { NgForm } from '@angular/forms';
 import { EmpleadoService } from '../empleado.service';
 import { Router} from '@angular/router';
+import { Invitacion } from 'src/app/cliente/invitacion';
 
 @Component({
   selector: 'app-propuesta-create',
@@ -22,6 +23,8 @@ export class PropuestaCreateComponent implements OnInit {
   private router: Router
   )
   {}
+
+@Input() invitacionAsociada : Invitacion;
 
 @Input() empleado: Empleado;
 
@@ -40,6 +43,13 @@ propuesta: Propuesta;
 isCollapsed=true;
 
 createPropuesta(propuestaForm: NgForm): Propuesta {
+  //Anidar la invitacion en la propuesta, la invitacion se viene pasando por parametro
+  //Geovanny
+  this.propuesta.invitacion = this.invitacionAsociada;
+
+  //Verificar
+  console.log("Descripcion de la invitacion" + this.propuesta.invitacion.descripcion);
+  console.log("Nueva propuesta, costo" + this.propuesta.costo);
   this.empleadoService.createPropuesta(this.empleado.id,this.propuesta)
       .subscribe(() => {
         propuestaForm.resetForm();
