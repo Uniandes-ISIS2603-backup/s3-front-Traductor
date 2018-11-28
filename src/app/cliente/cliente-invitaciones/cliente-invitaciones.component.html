@@ -5,7 +5,6 @@
           <thead class="encabezado">
               <tr>
                   <th class="figure-caption" routerLink="/propuestas/{{p.id}">ID Invitacion</th>    
-        <th>ID Cliente</th>
         <th>ID Solicitud</th>
         <th>ID Empleado</th>
         <th>Descripcion</th>					
@@ -14,10 +13,9 @@
           <tbody>                       
               <tr *ngFor = "let i of invitaciones">
                 <td style="cursor: pointer;" (click)="onSelected(i.idInvitacion)">{{i.idInvitacion}}</td>                  
-        <td>{{i.idCliente}}</td>
         <td>{{i.solicitudId}}</td>
         <td>{{i.idEmpleado}}</td>
-                <td>{{i.descripcion}}</td>
+        <td>{{i.descripcion}}</td>
                 <td>
                   <button class="
                       btn btn-primary iconoEditar" (click)="showHideEdit(i.idInvitacion)"><i class="fas fa-pen-fancy"></i></button>
