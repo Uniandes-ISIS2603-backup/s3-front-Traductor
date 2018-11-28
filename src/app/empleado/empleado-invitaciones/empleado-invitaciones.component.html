@@ -22,7 +22,7 @@
   </div>
   <div class="col-4">
       <div *ngIf="showView">
-          <app-empleado-invitacion-detail [empleadoId]="empleadoId" [invitacion]="selectedInvitacion"></app-empleado-invitacion-detail>
+          <app-empleado-invitacion-detail [empleado]= "empleado" [empleadoId]="empleadoId" [invitacion]="selectedInvitacion"></app-empleado-invitacion-detail>
       </div>      
   </div>
 </div>

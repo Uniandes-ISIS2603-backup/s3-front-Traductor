@@ -9,6 +9,7 @@ import { ModalDialogService, SimpleModalComponent } from 'ngx-modal-dialog';
 import { Invitacion } from 'src/app/cliente/invitacion';
 import { EmpleadoService } from '../empleado.service';
 import { ToastrService } from 'ngx-toastr';
+import { Empleado } from '../empleado';
 
 @Component({
   selector: 'app-empleado-invitaciones',
@@ -23,6 +24,9 @@ export class EmpleadoInvitacionesComponent implements OnInit, OnChanges {
     private viewRef: ViewContainerRef,
     private toastrService: ToastrService
   ) {}
+
+  //Objeto empleado que necesita propuesta create!
+  @Input() empleado: Empleado
 
    //Identificador del empleado
    @Input() empleadoId: number;

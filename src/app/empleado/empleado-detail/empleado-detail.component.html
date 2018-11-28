@@ -35,30 +35,39 @@
             <dd>{{empleado.referencias}}</dd>
         </dl>
         <div class="row">
-        <div *ngIf="empleado.propuestas != undefined && empleado.propuestas.length > 0" class="col-md-2">
+        <!--div *ngIf="empleado.propuestas != undefined && empleado.propuestas.length > 0" class="col-md-2">
             <button type="button" class="btn" [ngClass]="{ 'btn-primary': propuestaListComponent.isCollapsed,'btn-outline-primary':!propuestaListComponent.isCollapsed}" (click)="togglePropuestas()">
                 Propuestas Enviadas
             </button>
-        </div>
-        <div class="col-md-2">
-            <button type="button" class="btn" [ngClass]="{ 'btn-primary': propuestaCreateComponent.isCollapsed,'btn-outline-primary':!propuestaCreateComponent.isCollapsed}"  (click)="toggleCreatePropuesta()">
-                Agregar Propuesta
-            </button>
-        </div>
+        </div -->        
         <div class="col-md-2">
             <button type="button" class="btn" [ngClass]="{ 'btn-primary': mostrarCalificacion,'btn-outline-primary':!mostrarCalificacion}"
                 (click)="toggleCalificaciones()">
                 Calificaciones
             </button>
         </div>
+        <div class="col-md-2">
+            <button type="button" class="btn" [ngClass]="{ 'btn-primary': mostrarInvitacion,'btn-outline-primary':!mostrarInvitacion}"
+                (click)="toggleInvitaciones()">
+                Invitaciones
+            </button>
+        </div>
         </div>
     </div> 
    
 </div>
-<div  class="crd row justify-content-center" >
+<!--div  class="crd row justify-content-center" >
     <app-empleado-propuestas [idEmpleado]="empleado.id"  [propuestasEmpleado]="empleado.propuestas"></app-empleado-propuestas>
     <app-propuesta-create [empleado]="empleado" (updatePropuestas)="updatePropuestas()"></app-propuesta-create>
-</div>
+</div -->
 <div *ngIf="mostrarCalificacion" class="crd row justify-content-center">
     <list-calificacion [empleadoId]="empleado_id"></list-calificacion>
 </div>
+<div *ngIf="mostrarInvitacion" class="crd row justify-content-center">
+    <app-empleado-invitaciones [empleado]="empleado" [empleadoId]="empleado_id"></app-empleado-invitaciones>
+</div>
+<!-- div class="col-md-2">
+    <button type="button" class="btn" [ngClass]="{ 'btn-primary': propuestaCreateComponent.isCollapsed,'btn-outline-primary':!propuestaCreateComponent.isCollapsed}"  (click)="toggleCreatePropuesta()">
+        Agregar Propuesta
+    </button>
+</div -->

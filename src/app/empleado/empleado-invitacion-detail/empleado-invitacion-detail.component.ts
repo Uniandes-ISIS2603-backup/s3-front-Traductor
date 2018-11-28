@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { Invitacion } from 'src/app/cliente/invitacion';
 import { EmpleadoService } from '../empleado.service';
+import { Empleado } from '../empleado';
 
 @Component({
   selector: 'app-empleado-invitacion-detail',
@@ -38,6 +39,9 @@ export class EmpleadoInvitacionDetailComponent implements OnInit {
 
   @Input() invitacion: Invitacion;
 
+  //Empleado
+  @Input() empleado: Empleado;
+
   /**
   * The invitacion id retrieved from the address
   */
@@ -65,6 +69,7 @@ export class EmpleadoInvitacionDetailComponent implements OnInit {
   }
 
   toogleCreatePropuesta(): void{
+    console.log("[EmpleadoInvitacionDetail] Entre a mostrar el componente")
     this.mostrarCreatePropuesta = !this.mostrarCreatePropuesta;
   }
 
