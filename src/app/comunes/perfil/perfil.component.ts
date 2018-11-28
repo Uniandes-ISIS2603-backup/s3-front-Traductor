@@ -7,7 +7,6 @@ import { ClienteTarjetasComponent } from 'src/app/cliente/cliente-tarjetas/clien
 import { NavigationEnd, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ClienteService } from 'src/app/cliente/cliente.service';
-import { ClienteInvitacionesComponent } from 'src/app/cliente/cliente-invitaciones/cliente-invitaciones.component';
 
 @Component({
   selector: 'app-perfil-cliente',
