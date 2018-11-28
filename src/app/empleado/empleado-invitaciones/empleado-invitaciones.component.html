@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <h2 class="justify-content-center align-self-center">Invitaciones enviadas por el cliente</h2>
+  <div class="col-md-2">
+      <table class="table table-striped">
+          <thead class="encabezado">
+              <tr>
+                  <th class="figure-caption" routerLink="/propuestas/{{p.id}">ID Invitacion</th>    
+        <th>ID Solicitud</th>
+        <th>ID Empleado</th>
+        <th>Descripcion</th>					
+              </tr>
+          </thead>
+          <tbody>                       
+              <tr *ngFor = "let i of invitaciones">
+                <td style="cursor: pointer;" (click)="onSelected(i.idInvitacion)">{{i.idInvitacion}}</td>                  
+        <td>{{i.solicitudId}}</td>
+        <td>{{i.idEmpleado}}</td>
+        <td>{{i.descripcion}}</td>                
+              </tr>
+              </tbody>
+      </table>      
+  </div>
+  <div class="col-4">
+      <div *ngIf="showView">
+          <app-empleado-invitacion-detail [empleadoId]="empleadoId" [invitacion]="selectedInvitacion"></app-empleado-invitacion-detail>
+      </div>      
+  </div>
+</div>
