@@ -5,7 +5,8 @@
  *  existentes para un empleado.
 */
 
-import { Component, OnInit,Input } from '@angular/core';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
+import { Component, OnInit,Input,ViewContainerRef } from '@angular/core';
 import {Propuesta} from '../propuesta';
 import { ActivatedRoute, Router } from '@angular/router';
 import {Pagos} from '../pagos';
@@ -25,7 +26,9 @@ export class ClientePropuestasListComponent implements OnInit {
  * Arreglo de propuestas
  */
 
-  @Input() propuestasCliente : Propuesta [];
+  @Input() propuestas : Propuesta [];
+
+  @Input() idCliente:number;
 
   public isCollapsed = true;
   
@@ -36,25 +39,51 @@ export class ClientePropuestasListComponent implements OnInit {
    
 constructor( private clienteService: ClienteService,
   private route: ActivatedRoute,
-  private router: Router,
-  private toastrService: ToastrService) {}
+  private toastrService: ToastrService, 
+  private modalDialogService: ModalDialogService,
+  private viewRef: ViewContainerRef,
+  private router: Router) {}
 
   
 
  pagar(idPropuesta:number,costo:number,descripcion:string,estado:string,tiempoEstimado:string)
 {
-   let pago:Pagos;
-   pago.pagoAprobado=1;
-   let propuesta:Propuesta;
+   let pago:Pagos=new Pagos;
+   pago.pagoAprobado=true;
+   let propuesta:Propuesta=new Propuesta;
    propuesta.id=idPropuesta;
    propuesta.costo=costo;
    propuesta.descripcion=descripcion;
    propuesta.estado=estado;
    propuesta.tiempoEstimado=tiempoEstimado;
    pago.propuestaDto=propuesta;
-console.log(idPropuesta);
 let cliente_id = +this.route.snapshot.paramMap.get('id');
 this.clienteService.createPago(cliente_id,pago);
+}
+
+deletePropuesta(id:number)
+{
+  this.modalDialogService.openDialog(this.viewRef, {
+    title: 'Eliminar una propuesta',
+    childComponent: SimpleModalComponent,
+    data: {text: 'Seguro que quiere eliminar esta propuesta?'},
+    actionButtons: [
+        {
+            text: 'Yes',
+            buttonClass: 'btn btn-danger',
+            onAction: () => {
+                this.clienteService.deletePropuesta(this.idCliente,id).subscribe(book => {
+                    this.toastrService.success("Propuesta  ", "Propuesta eliminada");
+                    this.router.navigate(['clientes/'+this.idCliente]);
+                }, err => {
+                    this.toastrService.error(err, "Error");
+                });
+                return true;
+            }
+        },
+        {text: 'No', onAction: () => true}
+    ]
+});
 }
 
 /**
@@ -62,7 +91,7 @@ this.clienteService.createPago(cliente_id,pago);
 */
 
   ngOnInit() {
-    console.log(this.propuestasCliente);
+    
   }
 
 }

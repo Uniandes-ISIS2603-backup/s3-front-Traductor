@@ -5,6 +5,7 @@ import {Propuesta} from '../propuesta'; //Importa la interfaz propuesta con los 
 import {Empleado} from '../empleado';
 import { NgForm } from '@angular/forms';
 import { EmpleadoService } from '../empleado.service';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-propuesta-create',
@@ -17,7 +18,8 @@ export class PropuestaCreateComponent implements OnInit {
   constructor(
   private dp : DatePipe,
   private toastrService: ToastrService,
-  private empleadoService:EmpleadoService
+  private empleadoService:EmpleadoService,
+  private router: Router
   )
   {}
 
@@ -25,9 +27,9 @@ export class PropuestaCreateComponent implements OnInit {
 
 /**
 * The Event Emitter which sends the signal when a review has just been posted
-* so that the list of reviews refreshes
+* so that the list of propuestas refreshes
 */
-@Output() updateTarjetas = new EventEmitter();
+@Output() updatePropuestas = new EventEmitter();
 
  /**
   * Nueva propuesta que se desea crear.
@@ -41,7 +43,7 @@ createPropuesta(propuestaForm: NgForm): Propuesta {
   this.empleadoService.createPropuesta(this.empleado.id,this.propuesta)
       .subscribe(() => {
         propuestaForm.resetForm();
-          this.updateTarjetas.emit();
+          this.updatePropuestas.emit();
           this.toastrService.success("La propuesta se agrego correctamente", 'Propuesta Agregada');
       }, err => {
           this.toastrService.error(err, 'Error');

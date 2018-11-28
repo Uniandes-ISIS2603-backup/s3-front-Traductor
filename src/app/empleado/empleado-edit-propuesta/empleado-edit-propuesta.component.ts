@@ -2,6 +2,7 @@ import { Component, OnInit,Input,Output,EventEmitter, OnChanges } from '@angular
 import { EmpleadoService } from '../empleado.service';
 import { ToastrService } from 'ngx-toastr';
 import { Propuesta } from '../propuesta';
+import { Router} from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,9 @@ import { Propuesta } from '../propuesta';
 export class EmpleadoEditPropuestaComponent implements OnInit,OnChanges {
 
   constructor( private empleadoService: EmpleadoService,
-    private toastrService: ToastrService) { }
+    private toastrService: ToastrService,
+    private router: Router
+    ) { }
 
 /**
     * The cliente id as received from the parent component
@@ -47,6 +50,7 @@ export class EmpleadoEditPropuestaComponent implements OnInit,OnChanges {
     this.empleadoService.updatePropuesta(this.idEmpleado,this.propuesta)
         .subscribe(() => {
             this.toastrService.success("La info de la propuesta se actualizo", "Actualizacion de la propuesta");
+            this.router.navigate(['empleados/'+this.idEmpleado]);
         });
     this.update.emit();
     this.isCollapsed=true;

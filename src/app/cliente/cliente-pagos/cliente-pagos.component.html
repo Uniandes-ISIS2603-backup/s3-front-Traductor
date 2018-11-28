@@ -6,18 +6,20 @@
                 <tr>
                       
           <th>idTransaccion</th>
-          <th>Estado pago</th>
           <th>idPropuesta</th>
+          <th>Costo</th>
           <th>Descripcion Propuesta</th>
+          <th>Estado Propuesta</th>
                 </tr>
             </thead>
             <tbody>                       
-                <tr *ngFor = "let pagoAct of pagosliente">
+                <tr *ngFor = "let pagoAct of pagos">
                       
           <td>{{pagoAct.idTransaccion}}</td>
-          <td>{{getEstado(pagoAct)}}</td>
-          <td>{{pagoAct.propuestaDTO.propuestaID}}</td>
-          <td>{{pagoAct.propuestaDTO.descripcion}}</td>
+          <td>{{pagoAct.propuestaDto.id}}</td>
+          <td>{{pagoAct.propuestaDto.costo}}</td>
+          <td>{{pagoAct.propuestaDto.descripcion}}</td>
+          <td>{{pagoAct.propuestaDto.estado}}</td>
     
                 </tr>
             </tbody>

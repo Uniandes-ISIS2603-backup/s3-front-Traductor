@@ -69,8 +69,8 @@
 </div>
 <br>
 <div class="crd row justify-content-center">
-    <app-cliente-pagos [pagosCliente]="cliente?.pagos"></app-cliente-pagos>
+    <app-cliente-pagos [pagos]="cliente?.pagos"></app-cliente-pagos>
 </div>
 <div class="crd row justify-content-center">
-    <app-cliente-propuestas [propuestasCliente]="cliente?.propuestas"></app-cliente-propuestas>
+    <app-cliente-propuestas [propuestas]="cliente?.propuestas" [idCliente]="cliente?.id"></app-cliente-propuestas>
 </div>

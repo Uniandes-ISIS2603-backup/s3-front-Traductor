@@ -62,11 +62,15 @@ export class ClienteService {
   }
 
   createPago(idCliente, pago): Observable<Pagos> {
-    return this.http.post<Pagos>(API_URL + clientes + '/' + idCliente + tarjetas, pago);
+    return this.http.post<Pagos>(API_URL + clientes + '/' + idCliente + "/pagos", pago);
   }
 
   getPropuesta(clienteId:number,propuestaId:number): Observable<Propuesta> {
     return this.http.get<Propuesta>(API_URL + clientes + '/' + clienteId+"/propuesta/"+propuestaId);
+  }
+
+  deletePropuesta(idCliente,idPropuesta): Observable<Propuesta> {
+    return this.http.delete<Propuesta>(API_URL + clientes + '/' + idCliente+"/propuestas/"+idPropuesta);
   }
 
    /**
