@@ -4,7 +4,7 @@ import { ClientePropuestasListComponent } from 'src/app/cliente/cliente-propuest
 import { ClientePagosComponent } from 'src/app/cliente/cliente-pagos/cliente-pagos.component';
 import { ClienteAddTarjetaDeCreditoComponent } from 'src/app/cliente/cliente-add-tarjeta-de-credito/cliente-add-tarjeta-de-credito.component';
 import { ClienteTarjetasComponent } from 'src/app/cliente/cliente-tarjetas/cliente-tarjetas.component';
-import { NavigationEnd, Router, ActivatedRoute } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ClienteService } from 'src/app/cliente/cliente.service';
 import { ClienteInvitacionesComponent } from 'src/app/cliente/cliente-invitaciones/cliente-invitaciones.component';
@@ -27,7 +27,6 @@ export class PerfilComponent implements OnInit, OnDestroy {
   */
   constructor(
     private clienteService: ClienteService,
-    private route: ActivatedRoute,
     private router: Router,
     private toastrService: ToastrService,
     private authService: AuthService
@@ -45,6 +44,11 @@ export class PerfilComponent implements OnInit, OnDestroy {
   mostrarInvitacion = false;
 
   /**
+   * El id del cliente actual
+   */
+  cliente_id: number;
+
+  /**
   * The suscription which helps to know when a new client
   * needs to be loaded
   */
@@ -58,25 +62,53 @@ export class PerfilComponent implements OnInit, OnDestroy {
 
   @ViewChild(ClientePropuestasListComponent) propuestaListComponent: ClientePropuestasListComponent;
 
-  @ViewChild(ClienteInvitacionesComponent) invitacionesListComponent: ClienteInvitacionesComponent;
+  //@ViewChild(ClienteInvitacionesComponent) invitacionesListComponent: ClienteInvitacionesComponent;
 
   toggleTarjetas(): void {
     if (this.tarjetaAddComponent.isCollapsed == false) {
       this.tarjetaAddComponent.isCollapsed = true;
-
+    }
+    if (this.pagosListComponent.isCollapsed == false) {
+      this.pagosListComponent.isCollapsed = true;
+    }
+    if (this.mostrarInvitacion) {
+      this.mostrarInvitacion = !this.mostrarInvitacion;
+    }
+    if (this.propuestaListComponent.isCollapsed == false) {
+      this.propuestaListComponent.isCollapsed = true;
     }
     this.tarjetaListComponent.isCollapsed = !this.tarjetaListComponent.isCollapsed;
-
   }
 
   togglePropuestas(): void {
-
+    if (this.tarjetaAddComponent.isCollapsed == false) {
+      this.tarjetaAddComponent.isCollapsed = true;
+    }
+    if (this.tarjetaListComponent.isCollapsed == false) {
+      this.tarjetaListComponent.isCollapsed = true;
+    }
+    if (this.pagosListComponent.isCollapsed == false) {
+      this.pagosListComponent.isCollapsed = true;
+    }
+    if (this.mostrarInvitacion) {
+      this.mostrarInvitacion = !this.mostrarInvitacion;
+    }
     this.propuestaListComponent.isCollapsed = !this.propuestaListComponent.isCollapsed;
-    console.log(this.authService.getUser().propuestas);
-
   }
 
   togglePagos(): void {
+    if (this.tarjetaAddComponent.isCollapsed == false) {
+      this.tarjetaAddComponent.isCollapsed = true;
+    }
+    if (this.tarjetaListComponent.isCollapsed == false) {
+      this.tarjetaListComponent.isCollapsed = true;
+    }
+    if (this.mostrarInvitacion) {
+      this.mostrarInvitacion = !this.mostrarInvitacion;
+    }
+    if (this.propuestaListComponent.isCollapsed == false) {
+      this.propuestaListComponent.isCollapsed = true;
+    }
     this.pagosListComponent.isCollapsed = !this.pagosListComponent.isCollapsed;
 
   }
@@ -84,19 +116,35 @@ export class PerfilComponent implements OnInit, OnDestroy {
   toggleCreateTarjeta(): void {
     if (this.tarjetaListComponent.isCollapsed == false) {
       this.tarjetaListComponent.isCollapsed = true;
-
+    }
+    if (this.mostrarInvitacion) {
+      this.mostrarInvitacion = !this.mostrarInvitacion;
+    }
+    if (this.propuestaListComponent.isCollapsed == false) {
+      this.propuestaListComponent.isCollapsed = true;
+    }
+    if (this.pagosListComponent.isCollapsed == false) {
+      this.pagosListComponent.isCollapsed = true;
     }
     this.tarjetaAddComponent.isCollapsed = !this.tarjetaAddComponent.isCollapsed;
 
   }
 
   toggleInvitaciones(): void {
-    console.log("[Cliente Detail - toggleInvitaciones] Se procede a colapsar la sección de invitaciones");
-    console.log("[Cliente Detail - toggleInvitaciones] Valor inicial del colapse de invitacionComponent" + this.mostrarInvitacion);
+    if (this.propuestaListComponent.isCollapsed == false) {
+      this.propuestaListComponent.isCollapsed = true;
+    }
+    if (this.pagosListComponent.isCollapsed == false) {
+      this.pagosListComponent.isCollapsed = true;
+    }
+    if (this.tarjetaListComponent.isCollapsed == false) {
+      this.tarjetaListComponent.isCollapsed = true;
+    }
+    if (this.tarjetaAddComponent.isCollapsed == false) {
+      this.tarjetaAddComponent.isCollapsed = true;
+    }
     this.mostrarInvitacion = !this.mostrarInvitacion;
-    console.log("[Cliente Detail - toggleInvitaciones] Valor final del colapse de invitacionComponent" + this.mostrarInvitacion);
   }
-
 
   updateTarjetas(): void {
     this.getCliente();
@@ -118,7 +166,7 @@ export class PerfilComponent implements OnInit, OnDestroy {
   * @returns The client with its information (details)
   */
   getCliente(): void {
-    this.clienteService.getCliente(this.authService.getUser().id)
+    this.clienteService.getCliente(this.cliente_id)
       .subscribe(cliente => {
         this.authService.saveUser(cliente);
         //this.cliente = cliente;
@@ -133,6 +181,9 @@ export class PerfilComponent implements OnInit, OnDestroy {
   * they are never considered undefined
   */
   ngOnInit() {
+    console.log(this.authService.getUser());
+    this.cliente_id = ((this.authService.getUser().id) as number);
+    console.log(this.cliente_id);    
     this.mostrarInvitacion = false;
     this.getCliente();
     //this.getAllClientes();    

@@ -34,6 +34,16 @@ const routes: Routes = [
         path: 'clientes',
         children: [
             {
+                path: 'miperfil',
+                component: PerfilComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['CLIENTE']
+                    }
+                }
+            },
+            {
                 path: 'list',
                 component: ClienteListComponent
             },
@@ -45,16 +55,6 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: ClienteDetailComponent
-            },
-            {
-                path: 'miperfil',
-                component: PerfilComponent,
-                canActivate: [NgxPermissionsGuard],
-                data: {
-                    permissions: {
-                        only: ['CLIENTE']
-                    }
-                }
             }
         ]
     },

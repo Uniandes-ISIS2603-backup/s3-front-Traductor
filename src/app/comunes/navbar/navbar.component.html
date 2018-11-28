@@ -34,7 +34,7 @@
       <li class="nav-item" *ngxPermissionsOnly="['CLIENTE']">
         <a class="nav-link" routerLink="/solicitudes/add">Traduce Ahora</a>
       </li>
-      <li class="nav-item" *ngxPermissionsOnly="['CLIENTE', 'EMPLEADO']" placement="bottom-left" ngbDropdown>
+      <li class="nav-item" *ngxPermissionsOnly="['CLIENTE', 'EMPLEADO']" placement="bottom-right" ngbDropdown>
         <a class="nav-link dropdown-toggle d-flex align-items-center" id="drop-profile" ngbDropdownToggle><span class="fas fa-user-circle"
             style="font-size: 32px; margin-right: 10px;"></span>
           {{this.authService.getUser().nombreUsuario}}

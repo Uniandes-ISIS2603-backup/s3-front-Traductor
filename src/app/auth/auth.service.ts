@@ -69,7 +69,7 @@ export class AuthService {
           this.toastrService.success('Bienvenido, ' + this.usuarioActual.nombreUsuario);
         }
       );
-    } else {
+    } else if (accion === 'login') {
       this.clienteService.getClientes().subscribe(
         (clients) => {
           let clientes: Cliente[] = clients;
@@ -91,6 +91,12 @@ export class AuthService {
           }
         }
       );
+    } else {
+      this.usuarioActual = usuario;
+      localStorage.setItem('usuario', JSON.stringify(this.usuarioActual));
+      this.roleService.flushRoles();
+      this.roleService.addRole('CLIENTE', ['dejar_comentario', 'crear_solicitud']);
+      localStorage.setItem('rol', 'CLIENTE');
     }
   }
 
@@ -109,7 +115,7 @@ export class AuthService {
           this.toastrService.success('Bienvenido, ' + this.usuarioActual.nombreUsuario);
         }
       );
-    } else {
+    } else if (accion === 'login') {
       this.empleadoService.getEmpleados().subscribe(
         (employees) => {
           let empleados: Empleado[] = employees;
@@ -132,6 +138,12 @@ export class AuthService {
           }
         }
       );
+    } else {
+      this.usuarioActual = usuario;
+      localStorage.setItem('usuario', JSON.stringify(this.usuarioActual));
+      this.roleService.flushRoles();
+      this.roleService.addRole('EMPLEADO', ['crear_propuesta']);
+      localStorage.setItem('rol', 'EMPLEADO');
     }
   }
 

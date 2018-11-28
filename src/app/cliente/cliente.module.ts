@@ -7,7 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ClienteCreateComponent } from './cliente-create/cliente-create.component';
-import { FormsModule}  from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClienteAddTarjetaDeCreditoComponent } from './cliente-add-tarjeta-de-credito/cliente-add-tarjeta-de-credito.component';
 import { ClienteTarjetasComponent } from './cliente-tarjetas/cliente-tarjetas.component';
@@ -18,7 +18,7 @@ import { ClienteInvitacionesComponent } from './cliente-invitaciones/cliente-inv
 import { ClienteAddInvitacionComponent } from './cliente-add-invitacion/cliente-add-invitacion.component';
 import { ClienteEditInvitacionComponent } from './cliente-edit-invitacion/cliente-edit-invitacion.component';
 import { ClienteInvitacionDetailComponent } from './cliente-invitacion-detail/cliente-invitacion-detail.component';
-import {NgxPermissionsModule} from 'ngx-permissions';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
   imports: [
@@ -30,8 +30,34 @@ import {NgxPermissionsModule} from 'ngx-permissions';
     NgbModule,
     NgxPermissionsModule
   ],
-  declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteAddTarjetaDeCreditoComponent, ClienteTarjetasComponent, ClientePagosComponent,ClientePropuestasListComponent, ClienteEditTarjetaDeCreditoComponent, ClienteInvitacionesComponent, ClienteAddInvitacionComponent, ClienteEditInvitacionComponent, ClienteInvitacionDetailComponent],
+  declarations: [
+    ClienteListComponent,
+    ClienteDetailComponent,
+    ClienteCreateComponent,
+    ClienteAddTarjetaDeCreditoComponent,
+    ClienteTarjetasComponent,
+    ClientePagosComponent,
+    ClientePropuestasListComponent,
+    ClienteEditTarjetaDeCreditoComponent,
+    ClienteInvitacionesComponent,
+    ClienteAddInvitacionComponent,
+    ClienteEditInvitacionComponent,
+    ClienteInvitacionDetailComponent
+  ],
   providers: [ClienteService],
-  exports: [ClienteListComponent, ClienteDetailComponent]
+  exports: [
+    ClienteListComponent,
+    ClienteDetailComponent,
+    ClienteAddTarjetaDeCreditoComponent,
+    ClienteTarjetasComponent,
+    ClientePagosComponent,
+    ClientePropuestasListComponent,
+    ClienteEditTarjetaDeCreditoComponent,
+    ClienteInvitacionesComponent,
+    ClienteAddInvitacionComponent,
+    ClienteEditInvitacionComponent,
+    ClienteInvitacionDetailComponent,
+
+  ]
 })
 export class ClienteModule { }

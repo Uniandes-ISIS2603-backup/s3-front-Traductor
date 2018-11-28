@@ -1,8 +1,14 @@
-<div class="all container" *ngxPermissionsOnly="['CLIENTE']">
+<div class="all container-fluid" *ngxPermissionsOnly="['CLIENTE']">
   <div class="row justify-content-center">
-    <div class="col-md-4 d-flex justify-content-center">
+    <div class="col-md-4 d-flex flex-md-column align-items-center justify-content-center">
       <span class="figure-caption">Mi Perfil</span>
-      <img class="img-fluid" src="../../../assets/img/avatar.png" alt="imagen {{this.authService.getUser().nombre}}}">
+      <ng-container *ngIf="this.authService.getUser().tipoCliente == undefined; else defecto">
+        <img src="../../../assets/img/avatar.png" alt="imagen {{this.authService.getUser().nombre}}}">
+      </ng-container>
+      <ng-template #defecto>
+        <img *ngIf="this.authService.getUser().tipoCliente === 'EMPRESA'" src="../../../assets/img/company.png" alt="imagen {{this.authService.getUser().nombre}}}">
+        <img *ngIf="this.authService.getUser().tipoCliente === 'PERSONA_NATURAL'" src="../../../assets/img/client.png" alt="imagen {{this.authService.getUser().nombre}}}">
+      </ng-template>
       <h3 class="text-center">{{this.authService.getUser().nombre}}</h3>
       <dl>
         <dt>Nombre de Usuario:</dt>
@@ -18,58 +24,56 @@
         </div>
       </dl>
       <br>
-      <a routerLink="/clientes/{{this.authService.getUser().id}}/edit" class="but but-secundario">
-        <span class="fas fa-user-edit"></span> Editar
+      <a routerLink="/clientes/{{cliente_id}}/edit" class="but btn-secundario">
+        <span class="fas fa-user-edit"></span> Editar perfil
       </a>
     </div>
     <div class="col-md-8">
-      <div class="row">
-        <ul class="nav">
-          <li>
-            <a class="nav-link" [ngClass]="{ 'btn-primario': tarjetaListComponent.isCollapsed,'btn-outline-primario':!tarjetaListComponent.isCollapsed}"
-              (click)="toggleTarjetas()">
-              Mis tarjetas
+      <ul class="nav nav-tabs row justify-content-around align-items-center">
+        <li class="nav-item">
+          <a class="nav-link"  (click)="toggleTarjetas()">
+            Mis tarjetas
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="togglePagos()">
+            Mis pagos
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="togglePropuestas()">
+            Mis Propuestas
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="toggleInvitaciones()">
+            Mis Invitaciones
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="toggleSolicitudes()">
+            Mis solicitudes
+          </a>
+        </li>
+        <li class="nav-item dropdown" placement="bottom-right" ngbDropdown>
+          <a class="dropdown-toggle" id="drop-adds" ngbDropdownToggle>
+            <span class="fas fa-plus-circle"></span>
+          </a>
+          <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="drop-adds">
+            <a (click)="toggleCreateTarjeta()">
+              Agregar tarjeta
             </a>
-          </li>
-          <li>
-            <a class="nav-link" [ngClass]="{ 'btn-primario': pagosListComponent.isCollapsed,'btn-outline-primario':!pagosListComponent.isCollapsed}"
-              (click)="togglePagos()">
-              Mis pagos
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" [ngClass]="{ 'btn-primario': propuestaListComponent.isCollapsed,'btn-outline-primario':!propuestaListComponent.isCollapsed}"
-              (click)="togglePropuestas()">
-              Mis Propuestas
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" [ngClass]="{ 'btn-primario': !mostrarInvitacion,'btn-outline-primario': mostrarInvitacion}"
-              (click)="toggleInvitaciones()">
-              Mis Invitaciones
-            </a>
-          </li>
-          <li class="dropdown" ngbDropdown>
-            <a class="nav-link dropdown-toggle" id="drop-adds" ngbDropdownToggle>
-              <span class="fas fa-plus-circle"></span>
-            </a>
-            <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="drop-adds">
-              <a [ngClass]="{ 'btn-primario': tarjetaAddComponent.isCollapsed,'btn-outline-primario':!tarjetaAddComponent.isCollapsed}"
-                (click)="toggleCreateTarjeta()">
-                Agregar tarjeta
-              </a>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="row justify-content-center align-items-center">
+          </div>
+        </li>
+      </ul>
+      <div class="row d-flex justify-content-center container-fluid">
         <div *ngIf="mostrarInvitacion">
-          <app-cliente-invitaciones [clienteId]="this.authService.getUser()?.id"></app-cliente-invitaciones>
+          <app-cliente-invitaciones [clienteId]="cliente_id"></app-cliente-invitaciones>
         </div>
-        <app-cliente-tarjetas [tarjetasCliente]="this.authService.getUser()?.tarjetas" [idCliente]="this.authService.getUser()?.id"></app-cliente-tarjetas>
+        <app-cliente-tarjetas [tarjetasCliente]="this.authService.getUser()?.tarjetas" [idCliente]="cliente_id"></app-cliente-tarjetas>
         <app-cliente-add-tarjeta-de-credito [cliente]="this.authService.getUser()" (updateTarjetas)="updateTarjetas()"></app-cliente-add-tarjeta-de-credito>
-        <app-cliente-pagos [pagosCliente]="this.authService.getUser()?.pagos"></app-cliente-pagos>
-        <app-cliente-propuestas [propuestasCliente]="this.authService.getUser()?.propuestas"></app-cliente-propuestas>
+        <app-cliente-pagos [pagos]="this.authService.getUser()?.pagos"></app-cliente-pagos>
+        <app-cliente-propuestas [propuestas]="this.authService.getUser()?.propuestas"></app-cliente-propuestas>
       </div>
     </div>
   </div>
