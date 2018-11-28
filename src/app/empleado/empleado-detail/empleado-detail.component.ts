@@ -103,12 +103,11 @@ export class EmpleadoDetailComponent implements OnInit, OnDestroy {
     this.mostrarInvitacion = !this.mostrarInvitacion;        
   }
   
-
   updatePropuestas(): void {
     this.getEmpleado();
     this.propuestaListComponent.updatePropuestas(this.empleado.propuestas);
     this.propuestaListComponent.isCollapsed = false;
-    this.propuestaListComponent.isCollapsed = true;
+    this.propuestaCreateComponent.isCollapsed = true;
   }
 
   /**

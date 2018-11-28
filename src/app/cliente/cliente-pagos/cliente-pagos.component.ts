@@ -7,15 +7,16 @@ import { Pagos } from 'src/app/pagos/pagos';
   styleUrls: ['./cliente-pagos.component.css']
 })
 export class ClientePagosComponent implements OnInit {
-  @Input() pagosCliente : Pagos [];
+  @Input() pagos : Pagos [];
 
   public isCollapsed = true;
 
   updatePagos(pagos:Pagos[]): void {
-    this.pagosCliente = pagos;
+    this.pagos = pagos;
   }
 
   ngOnInit() {
+    
   }
 
 }

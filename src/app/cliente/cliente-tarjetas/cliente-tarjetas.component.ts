@@ -1,6 +1,6 @@
 import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 import { Component, OnInit,Input,ViewContainerRef } from '@angular/core';
-import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
+import { Router} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { TarjetaDeCredito } from '../tarjetaDeCredito';
 import { ClienteService } from '../cliente.service';
