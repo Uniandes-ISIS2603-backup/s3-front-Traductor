@@ -13,11 +13,11 @@
                 <tr *ngFor="let i of calificaciones">
                     <td style="cursor: pointer;" (click)="onSelected(i.id)">{{i.id}}</td>
                     <td>{{i.comentario}}</td>
-                    <td>{{i.valor}}</td>
+                    <td>{{i.valorCalificacion}}</td>
                     <td>{{i.nombreCalificador}}</td>
                     <td>
-                        <button class="btn btn-danger iconoEliminar" (click)="deleteInvitacion(i.idInvitacion)"><i
-                                class="fas fa-eraser"></i></button>
+                    <button class="btn btn-danger iconoEliminar" (click)="deleteCalificacion(i.id)"><i
+                            class="fas fa-eraser"></i></button>
                     </td>
                 </tr>
             </tbody>
