@@ -1,10 +1,11 @@
-import { Component, Input, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, ViewChild, Output,EventEmitter} from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 import { Invitacion } from 'src/app/cliente/invitacion';
 import { EmpleadoService } from '../empleado.service';
 import { Empleado } from '../empleado';
+import { PropuestaListComponent } from 'src/app/propuesta/propuesta-list/propuesta-list.component';
 
 @Component({
   selector: 'app-empleado-invitacion-detail',
@@ -25,7 +26,7 @@ export class EmpleadoInvitacionDetailComponent implements OnInit {
   private route: ActivatedRoute,
   private router: Router,
   private toastrService: ToastrService
-  ) { }
+  ) { }  
 
   /**
    * Identificador del empleado
@@ -40,7 +41,7 @@ export class EmpleadoInvitacionDetailComponent implements OnInit {
   @Input() invitacion: Invitacion;
 
   //Empleado
-  @Input() empleado: Empleado;
+  @Input() empleado: Empleado; 
 
   /**
   * The invitacion id retrieved from the address
@@ -71,6 +72,7 @@ export class EmpleadoInvitacionDetailComponent implements OnInit {
   toogleCreatePropuesta(): void{
     console.log("[EmpleadoInvitacionDetail] Entre a mostrar el componente")
     this.mostrarCreatePropuesta = !this.mostrarCreatePropuesta;
+    this.router.navigate(['empleados/'+this.empleado.id]);        
   }
 
   /**
