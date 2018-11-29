@@ -1,0 +1,37 @@
+<div id="collapseSolicitudes" [ngbCollapse]="isCollapsed">
+    <div class="container-fluid" *ngxPermissionsOnly="['CLIENTE', 'ADMIN']">
+      <div>
+          <table class="table table-striped">
+              <thead class="verde">
+                <tr class="cursor: pointer;" (click)="toggleDetail()">   
+                  <th>Inicio</th>
+                  <th>Entrega</th>
+                  <th>Estado</th>
+                  <th>Tipo</th>
+                </tr>
+              </thead>
+              <tbody>                       
+                <tr *ngFor = "let solicitud of solicitudes">
+
+                  <td>{{solicitud.fechInicio}}</td>
+                  <td>{{solicitud.fechaFIn}}</td>
+                  <td *ngIf="estado === 0">Cancelado</td>
+                  <td *ngIf="estado === 1">Completado</td>
+                  <td *ngIf="estado === 2">En espera</td>
+                  <td *ngIf="tipo === 3">Corrección</td>
+                  <td *ngIf="tipo === 4">Taducción</td>
+                  <td>
+                    <button class="but btn-primario" (click)="updateSolicitud(solicitud)"><span class="fas fa-edit" ></span></button>
+                  </td>
+                  <td>
+                    <button class="but btn-peligro" (click)="deleteSolicitud(solicitud.id)"><span class="fas fa-trash"></span></button>
+                  </td>
+                </tr>
+              </tbody>
+          </table>
+    </div>
+    <div *ngIf="showEdit">
+      <!-- <app-cliente-edit-solicitud [idCliente]="idCliente"></app-cliente-edit-solicitud> -->
+    </div>
+    </div>
+    </div>

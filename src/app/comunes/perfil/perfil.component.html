@@ -87,6 +87,7 @@
         <app-cliente-add-tarjeta-de-credito [cliente]="this.authService.getUser()" (updateTarjetas)="updateTarjetas()"></app-cliente-add-tarjeta-de-credito>
         <app-cliente-pagos [pagos]="this.authService.getUser()?.pagos"></app-cliente-pagos>
         <app-cliente-propuestas [propuestas]="this.authService.getUser()?.propuestas"></app-cliente-propuestas>
+        <app-cliente-solicitudes [idCliente]= "cliente_id"></app-cliente-solicitudes>
       </div>
     </div>
   </div>
