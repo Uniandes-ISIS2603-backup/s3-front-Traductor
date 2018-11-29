@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy,ViewChild,ViewContainerRef } from '@angula
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 import { ToastrService } from 'ngx-toastr';
-import { Propuesta } from '../propuesta';
 import { EmpleadoService } from '../empleado.service';
 import { Empleado } from '../empleado';
 import { EmpleadoDetail } from '../empleado-detail';
