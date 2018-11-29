@@ -82,8 +82,16 @@ export class ClienteService {
     return this.http.put<TarjetaDeCredito>(API_URL + clientes + '/' + idCliente+"/tarjetasDeCredito/"+tarjeta.idTarjeta, tarjeta);
 }
 
+updateCliente(cliente): Observable<Cliente> {
+  return this.http.put<Cliente>(API_URL + clientes + '/' + cliente.id, cliente);
+}
+
 deleteTarjeta(clienteId,idTarjeta): Observable<TarjetaDeCredito> {
   return this.http.delete<TarjetaDeCredito>(API_URL + clientes + '/' + clienteId+tarjetas+"/"+idTarjeta);
+}
+
+deleteCliente(idCliente): Observable<Cliente> {
+  return this.http.delete<Cliente>(API_URL + clientes + '/' + idCliente );
 }
   
 

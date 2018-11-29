@@ -1,7 +1,7 @@
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild,ViewContainerRef } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 import { Cliente } from '../cliente';
 import { ClienteService } from '../cliente.service';
 import {ClienteTarjetasComponent} from '../cliente-tarjetas/cliente-tarjetas.component';
@@ -9,6 +9,7 @@ import {ClienteAddTarjetaDeCreditoComponent} from '../cliente-add-tarjeta-de-cre
 import { ClientePagosComponent } from '../cliente-pagos/cliente-pagos.component';
 import { ClientePropuestasListComponent } from '../cliente-propuestas/cliente-propuestas.component';
 import {ClienteInvitacionesComponent} from '../cliente-invitaciones/cliente-invitaciones.component';
+import { ClienteEditComponent } from '../cliente-edit/cliente-edit.component';
 
 
 
@@ -30,7 +31,9 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
     private clienteService: ClienteService,
     private route: ActivatedRoute,
     private router: Router,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,    
+    private modalDialogService: ModalDialogService,
+    private viewRef: ViewContainerRef
   ) {
         //This is added so we can refresh the view when one of the clients in
         //the "Other clients" list is clicked
@@ -68,6 +71,8 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
 
   @ViewChild(ClientePropuestasListComponent) propuestaListComponent: ClientePropuestasListComponent;
 
+  @ViewChild(ClienteEditComponent) clienteEditComponent: ClienteEditComponent;
+
   //@ViewChild(ClienteInvitacionesComponent) invitacionesListComponent: ClienteInvitacionesComponent;
   
   toggleTarjetas(): void {
@@ -90,6 +95,10 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
   {
     this.pagosListComponent.isCollapsed = !this.pagosListComponent.isCollapsed;
     
+  }
+
+  toggleEditarCliente():void{
+    this.clienteEditComponent.isCollapsed = !this.clienteEditComponent.isCollapsed ;  
   }
 
   toggleCreateTarjeta(): void {
@@ -121,6 +130,31 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
     this.getCliente();
     this.pagosListComponent.updatePagos(this.cliente.pagos);
     this.pagosListComponent.isCollapsed = false;
+  }
+
+  eliminarEmpleado():void
+  {
+    this.modalDialogService.openDialog(this.viewRef, {
+      title: 'Eliminar un cliente',
+      childComponent: SimpleModalComponent,
+      data: {text: 'Seguro que quiere eliminar esta empleado?'},
+      actionButtons: [
+          {
+              text: 'Yes',
+              buttonClass: 'btn btn-danger',
+              onAction: () => {
+                  this.clienteService.deleteCliente(this.cliente_id).subscribe(book => {
+                      this.toastrService.success("Cliente  ", "Cliente eliminada");
+                      this.router.navigate(['clientes/list']);
+                  }, err => {
+                      this.toastrService.error(err, "Error");
+                  });
+                  return true;
+              }
+          },
+          {text: 'No', onAction: () => true}
+      ]
+  });
   }
 
   /**
