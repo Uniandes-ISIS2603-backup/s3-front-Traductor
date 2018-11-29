@@ -1,3 +1,4 @@
+<div class="container-fluid" *ngxPermissionsOnly="['EMPLEADO', 'ADMIN']">
 <div class="crd row justify-content-center">
     <div class="col-md-2">
         <ng-container *ngIf="empleado.aniosExperiencia % 2 === 0; else elseTemplate">
@@ -83,4 +84,4 @@
 <div  class="crd row justify-content-center" >
     <app-empleado-edit [idEmpleado]="empleado_id"  ></app-empleado-edit>    
 </div>
-
+</div>
