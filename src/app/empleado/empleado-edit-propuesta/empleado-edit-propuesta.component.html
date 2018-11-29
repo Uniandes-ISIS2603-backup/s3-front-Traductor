@@ -1,4 +1,5 @@
 <div id="collapseEditPropuesta" [ngbCollapse]="isCollapsed">
+        <div class="container-fluid" *ngxPermissionsOnly="['EMPLEADO', 'ADMIN']">
     <div class="align-items-center justify-content-center container fluid">
        
             <h3 class="text-center">Editar una propuesta</h3>
@@ -39,5 +40,6 @@
                 </div>
             </form>
      
+    </div>
     </div>
     </div>

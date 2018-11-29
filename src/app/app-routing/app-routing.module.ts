@@ -138,6 +138,16 @@ const routes: Routes = [
         path: 'empleados',
         children: [
             {
+                path: 'miperfil',
+                component: PerfilComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['EMPLEADO']
+                    }
+                }
+            },
+            {
                 path: 'list',
                 component: EmpleadoListComponent
             },
@@ -149,16 +159,6 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: EmpleadoDetailComponent
-            },
-            {
-                path: 'miperfil',
-                component: PerfilComponent,
-                canActivate: [NgxPermissionsGuard],
-                data: {
-                    permissions: {
-                        only: ['EMPLEADO']
-                    }
-                }
             }
         ]
     },

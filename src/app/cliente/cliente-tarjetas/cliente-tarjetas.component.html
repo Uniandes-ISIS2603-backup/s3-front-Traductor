@@ -1,5 +1,5 @@
 <div id="collapseTarjetas" [ngbCollapse]="isCollapsed">
-<div class="container-fluid">
+<div class="container-fluid" *ngxPermissionsOnly="['CLIENTE', 'ADMIN']">
   <div class="col-md-2">
       <table class="table table-striped">
           <thead class="thead-dark">

@@ -3,16 +3,19 @@ import { EmpleadoService } from '../empleado.service';
 import { ToastrService } from 'ngx-toastr';
 import { Propuesta } from '../propuesta';
 import { Router} from '@angular/router';
+import {DatePipe} from '@angular/common';
 
 
 @Component({
   selector: 'app-empleado-edit-propuesta',
   templateUrl: './empleado-edit-propuesta.component.html',
-  styleUrls: ['./empleado-edit-propuesta.component.css']
+  styleUrls: ['./empleado-edit-propuesta.component.css'],
+  providers: [DatePipe]
 })
 export class EmpleadoEditPropuestaComponent implements OnInit,OnChanges {
 
   constructor( private empleadoService: EmpleadoService,
+    private dp: DatePipe,
     private toastrService: ToastrService,
     private router: Router
     ) { }
@@ -46,7 +49,8 @@ export class EmpleadoEditPropuestaComponent implements OnInit,OnChanges {
     * Updates the information of the client
     */
    editPropuesta(): void {
-   
+    let dateB: Date = new Date(this.propuesta.tiempoEstimado.year, this.propuesta.tiempoEstimado.month - 1, this.propuesta.tiempoEstimado.day);
+    this.propuesta.tiempoEstimado = this.dp.transform(dateB, 'dd/MM/yyyy');
     this.empleadoService.updatePropuesta(this.idEmpleado,this.propuesta)
         .subscribe(() => {
             this.toastrService.success("La info de la propuesta se actualizo", "Actualizacion de la propuesta");

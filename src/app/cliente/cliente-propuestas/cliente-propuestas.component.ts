@@ -57,9 +57,30 @@ constructor( private clienteService: ClienteService,
    propuesta.estado=estado;
    propuesta.tiempoEstimado=tiempoEstimado;
    pago.propuestaDto=propuesta;
-let cliente_id = +this.route.snapshot.paramMap.get('id');
-this.clienteService.createPago(cliente_id,pago);
+this.modalDialogService.openDialog(this.viewRef, {
+    title: 'Pagar una propuesta',
+    childComponent: SimpleModalComponent,
+    data: {text: 'Seguro que quiere pagar esta propuesta?'},
+    actionButtons: [
+        {
+            text: 'Yes',
+            buttonClass: 'btn btn-danger',
+            onAction: () => {
+                this.clienteService.createPago(this.idCliente,pago).subscribe(book => {
+                    this.toastrService.success("Propuesta  ", "Propuesta pagada");
+                    this.router.navigate(['clientes/'+this.idCliente]);
+                }, err => {
+                    this.toastrService.error(err, "Error");
+                });
+                return true;
+            }
+        },
+        {text: 'No', onAction: () => true}
+    ]
+});
 }
+
+
 
 deletePropuesta(id:number)
 {

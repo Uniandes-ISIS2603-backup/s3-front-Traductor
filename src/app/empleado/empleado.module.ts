@@ -13,12 +13,14 @@ import { EmpleadoPropuestasListComponent } from './empleado-propuestas/empleado-
 import { PropuestaCreateComponent } from './empleado-add-propuesta/empleado-add-propuesta.component';
 import { EmpleadoEditPropuestaComponent } from './empleado-edit-propuesta/empleado-edit-propuesta.component';
 import {CalificacionesModule} from 'src/app/calificaciones/calificaciones.module';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 /**
  * Imports de invitacion para el empleado
  */
 import {EmpleadoInvitacionesComponent} from './empleado-invitaciones/empleado-invitaciones.component';
 import {EmpleadoInvitacionDetailComponent} from './empleado-invitacion-detail/empleado-invitacion-detail.component';
+import { CalificacionesListComponent } from '../calificaciones/calificaciones-list/calificaciones-list.component';
 import { EmpleadoEditComponent } from './empleado-edit/empleado-edit.component';
 
 
@@ -30,10 +32,31 @@ import { EmpleadoEditComponent } from './empleado-edit/empleado-edit.component';
     FormsModule,
     CommonModule,
     NgbModule,
-    CalificacionesModule
+    CalificacionesModule,
+    NgxPermissionsModule
   ],
-  declarations: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent,EmpleadoPropuestasListComponent,PropuestaCreateComponent, EmpleadoEditPropuestaComponent,EmpleadoInvitacionesComponent,EmpleadoInvitacionDetailComponent, EmpleadoEditComponent],
+  declarations: [
+    EmpleadoListComponent,
+    EmpleadoDetailComponent, 
+    EmpleadoCreateComponent,
+    EmpleadoPropuestasListComponent,
+    PropuestaCreateComponent, 
+    EmpleadoEditPropuestaComponent,
+    EmpleadoInvitacionesComponent,
+    EmpleadoInvitacionDetailComponent, 
+    EmpleadoEditComponent
+  ],
   providers: [EmpleadoService],
-  exports: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent]
+  exports: [
+    EmpleadoListComponent, 
+    EmpleadoDetailComponent, 
+    EmpleadoCreateComponent,
+    EmpleadoPropuestasListComponent,
+    EmpleadoEditPropuestaComponent,
+    PropuestaCreateComponent,
+    EmpleadoInvitacionesComponent,
+    EmpleadoInvitacionDetailComponent,
+    EmpleadoEditComponent
+  ]
 })
 export class EmpleadoModule { }

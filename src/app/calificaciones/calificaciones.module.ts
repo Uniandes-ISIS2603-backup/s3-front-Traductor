@@ -21,8 +21,16 @@ import { CalificacionesCreateComponent } from './calificaciones-create/calificac
     NgbModule,
     NgxPermissionsModule
   ],
-  declarations: [CalificacionesListComponent, CalificacionesDetailComponent, CalificacionesCreateComponent],
+  declarations: [
+    CalificacionesListComponent, 
+    CalificacionesDetailComponent,
+    CalificacionesCreateComponent
+  ],
   providers: [CalificacionesService],
-  exports: [CalificacionesListComponent, CalificacionesCreateComponent, CalificacionesDetailComponent]
+  exports: [
+    CalificacionesListComponent, 
+    CalificacionesCreateComponent, 
+    CalificacionesDetailComponent
+  ]
 })
 export class CalificacionesModule { }
