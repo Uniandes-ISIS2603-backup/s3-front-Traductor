@@ -96,15 +96,15 @@
     <div class="col-md-4 d-flex flex-md-column align-items-center justify-content-center">
       <span class="figure-caption">Mi Perfil</span>
       <ng-container *ngIf="this.authService.getUser().aniosExperiencia == undefined; else defecto">
-        <img class="img-fluid" src="../../../assets/img/avatar.png" alt="imagen {{this.authService.getUser().nombre}}}">
+        <img class="img-fluid" src="../../../assets/img/avatar.png" alt="imagen {{this.authService.getUser().nombreEmpleado}}}">
       </ng-container>
       <ng-template #defecto>
         <img class="img-fluid" *ngIf="this.authService.getUser().aniosExperiencia % 2 === 0" src="../../../assets/img/male.png"
-          alt="imagen {{this.authService.getUser().nombre}}}">
+          alt="imagen {{this.authService.getUser().nombreEmpleado}}}">
         <img class="img-fluid" *ngIf="this.authService.getUser().aniosExperiencia % 2 !== 0" src="../../../assets/img/female.png"
-          alt="imagen {{this.authService.getUser().nombre}}}">
+          alt="imagen {{this.authService.getUser().nombreEmpleado}}}">
       </ng-template>
-      <h3 class="text-center">{{this.authService.getUser().nombre}}</h3>
+      <h3 class="text-center">{{this.authService.getUser().nombreEmpleado}}</h3>
       <div>
         <div>
           <span><b>Nombre de Usuario:</b></span>
@@ -117,33 +117,59 @@
               {{this.authService.getUser().correoElectronico}}</span></div>
         </div>
         <div>
-          <span><b>Identificación:</b></span>
-          <div *ngIf="this.authService.getUser().identificacion != undefined"><span>
-              {{this.authService.getUser().identificacion}}</span></div>
+          <span><b>Años Experiencia:</b></span>
+          <div *ngIf="this.authService.getUser().aniosExperiencia != undefined"><span>
+              {{this.authService.getUser().aniosExperiencia}}</span></div>
         </div>
         <div>
           <span><b>Tipo de Cliente:</b></span>
-          <div *ngIf="this.authService.getUser().tipoCliente != undefined">
-            <div *ngIf="this.authService.getUser().tipoCliente === 'EMPRESA'"><span> Empresa</span></div>
-            <div *ngIf="this.authService.getUser().tipoCliente === 'PERSONA_NATURAL'"><span> Persona Natural</span></div>
+          <div *ngIf="this.authService.getUser().tipoEmpleado != undefined">
+            <div *ngIf="this.authService.getUser().tipoEmpleado === 'CORRECTOR'"><span> Corrector</span></div>
+            <div *ngIf="this.authService.getUser().tipoEmpleado === 'TRADUCTOR'"><span> Traductor</span></div>
+            <div *ngIf="this.authService.getUser().tipoEmpleado === 'CORRECTOR_TRADUCTOR'"><span> Corrector y Traductor</span></div>
+          </div>
+        </div>
+        <div>
+          <span><b>Trayectoria:</b></span>
+          <div *ngIf="this.authService.getUser().trayectoria != undefined">
+            <span> {{this.authService.getUser().trayectoria}}</span>
+          </div>
+        </div>
+        <div>
+          <span><b>Trayectoria:</b></span>
+          <div *ngIf="this.authService.getUser().trayectoria != undefined">
+            <span> {{this.authService.getUser().trayectoria}}</span>
+          </div>
+        </div>
+        <div>
+          <span><b>Estudios:</b></span>
+          <div *ngIf="this.authService.getUser().estudios != undefined">
+            <span> {{this.authService.getUser().estudios}}</span>
+          </div>
+        </div>
+        <div>
+          <span><b>Referencias:</b></span>
+          <div *ngIf="this.authService.getUser().referencias != undefined">
+            <span> {{this.authService.getUser().referencias}}</span>
+          </div>
+        </div>
+        <div>
+          <span><b>Hoja de Vida:</b></span>
+          <div *ngIf="this.authService.getUser().hojaDeVida != undefined">
+            <span> {{this.authService.getUser().hojaDeVida}}</span>
           </div>
         </div>
       </div>
       <br>
-      <a routerLink="/clientes/{{cliente_id}}/edit" class="but btn-secundario">
+      <a routerLink="/empleados/{{empleado_id}}/edit" class="but btn-secundario">
         <span class="fas fa-user-edit"></span> Editar perfil
       </a>
     </div>
     <div class="col-md-8">
       <ul class="nav nav-tabs row justify-content-around align-items-center">
         <li class="nav-item">
-          <a class="nav-link" (click)="toggleTarjetas()">
-            Mis tarjetas
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="togglePagos()">
-            Mis pagos
+          <a class="nav-link" (click)="toggleCalificaciones()">
+            Mis Calificaciones
           </a>
         </li>
         <li class="nav-item">
@@ -166,20 +192,16 @@
             <span class="fas fa-plus-circle"></span>
           </a>
           <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="drop-adds">
-            <a class="nav-link" (click)="toggleCreateTarjeta()">
-              Agregar tarjeta
+            <a class="nav-link" (click)="toggleCreatePropuesta()">
+              Hacer Propuesta
             </a>
           </div>
         </li>
       </ul>
       <div class="row d-flex justify-content-center">
-        <div *ngIf="mostrarInvitacion">
-          <app-cliente-invitaciones [clienteId]="cliente_id"></app-cliente-invitaciones>
-        </div>
-        <app-cliente-tarjetas [tarjetasCliente]="this.authService.getUser()?.tarjetas" [idCliente]="cliente_id"></app-cliente-tarjetas>
-        <app-cliente-add-tarjeta-de-credito [cliente]="this.authService.getUser()" (updateTarjetas)="updateTarjetas()"></app-cliente-add-tarjeta-de-credito>
-        <app-cliente-pagos [pagos]="this.authService.getUser()?.pagos"></app-cliente-pagos>
-        <app-cliente-propuestas [propuestas]="this.authService.getUser()?.propuestas"></app-cliente-propuestas>
+        <app-empleado-propuestas [idEmpleado]="cliente_id"  [propuestasEmpleado]="this.authService.getUser().propuestas"></app-empleado-propuestas>
+        <list-calificacion [empleadoId]="cliente_id"></list-calificacion>
+        <app-empleado-invitaciones [empleado]="this.authService.getUser()" [empleadoId]="cliente_id"></app-empleado-invitaciones>
       </div>
     </div>
   </div>

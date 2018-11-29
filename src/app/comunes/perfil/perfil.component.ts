@@ -7,6 +7,9 @@ import { ClienteTarjetasComponent } from 'src/app/cliente/cliente-tarjetas/clien
 import { NavigationEnd, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ClienteService } from 'src/app/cliente/cliente.service';
+import { EmpleadoPropuestasListComponent } from 'src/app/empleado/empleado-propuestas/empleado-propuestas.component';
+import { PropuestaCreateComponent } from 'src/app/empleado/empleado-add-propuesta/empleado-add-propuesta.component';
+import { EmpleadoService } from 'src/app/empleado/empleado.service';
 
 @Component({
   selector: 'app-perfil-cliente',
@@ -14,7 +17,6 @@ import { ClienteService } from 'src/app/cliente/cliente.service';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit, OnDestroy {
-
 
   /**
     * The constructor of the component
@@ -26,6 +28,7 @@ export class PerfilComponent implements OnInit, OnDestroy {
   */
   constructor(
     private clienteService: ClienteService,
+    private empleadoService: EmpleadoService,
     private router: Router,
     private toastrService: ToastrService,
     private authService: AuthService
@@ -42,8 +45,13 @@ export class PerfilComponent implements OnInit, OnDestroy {
   //Ocultar o mostrar el modulo de invitaciones del cliente.
   mostrarInvitacion = false;
 
+  //Mostrar la seccion de calificaciones
+  mostrarCalificacion = false;
+
+  rol: string;
+
   /**
-   * El id del cliente actual
+   * El id del usuario actual
    */
   cliente_id: number;
 
@@ -59,9 +67,12 @@ export class PerfilComponent implements OnInit, OnDestroy {
 
   @ViewChild(ClientePagosComponent) pagosListComponent: ClientePagosComponent;
 
-  @ViewChild(ClientePropuestasListComponent) propuestaListComponent: ClientePropuestasListComponent;
+  @ViewChild(ClientePropuestasListComponent) propuestaListCliente: ClientePropuestasListComponent;
 
-  //@ViewChild(ClienteInvitacionesComponent) invitacionesListComponent: ClienteInvitacionesComponent;
+  @ViewChild(EmpleadoPropuestasListComponent) propuestaListEmpleado: EmpleadoPropuestasListComponent;
+
+  @ViewChild(PropuestaCreateComponent) propuestaCreateComponent: PropuestaCreateComponent;
+
 
   toggleTarjetas(): void {
     if (this.tarjetaAddComponent.isCollapsed == false) {
@@ -73,8 +84,8 @@ export class PerfilComponent implements OnInit, OnDestroy {
     if (this.mostrarInvitacion) {
       this.mostrarInvitacion = !this.mostrarInvitacion;
     }
-    if (this.propuestaListComponent.isCollapsed == false) {
-      this.propuestaListComponent.isCollapsed = true;
+    if (this.propuestaListCliente.isCollapsed == false) {
+      this.propuestaListCliente.isCollapsed = true;
     }
     this.tarjetaListComponent.isCollapsed = !this.tarjetaListComponent.isCollapsed;
   }
@@ -92,7 +103,11 @@ export class PerfilComponent implements OnInit, OnDestroy {
     if (this.mostrarInvitacion) {
       this.mostrarInvitacion = !this.mostrarInvitacion;
     }
-    this.propuestaListComponent.isCollapsed = !this.propuestaListComponent.isCollapsed;
+    if (this.rol === 'CLIENTE') {
+      this.propuestaListCliente.isCollapsed = !this.propuestaListCliente.isCollapsed;
+    } else {
+      this.propuestaListEmpleado.isCollapsed = !this.propuestaListEmpleado.isCollapsed;
+    }
   }
 
   togglePagos(): void {
@@ -105,11 +120,10 @@ export class PerfilComponent implements OnInit, OnDestroy {
     if (this.mostrarInvitacion) {
       this.mostrarInvitacion = !this.mostrarInvitacion;
     }
-    if (this.propuestaListComponent.isCollapsed == false) {
-      this.propuestaListComponent.isCollapsed = true;
+    if (this.propuestaListCliente.isCollapsed == false) {
+      this.propuestaListCliente.isCollapsed = true;
     }
     this.pagosListComponent.isCollapsed = !this.pagosListComponent.isCollapsed;
-
   }
 
   toggleCreateTarjeta(): void {
@@ -119,19 +133,24 @@ export class PerfilComponent implements OnInit, OnDestroy {
     if (this.mostrarInvitacion) {
       this.mostrarInvitacion = !this.mostrarInvitacion;
     }
-    if (this.propuestaListComponent.isCollapsed == false) {
-      this.propuestaListComponent.isCollapsed = true;
+    if (this.propuestaListCliente.isCollapsed == false) {
+      this.propuestaListCliente.isCollapsed = true;
     }
     if (this.pagosListComponent.isCollapsed == false) {
       this.pagosListComponent.isCollapsed = true;
     }
     this.tarjetaAddComponent.isCollapsed = !this.tarjetaAddComponent.isCollapsed;
-
   }
 
   toggleInvitaciones(): void {
-    if (this.propuestaListComponent.isCollapsed == false) {
-      this.propuestaListComponent.isCollapsed = true;
+    if (this.rol === 'CLIENTE') {
+      if (this.propuestaListCliente.isCollapsed == false) {
+        this.propuestaListCliente.isCollapsed = true;
+      }
+    } else {
+      if (this.propuestaListEmpleado.isCollapsed == false) {
+        this.propuestaListEmpleado.isCollapsed = true;
+      }
     }
     if (this.pagosListComponent.isCollapsed == false) {
       this.pagosListComponent.isCollapsed = true;
@@ -143,6 +162,42 @@ export class PerfilComponent implements OnInit, OnDestroy {
       this.tarjetaAddComponent.isCollapsed = true;
     }
     this.mostrarInvitacion = !this.mostrarInvitacion;
+  }
+
+  // toggleCreatePropuesta(): void {
+  //   if (this.rol === 'CLIENTE') {
+  //     if (this.propuestaListCliente.isCollapsed == false) {
+  //       this.propuestaListCliente.isCollapsed = true;
+  //     }
+  //   } else {
+  //     if (this.propuestaListEmpleado.isCollapsed == false) {
+  //       this.propuestaListEmpleado.isCollapsed = true;
+  //     }
+  //   }
+  //   if (this.mostrarInvitacion) {
+  //     this.mostrarInvitacion = !this.mostrarInvitacion;
+  //   }
+  //   if (this.mostrarCalificacion) {
+  //     this.mostrarCalificacion = !this.mostrarCalificacion;
+  //   }
+  //   this.propuestaCreateComponent.isCollapsed = !this.propuestaCreateComponent.isCollapsed;
+
+  // }
+
+  toggleCalificaciones(): void {
+    if (this.rol === 'CLIENTE') {
+      if (this.propuestaListCliente.isCollapsed == false) {
+        this.propuestaListCliente.isCollapsed = true;
+      }
+    } else {
+      if (this.propuestaListEmpleado.isCollapsed == false) {
+        this.propuestaListEmpleado.isCollapsed = true;
+      }
+    }
+    if (this.mostrarInvitacion) {
+      this.mostrarInvitacion = !this.mostrarInvitacion;
+    }
+    this.mostrarCalificacion = !this.mostrarCalificacion;
   }
 
   updateTarjetas(): void {
@@ -159,6 +214,24 @@ export class PerfilComponent implements OnInit, OnDestroy {
     this.pagosListComponent.isCollapsed = true;
   }
 
+  updatePropuestas(): void {
+    this.getEmpleado();
+    this.propuestaListEmpleado.updatePropuestas(this.authService.getUser().propuestas);
+    this.propuestaListEmpleado.isCollapsed = false;
+    this.propuestaCreateComponent.isCollapsed = true;
+  }
+
+
+  getEmpleado(): void {
+    this.empleadoService.getEmpleado(this.cliente_id)
+      .subscribe(empleado => {
+        this.authService.saveUser(empleado);
+      }, err => {
+        this.toastrService.error(err, 'Error');
+      });
+
+  }
+
   /**
   * The method which retrieves the details of the client that
   * we want to show
@@ -168,7 +241,6 @@ export class PerfilComponent implements OnInit, OnDestroy {
     this.clienteService.getCliente(this.cliente_id)
       .subscribe(cliente => {
         this.authService.saveUser(cliente);
-        //this.cliente = cliente;
       }, err => {
         this.toastrService.error(err, "Error");
       });
@@ -180,12 +252,16 @@ export class PerfilComponent implements OnInit, OnDestroy {
   * they are never considered undefined
   */
   ngOnInit() {
+    this.rol = localStorage.getItem('rol');
     console.log(this.authService.getUser());
     this.cliente_id = ((this.authService.getUser().id) as number);
-    console.log(this.cliente_id);    
+    console.log(this.cliente_id);
     this.mostrarInvitacion = false;
-    this.getCliente();
-    //this.getAllClientes();    
+    if (this.rol === 'CLIENTE') {
+      this.getCliente();
+    } else {
+      this.getEmpleado();
+    }
   }
 
   /**
