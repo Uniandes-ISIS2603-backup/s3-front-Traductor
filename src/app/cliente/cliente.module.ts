@@ -19,6 +19,7 @@ import { ClienteAddInvitacionComponent } from './cliente-add-invitacion/cliente-
 import { ClienteEditInvitacionComponent } from './cliente-edit-invitacion/cliente-edit-invitacion.component';
 import { ClienteInvitacionDetailComponent } from './cliente-invitacion-detail/cliente-invitacion-detail.component';
 import { NgxPermissionsModule } from 'ngx-permissions';
+import { ClienteSolicitudesComponent } from './cliente-solicitudes/cliente-solicitudes.component';
 
 @NgModule({
   imports: [
@@ -42,7 +43,8 @@ import { NgxPermissionsModule } from 'ngx-permissions';
     ClienteInvitacionesComponent,
     ClienteAddInvitacionComponent,
     ClienteEditInvitacionComponent,
-    ClienteInvitacionDetailComponent
+    ClienteInvitacionDetailComponent,
+    ClienteSolicitudesComponent
   ],
   providers: [ClienteService],
   exports: [
