@@ -13,8 +13,6 @@ const solicitudes = '/solicitudes';
 export class SolicitudService {
 
    constructor(private clienteHttp: HttpClient){}
-	
- 
    
    getSolicitudes() : Observable<Solicitud[]> {
      return this.clienteHttp.get<Solicitud[]>(API_URL + solicitudes);
@@ -24,7 +22,17 @@ export class SolicitudService {
     return this.clienteHttp.get<Solicitud>(API_URL + '/empleados/' + idEmpleado + solicitudes + '/' + id);
   }
 
+  getSolicitudesCliente(idCliente) : Observable<Solicitud[]> {
+    return this.clienteHttp.get<Solicitud[]>(API_URL + '/clientes/' + idCliente + solicitudes);
+  }
+
   getSolicitudCliente(idCliente, id) : Observable<Solicitud> {
     return this.clienteHttp.get<Solicitud>(API_URL + '/clientes/' + idCliente + solicitudes + '/' + id);
   }
+
+  deleteSolicitudCliente(idCliente, idSol) : Observable<Solicitud> {
+    return this.clienteHttp.delete<Solicitud>(API_URL + /clientes/ + idCliente + solicitudes + '/' + idSol);
+  }
+
+  
 }

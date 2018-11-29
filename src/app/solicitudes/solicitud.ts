@@ -3,13 +3,16 @@
  * Interfaz donde e definen los valores de los atributos de una Solicitud. 
  */
 
-export class Solicitud
-{
+export class Solicitud {
 
-idSolicitud : number;
-empleado : string;
-cliente : string;
-estado : number;
-
-
+    id: number;
+    fechaInicio: any;
+    fechaEntrega: any;
+    estado: number;
+    tipoSolicitud: number;
+    idiomaEntrada: string;
+    idiomaSalitda: string;
+    descripcion: string;
+    archivo: string;
+    longitud: number;
 }

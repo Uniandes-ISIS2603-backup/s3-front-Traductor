@@ -59,7 +59,7 @@ import { ClienteSolicitudesComponent } from './cliente-solicitudes/cliente-solic
     ClienteAddInvitacionComponent,
     ClienteEditInvitacionComponent,
     ClienteInvitacionDetailComponent,
-
+    ClienteSolicitudesComponent
   ]
 })
 export class ClienteModule { }
