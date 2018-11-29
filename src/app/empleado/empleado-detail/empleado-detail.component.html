@@ -1,4 +1,3 @@
-<div class="container-fluid" *ngxPermissionsOnly="['EMPLEADO', 'ADMIN']">
 <div class="crd row justify-content-center">
     <div class="col-md-2">
         <ng-container *ngIf="empleado.aniosExperiencia % 2 === 0; else elseTemplate">
@@ -38,7 +37,7 @@
             <dd>{{empleado.referencias}}</dd>
         </dl>
         <div class="row">
-            <div class="col-md-1 latera">
+            <div class="col-md-2 latera">
                 <button type="button" class="btn btn-primary" (click)="toggleEditarEmpleado()">
                     Editar perfil
                 </button>
@@ -84,4 +83,4 @@
 <div class="crd row justify-content-center">
     <app-empleado-edit [idEmpleado]="empleado_id"></app-empleado-edit>
 </div>
-</div>
+

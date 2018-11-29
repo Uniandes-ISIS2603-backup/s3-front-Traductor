@@ -45,7 +45,14 @@ export class EmpleadoEditComponent implements OnInit {
     this.empleadoService.updateEmpleado(this.empleado)
         .subscribe(() => {
             this.toastrService.success("La info del perfil se actualizo", "Actualizacion del perfil del empleado");
-            this.router.navigate(['empleados/'+this.idEmpleado]);
+            let rol:string=localStorage.getItem('rol');
+if(rol=='EMPLEADO')
+{
+            this.router.navigate(['empleados/miperfil']);
+}else
+{
+  this.router.navigate(['empleados/'+this.idEmpleado]);
+}
         });
     this.updateEmpleado.emit();
     this.isCollapsed=true;

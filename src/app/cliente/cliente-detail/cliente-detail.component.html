@@ -1,3 +1,4 @@
+<div class="container-fluid" *ngxPermissionsOnly="['ADMIN']">
 <div class="crd row justify-content-center">
     <div class="col-md-2">
         <ng-container *ngIf="cliente.tipoCliente === 'EMPRESA'; else elseBlock">
@@ -25,6 +26,18 @@
                 <dd>Persona Natural</dd>
             </ng-template>
         </dl>
+        <div class="row">
+                <div class="col-md-2 latera">
+                    <button type="button" class="btn btn-primary" (click)="toggleEditarCliente()">
+                        Editar perfil
+                    </button>
+                </div>
+                <div class="col-md-2 lateral">
+                        <button type="button" class="btn btn-primary" (click)="eliminarCliente()">
+                            Eliminar este cliente
+                        </button>
+                    </div>
+        </div>
         <div class="row">
             <div *ngIf="cliente.tarjetas != undefined && cliente.tarjetas.length > 0" class="col-md-1">
                 <button type="button" class="btn" [ngClass]="{ 'btn-primary': tarjetaListComponent.isCollapsed,'btn-outline-primary':!tarjetaListComponent.isCollapsed}"
@@ -72,4 +85,8 @@
 </div>
 <div class="crd row justify-content-center">
     <app-cliente-propuestas [propuestas]="cliente?.propuestas" [idCliente]="cliente?.id"></app-cliente-propuestas>
+</div>
+<div class="crd row justify-content-center">
+        <app-cliente-edit [idCliente]="cliente_id"></app-cliente-edit>
+    </div>
 </div>
