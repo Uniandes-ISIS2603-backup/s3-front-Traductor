@@ -4,11 +4,14 @@
             <img class="im card-img-top" src="https://png.icons8.com/color/1600/administrator-male.png" alt="Card {{empleado.nombreEmpleado}}}">
         </ng-container>
         <ng-template #elseTemplate>
-            <img class="im card-img-top" src="https://png2.kisspng.com/20180402/yie/kisspng-computer-icons-female-user-profile-avatar-material-5ac1fa22a5a567.4501855215226619226785.png" alt="Card {{empleado.nombreEmpleado}}}">
+            <img class="im card-img-top" src="https://png2.kisspng.com/20180402/yie/kisspng-computer-icons-female-user-profile-avatar-material-5ac1fa22a5a567.4501855215226619226785.png"
+                alt="Card {{empleado.nombreEmpleado}}}">
         </ng-template>
     </div>
     <div class="col-md-10">
-        <span class="figure-caption"><h2>Sobre este Empleado:</h2></span>
+        <span class="figure-caption">
+            <h2>Sobre este Empleado:</h2>
+        </span>
         <h3 class="card-title">{{empleado.nombreEmpleado}}</h3>
         <dl>
             <dt>Nombre de Usuario:</dt>
@@ -19,13 +22,13 @@
             <dd>{{empleado.aniosExperiencia}}</dd>
             <dt>Tipo de Empleado:</dt>
             <ng-container *ngIf="empleado.tipoEmpleado === 'CORRECTOR'">
-            <dd>Corrector</dd>
+                <dd>Corrector</dd>
             </ng-container>
             <ng-container *ngIf="empleado.tipoEmpleado === 'TRADUCTOR'; else elseTemplate">
-            <dd>Traductor</dd>
+                <dd>Traductor</dd>
             </ng-container>
             <ng-template #elseTemplate>
-            <dd>Traductor y Corrector</dd>
+                <dd>Traductor y Corrector</dd>
             </ng-template>
             <dt>Trayectoria:</dt>
             <dd>{{empleado.trayectoria}}</dd>
@@ -35,44 +38,42 @@
             <dd>{{empleado.referencias}}</dd>
         </dl>
         <div class="row">
-        <div class="col-md-2">
-            <button type="button" class="btn btn-primary"
-                (click)="toggleEditarEmpleado()">
-                Editar perfil
-            </button>
+            <div class="col-md-1 latera">
+                <button type="button" class="btn btn-primary" (click)="toggleEditarEmpleado()">
+                    Editar perfil
+                </button>
+            </div>
+            <div class="col-md-2 lateral">
+                <button type="button" class="btn btn-primary" (click)="eliminarEmpleado()">
+                    Eliminar este empleado
+                </button>
+            </div>
+
+            <div class="col-md-3 lateral">
+                <div *ngIf="empleado.propuestas != undefined && empleado.propuestas.length > 0" class="col-md-2">
+                    <button type="button" class="btn" [ngClass]="{ 'btn-primary': propuestaListComponent.isCollapsed,'btn-outline-primary':!propuestaListComponent.isCollapsed}"
+                        (click)="togglePropuestas()">
+                        Propuestas Enviadas
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-4 lateral">
+                <button type="button" class="btn" [ngClass]="{ 'btn-primary': mostrarCalificacion,'btn-outline-primary':!mostrarCalificacion}"
+                    (click)="toggleCalificaciones()">
+                    Calificaciones
+                </button>
+            </div>
+            <div class="col-md-5 lateral">
+                <button type="button" class="btn" [ngClass]="{ 'btn-primary': mostrarInvitacion,'btn-outline-primary':!mostrarInvitacion}"
+                    (click)="toggleInvitaciones()">
+                    Invitaciones
+                </button>
+            </div>
         </div>
-        <div class="col-md-2">
-            <button type="button" class="btn btn-primary"
-                (click)="eliminarEmpleado()">
-                Eliminar este empleado
-            </button>
-        </div>  
     </div>
-        <div class="row">
-        <div *ngIf="empleado.propuestas != undefined && empleado.propuestas.length > 0" class="col-md-2">
-            <button type="button" class="btn" [ngClass]="{ 'btn-primary': propuestaListComponent.isCollapsed,'btn-outline-primary':!propuestaListComponent.isCollapsed}" (click)="togglePropuestas()">
-                Propuestas Enviadas
-            </button>
-        </div>        
-        <div class="col-md-2">
-            <button type="button" class="btn" [ngClass]="{ 'btn-primary': mostrarCalificacion,'btn-outline-primary':!mostrarCalificacion}"
-                (click)="toggleCalificaciones()">
-                Calificaciones
-            </button>
-        </div>
-        <div class="col-md-2">
-            <button type="button" class="btn" [ngClass]="{ 'btn-primary': mostrarInvitacion,'btn-outline-primary':!mostrarInvitacion}"
-                (click)="toggleInvitaciones()">
-                Invitaciones
-            </button>
-        </div>
-       
-        </div>
-    </div> 
-   
 </div>
-<div  class="crd row justify-content-center" >
-    <app-empleado-propuestas [idEmpleado]="empleado.id"  [propuestasEmpleado]="empleado.propuestas"></app-empleado-propuestas>    
+<div class="crd row justify-content-center">
+    <app-empleado-propuestas [idEmpleado]="empleado.id" [propuestasEmpleado]="empleado.propuestas"></app-empleado-propuestas>
 </div>
 <div *ngIf="mostrarCalificacion" class="crd row justify-content-center">
     <list-calificacion [empleadoId]="empleado_id"></list-calificacion>
@@ -80,7 +81,6 @@
 <div *ngIf="mostrarInvitacion" class="crd row justify-content-center">
     <app-empleado-invitaciones [empleado]="empleado" [empleadoId]="empleado_id"></app-empleado-invitaciones>
 </div>
-<div  class="crd row justify-content-center" >
-    <app-empleado-edit [idEmpleado]="empleado_id"  ></app-empleado-edit>    
+<div class="crd row justify-content-center">
+    <app-empleado-edit [idEmpleado]="empleado_id"></app-empleado-edit>
 </div>
-

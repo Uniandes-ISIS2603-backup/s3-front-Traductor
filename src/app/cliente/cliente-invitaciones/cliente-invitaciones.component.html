@@ -1,9 +1,10 @@
 <div class="container">
-    <div>
+    <div class="col-xl">
         <table class="table table-hover">
             <thead class="encabezado">
                 <tr>
-                    <th>ID Invitacion</th>
+                    <th></th>
+                    <th>N°</th>
                     <th>ID Solicitud</th>
                     <th>ID Empleado</th>
                     <th>Descripcion</th>
@@ -12,8 +13,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let i of invitaciones" (click)="onSelected(i.idInvitacion)" style="cursor: pointer;">
-                    <td>{{i.idInvitacion}}</td>
+                <tr *ngFor="let i of invitaciones; let j = index">
+                    <td class="fas fa-angle-double-down" (click)="onSelected(i.idInvitacion)" style="cursor: pointer;"></td>
+                    <td>{{j + 1}}</td>
                     <td>{{i.solicitudId}}</td>
                     <td>{{i.idEmpleado}}</td>
                     <td>{{i.descripcion}}</td>
@@ -24,25 +26,25 @@
                         <button class="btn btn-danger iconoEliminar" (click)="deleteInvitacion(i.idInvitacion)">
                             <i class="fas fa-eraser"></i>
                         </button>
-                    </td>
+                    </td>                    
                 </tr>
             </tbody>
         </table>
-        <div class="col justify-content-center align-self-center">
+        <div class="centrar">
             <button [ngClass]="{'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
                 (click)="showHideCreate()">Crear una nueva invitacion</button>
         </div>
     </div>
 
-    <div class="col-4">
+    <div class="container">
         <div *ngIf="showView">
             <app-cliente-invitacion-detail [clienteId]="clienteId" [invitacion]="selectedInvitacion"></app-cliente-invitacion-detail>
         </div>
 
-        <div *ngIf="showCreate">
+        <div class="espaciar" *ngIf="showCreate">
             <app-cliente-add-invitacion [clienteId]="clienteId" (cancel)="showHideCreate()" (create)="ngOnInit()"></app-cliente-add-invitacion>
         </div>
-
+                
         <div *ngIf="showEdit">
             <app-cliente-invitacion-edit [clienteId]="clienteId" [invitacion]="selectedInvitacion" (cancel)="showHideEdit(selectedInvitacion.idInvitacion)"
                 (update)="updateInvitacion()"></app-cliente-invitacion-edit>

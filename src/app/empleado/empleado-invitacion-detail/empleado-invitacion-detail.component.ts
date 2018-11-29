@@ -71,8 +71,7 @@ export class EmpleadoInvitacionDetailComponent implements OnInit {
 
   toogleCreatePropuesta(): void{
     console.log("[EmpleadoInvitacionDetail] Entre a mostrar el componente")
-    this.mostrarCreatePropuesta = !this.mostrarCreatePropuesta;
-    this.router.navigate(['empleados/'+this.empleado.id]);        
+    this.mostrarCreatePropuesta = !this.mostrarCreatePropuesta;           
   }
 
   /**

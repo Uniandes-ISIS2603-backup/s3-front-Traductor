@@ -1,26 +1,28 @@
 <div class="container-fluid">
   <h2 class="justify-content-center align-self-center">Invitaciones enviadas por el cliente</h2>
-  <div class="col-md-2">
-      <table class="table table-striped">
-          <thead class="encabezado">
+  <div class="col">
+      <table class="table table-hover">
+          <thead class="encabezado" style="margin: 100%;">
               <tr>
-                  <th class="figure-caption" routerLink="/propuestas/{{p.id}">ID Invitacion</th>    
-        <th>ID Solicitud</th>
-        <th>ID Empleado</th>
-        <th>Descripcion</th>					
+                <th></th>                  
+                <th>N°</th>
+                <th>ID Empleado</th>
+                <th></th>
+                <th>Descripcion</th>					
               </tr>
           </thead>
           <tbody>                       
-              <tr *ngFor = "let i of invitaciones">
-                <td style="cursor: pointer;" (click)="onSelected(i.idInvitacion)">{{i.idInvitacion}}</td>                  
-        <td>{{i.solicitudId}}</td>
-        <td>{{i.idEmpleado}}</td>
-        <td>{{i.descripcion}}</td>                
+              <tr *ngFor = "let i of invitaciones; let j = index">
+                <td class="fas fa-angle-double-down" (click)="onSelected(i.idInvitacion)" style="cursor: pointer;"></td>
+                <td>{{j+1}}</td>                  
+                <td>{{i.solicitudId}}</td>
+                <td>{{i.idEmpleado}}</td>
+                <td>{{i.descripcion}}</td>                
               </tr>
               </tbody>
       </table>      
   </div>
-  <div class="col-4">
+  <div class="col">
       <div *ngIf="showView">
           <app-empleado-invitacion-detail [empleado]= "empleado" [empleadoId]="empleadoId" [invitacion]="selectedInvitacion"></app-empleado-invitacion-detail>
       </div>      

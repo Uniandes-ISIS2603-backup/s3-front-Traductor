@@ -59,12 +59,14 @@ createPropuesta(propuestaForm: NgForm): Propuesta {
           this.toastrService.error(err, 'Error');
       });
       
-  return this.propuesta;
-  
+  return this.propuesta;  
 }
 
+cancel(): void {
+  this.updatePropuestas.emit(); //Update propuesta solo lanza el evento de cerrar o abrir el componente
+}
 
-  ngOnInit() {
+ngOnInit() {
 	this.propuesta = new Propuesta();
   }
 }

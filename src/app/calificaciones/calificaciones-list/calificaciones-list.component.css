@@ -1,14 +1,29 @@
-.encabezado, th {
-    background: #01DFA5;
+.geovanny, th {
+    background: #4ab8a1;
     color: white    
 }
 
 .iconoEditar {    
-    background-color: #FE9A2E;
+    background-color: #C5D86D;
     border-color: transparent;
 }
 
 .iconoEliminar {    
-    background-color: #FE2E2E;
+    background-color: #ED254E;
     border-color: transparent;
+}
+
+.container{
+    width: 100%;
+    padding: 2vh;
+    margin: 0 auto;
+}
+
+.centrar {
+  display: table;
+  margin: 0 auto;
+}
+
+.espaciar {
+    margin-top: 10%;    
 }

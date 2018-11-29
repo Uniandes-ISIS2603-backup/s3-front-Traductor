@@ -11,3 +11,8 @@ dd{
     border-radius: 12px;
     padding: 1.2em;
 }
+
+.lateral {
+    margin-left: 5%;
+    margin-right: 5%;
+}
