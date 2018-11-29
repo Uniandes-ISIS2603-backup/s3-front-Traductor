@@ -3,26 +3,39 @@
     <div class="col-md-4 d-flex flex-md-column align-items-center justify-content-center">
       <span class="figure-caption">Mi Perfil</span>
       <ng-container *ngIf="this.authService.getUser().tipoCliente == undefined; else defecto">
-        <img src="../../../assets/img/avatar.png" alt="imagen {{this.authService.getUser().nombre}}}">
+        <img class="img-fluid" src="../../../assets/img/avatar.png" alt="imagen {{this.authService.getUser().nombre}}}">
       </ng-container>
       <ng-template #defecto>
-        <img *ngIf="this.authService.getUser().tipoCliente === 'EMPRESA'" src="../../../assets/img/company.png" alt="imagen {{this.authService.getUser().nombre}}}">
-        <img *ngIf="this.authService.getUser().tipoCliente === 'PERSONA_NATURAL'" src="../../../assets/img/client.png" alt="imagen {{this.authService.getUser().nombre}}}">
+        <img class="img-fluid" *ngIf="this.authService.getUser().tipoCliente === 'EMPRESA'" src="../../../assets/img/company.png"
+          alt="imagen {{this.authService.getUser().nombre}}}">
+        <img class="img-fluid" *ngIf="this.authService.getUser().tipoCliente === 'PERSONA_NATURAL'" src="../../../assets/img/client.png"
+          alt="imagen {{this.authService.getUser().nombre}}}">
       </ng-template>
       <h3 class="text-center">{{this.authService.getUser().nombre}}</h3>
-      <dl>
-        <dt>Nombre de Usuario:</dt>
-        <dd *ngIf="this.authService.getUser().nombreUsuario != undefined">{{this.authService.getUser().nombreUsuario}}</dd>
-        <dt>Correo Electrónico:</dt>
-        <dd *ngIf="this.authService.getUser().correoElectronico != undefined">{{this.authService.getUser().correoElectronico}}</dd>
-        <dt>Identificación:</dt>
-        <dd *ngIf="this.authService.getUser().identificacion != undefined">{{this.authService.getUser().identificacion}}</dd>
-        <dt>Tipo de Cliente:</dt>
-        <div *ngIf="this.authService.getUser().tipoCliente != undefined">
-          <dd *ngIf="this.authService.getUser().tipoCliente === 'EMPRESA'">Empresa</dd>
-          <dd *ngIf="this.authService.getUser().tipoCliente === 'PERSONA_NATURAL'">Persona Natural</dd>
+      <div>
+        <div>
+          <span><b>Nombre de Usuario:</b></span>
+          <div *ngIf="this.authService.getUser().nombreUsuario != undefined"><span>
+              {{this.authService.getUser().nombreUsuario}}</span></div>
         </div>
-      </dl>
+        <div>
+          <span><b>Correo Electrónico:</b></span>
+          <div *ngIf="this.authService.getUser().correoElectronico != undefined"><span>
+              {{this.authService.getUser().correoElectronico}}</span></div>
+        </div>
+        <div>
+          <span><b>Identificación:</b></span>
+          <div *ngIf="this.authService.getUser().identificacion != undefined"><span>
+              {{this.authService.getUser().identificacion}}</span></div>
+        </div>
+        <div>
+          <span><b>Tipo de Cliente:</b></span>
+          <div *ngIf="this.authService.getUser().tipoCliente != undefined">
+            <div *ngIf="this.authService.getUser().tipoCliente === 'EMPRESA'"><span> Empresa</span></div>
+            <div *ngIf="this.authService.getUser().tipoCliente === 'PERSONA_NATURAL'"><span> Persona Natural</span></div>
+          </div>
+        </div>
+      </div>
       <br>
       <a routerLink="/clientes/{{cliente_id}}/edit" class="but btn-secundario">
         <span class="fas fa-user-edit"></span> Editar perfil
@@ -31,7 +44,7 @@
     <div class="col-md-8">
       <ul class="nav nav-tabs row justify-content-around align-items-center">
         <li class="nav-item">
-          <a class="nav-link"  (click)="toggleTarjetas()">
+          <a class="nav-link" (click)="toggleTarjetas()">
             Mis tarjetas
           </a>
         </li>
@@ -56,17 +69,17 @@
           </a>
         </li>
         <li class="nav-item dropdown" placement="bottom-right" ngbDropdown>
-          <a class="dropdown-toggle" id="drop-adds" ngbDropdownToggle>
+          <a class="nav-link dropdown-toggle" id="drop-adds" ngbDropdownToggle>
             <span class="fas fa-plus-circle"></span>
           </a>
           <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="drop-adds">
-            <a (click)="toggleCreateTarjeta()">
+            <a class="nav-link" (click)="toggleCreateTarjeta()">
               Agregar tarjeta
             </a>
           </div>
         </li>
       </ul>
-      <div class="row d-flex justify-content-center container-fluid">
+      <div class="row d-flex justify-content-center">
         <div *ngIf="mostrarInvitacion">
           <app-cliente-invitaciones [clienteId]="cliente_id"></app-cliente-invitaciones>
         </div>
@@ -78,6 +91,104 @@
     </div>
   </div>
 </div>
-<div class="all container" *ngxPermissionsOnly="['EMPLEADO']">
-
+<div class="all container-fluid" *ngxPermissionsOnly="['EMPLEADO']">
+  <div class="row justify-content-center">
+    <div class="col-md-4 d-flex flex-md-column align-items-center justify-content-center">
+      <span class="figure-caption">Mi Perfil</span>
+      <ng-container *ngIf="this.authService.getUser().aniosExperiencia == undefined; else defecto">
+        <img class="img-fluid" src="../../../assets/img/avatar.png" alt="imagen {{this.authService.getUser().nombreEmpleado}}}">
+      </ng-container>
+      <ng-template #defecto>
+        <img class="img-fluid" *ngIf="this.authService.getUser().aniosExperiencia % 2 === 0" src="../../../assets/img/male.png"
+          alt="imagen {{this.authService.getUser().nombreEmpleado}}}">
+        <img class="img-fluid" *ngIf="this.authService.getUser().aniosExperiencia % 2 !== 0" src="../../../assets/img/female.png"
+          alt="imagen {{this.authService.getUser().nombreEmpleado}}}">
+      </ng-template>
+      <h3 class="text-center">{{this.authService.getUser().nombreEmpleado}}</h3>
+      <div>
+        <div>
+          <span><b>Nombre de Usuario:</b></span>
+          <div *ngIf="this.authService.getUser().nombreUsuario != undefined"><span>
+              {{this.authService.getUser().nombreUsuario}}</span></div>
+        </div>
+        <div>
+          <span><b>Correo Electrónico:</b></span>
+          <div *ngIf="this.authService.getUser().correoElectronico != undefined"><span>
+              {{this.authService.getUser().correoElectronico}}</span></div>
+        </div>
+        <div>
+          <span><b>Años Experiencia:</b></span>
+          <div *ngIf="this.authService.getUser().aniosExperiencia != undefined"><span>
+              {{this.authService.getUser().aniosExperiencia}}</span></div>
+        </div>
+        <div>
+          <span><b>Tipo de Cliente:</b></span>
+          <div *ngIf="this.authService.getUser().tipoEmpleado != undefined">
+            <div *ngIf="this.authService.getUser().tipoEmpleado === 'CORRECTOR'"><span> Corrector</span></div>
+            <div *ngIf="this.authService.getUser().tipoEmpleado === 'TRADUCTOR'"><span> Traductor</span></div>
+            <div *ngIf="this.authService.getUser().tipoEmpleado === 'CORRECTOR_TRADUCTOR'"><span> Corrector y Traductor</span></div>
+          </div>
+        </div>
+        <div>
+          <span><b>Trayectoria:</b></span>
+          <div *ngIf="this.authService.getUser().trayectoria != undefined">
+            <span> {{this.authService.getUser().trayectoria}}</span>
+          </div>
+        </div>
+        <div>
+          <span><b>Trayectoria:</b></span>
+          <div *ngIf="this.authService.getUser().trayectoria != undefined">
+            <span> {{this.authService.getUser().trayectoria}}</span>
+          </div>
+        </div>
+        <div>
+          <span><b>Estudios:</b></span>
+          <div *ngIf="this.authService.getUser().estudios != undefined">
+            <span> {{this.authService.getUser().estudios}}</span>
+          </div>
+        </div>
+        <div>
+          <span><b>Referencias:</b></span>
+          <div *ngIf="this.authService.getUser().referencias != undefined">
+            <span> {{this.authService.getUser().referencias}}</span>
+          </div>
+        </div>
+        <div>
+          <span><b>Hoja de Vida:</b></span>
+          <div *ngIf="this.authService.getUser().hojaDeVida != undefined">
+            <span> {{this.authService.getUser().hojaDeVida}}</span>
+          </div>
+        </div>
+      </div>
+      <br>
+      <a style="cursor:pointer;" class="but btn-secundario" (click)="toggleEditarEmpleado()">
+        <span class="fas fa-user-edit"></span> Editar perfil
+      </a>
+    </div>
+    <div class="col-md-8">
+      <ul class="nav nav-tabs row justify-content-around align-items-center">
+        <li class="nav-item">
+          <a class="nav-link" (click)="toggleCalificaciones()">
+            Mis Calificaciones
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="togglePropuestas()">
+            Mis Propuestas
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="toggleInvitaciones()">
+            Mis Invitaciones
+          </a>
+        </li>
+      </ul>
+      <div class="row d-flex justify-content-center">
+        <app-empleado-propuestas [idEmpleado]="cliente_id"  [propuestasEmpleado]="this.authService.getUser().propuestas"></app-empleado-propuestas>
+        <list-calificacion *ngIf="mostrarCalificacion" [empleadoId]="cliente_id"></list-calificacion>
+        <app-empleado-invitaciones *ngIf="mostrarInvitacion" [empleado]="this.authService.getUser()" [empleadoId]="cliente_id"></app-empleado-invitaciones>
+        <app-empleado-edit [idEmpleado]="cliente_id"  ></app-empleado-edit>  
+      </div>
+    </div>
+  </div>
 </div>

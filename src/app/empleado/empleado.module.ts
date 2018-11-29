@@ -19,6 +19,7 @@ import {CalificacionesModule} from 'src/app/calificaciones/calificaciones.module
  */
 import {EmpleadoInvitacionesComponent} from './empleado-invitaciones/empleado-invitaciones.component';
 import {EmpleadoInvitacionDetailComponent} from './empleado-invitacion-detail/empleado-invitacion-detail.component';
+import { CalificacionesListComponent } from '../calificaciones/calificaciones-list/calificaciones-list.component';
 import { EmpleadoEditComponent } from './empleado-edit/empleado-edit.component';
 
 
@@ -32,8 +33,28 @@ import { EmpleadoEditComponent } from './empleado-edit/empleado-edit.component';
     NgbModule,
     CalificacionesModule
   ],
-  declarations: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent,EmpleadoPropuestasListComponent,PropuestaCreateComponent, EmpleadoEditPropuestaComponent,EmpleadoInvitacionesComponent,EmpleadoInvitacionDetailComponent, EmpleadoEditComponent],
+  declarations: [
+    EmpleadoListComponent,
+    EmpleadoDetailComponent, 
+    EmpleadoCreateComponent,
+    EmpleadoPropuestasListComponent,
+    PropuestaCreateComponent, 
+    EmpleadoEditPropuestaComponent,
+    EmpleadoInvitacionesComponent,
+    EmpleadoInvitacionDetailComponent, 
+    EmpleadoEditComponent
+  ],
   providers: [EmpleadoService],
-  exports: [EmpleadoListComponent, EmpleadoDetailComponent, EmpleadoCreateComponent]
+  exports: [
+    EmpleadoListComponent, 
+    EmpleadoDetailComponent, 
+    EmpleadoCreateComponent,
+    EmpleadoPropuestasListComponent,
+    EmpleadoEditPropuestaComponent,
+    PropuestaCreateComponent,
+    EmpleadoInvitacionesComponent,
+    EmpleadoInvitacionDetailComponent,
+    EmpleadoEditComponent
+  ]
 })
 export class EmpleadoModule { }

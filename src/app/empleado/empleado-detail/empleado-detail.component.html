@@ -1,10 +1,10 @@
 <div class="crd row justify-content-center">
     <div class="col-md-2">
         <ng-container *ngIf="empleado.aniosExperiencia % 2 === 0; else elseTemplate">
-            <img class="im card-img-top" src="https://png.icons8.com/color/1600/administrator-male.png" alt="Card {{empleado.nombreEmpleado}}}">
+            <img class="im card-img-top" src="../../../assets/img/male.png" alt="Card {{empleado.nombreEmpleado}}}">
         </ng-container>
         <ng-template #elseTemplate>
-            <img class="im card-img-top" src="https://png2.kisspng.com/20180402/yie/kisspng-computer-icons-female-user-profile-avatar-material-5ac1fa22a5a567.4501855215226619226785.png" alt="Card {{empleado.nombreEmpleado}}}">
+            <img class="im card-img-top" src="../../../assets/img/female.png" alt="Card {{empleado.nombreEmpleado}}}">
         </ng-template>
     </div>
     <div class="col-md-10">
@@ -21,12 +21,12 @@
             <ng-container *ngIf="empleado.tipoEmpleado === 'CORRECTOR'">
             <dd>Corrector</dd>
             </ng-container>
-            <ng-container *ngIf="empleado.tipoEmpleado === 'TRADUCTOR'; else elseTemplate">
+            <ng-container *ngIf="empleado.tipoEmpleado === 'TRADUCTOR'">
             <dd>Traductor</dd>
             </ng-container>
-            <ng-template #elseTemplate>
+            <ng-container *ngIf="empleado.tipoEmpleado === 'CORRECTOR_TRADUCTOR'">
             <dd>Traductor y Corrector</dd>
-            </ng-template>
+            </ng-container>
             <dt>Trayectoria:</dt>
             <dd>{{empleado.trayectoria}}</dd>
             <dt>Estudios:</dt>
