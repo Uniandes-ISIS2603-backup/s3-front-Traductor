@@ -46,10 +46,12 @@ export class PropuestaCreateComponent implements OnInit {
     //Geovanny
     this.propuesta.invitacion = this.invitacionAsociada;
 
-    //Verificar
-    console.log("Descripcion de la invitacion" + this.propuesta.invitacion.descripcion);
-    console.log("Nueva propuesta, costo" + this.propuesta.costo);
-    this.empleadoService.createPropuesta(this.empleado.id, this.propuesta)
+  //Verificar
+  console.log("Descripcion de la invitacion" + this.propuesta.invitacion.descripcion);
+  console.log("Nueva propuesta, costo" + this.propuesta.costo);
+  let dateB: Date = new Date(this.propuesta.tiempoEstimado.year, this.propuesta.tiempoEstimado.month - 1, this.propuesta.tiempoEstimado.day);
+  this.propuesta.tiempoEstimado = this.dp.transform(dateB, 'dd/MM/yyyy');
+  this.empleadoService.createPropuesta(this.empleado.id,this.propuesta)
       .subscribe(() => {
         propuestaForm.resetForm();
         this.updatePropuestas.emit();

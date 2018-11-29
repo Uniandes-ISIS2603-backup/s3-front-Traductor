@@ -13,6 +13,7 @@ import { EmpleadoPropuestasListComponent } from './empleado-propuestas/empleado-
 import { PropuestaCreateComponent } from './empleado-add-propuesta/empleado-add-propuesta.component';
 import { EmpleadoEditPropuestaComponent } from './empleado-edit-propuesta/empleado-edit-propuesta.component';
 import {CalificacionesModule} from 'src/app/calificaciones/calificaciones.module';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 /**
  * Imports de invitacion para el empleado
@@ -31,7 +32,8 @@ import { EmpleadoEditComponent } from './empleado-edit/empleado-edit.component';
     FormsModule,
     CommonModule,
     NgbModule,
-    CalificacionesModule
+    CalificacionesModule,
+    NgxPermissionsModule
   ],
   declarations: [
     EmpleadoListComponent,

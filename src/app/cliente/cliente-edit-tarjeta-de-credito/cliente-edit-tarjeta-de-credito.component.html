@@ -1,5 +1,5 @@
 <div id="collapseEditTarjeta" [ngbCollapse]="isCollapsed">
-    <div class="container-fluid">
+    <div class="container-fluid" *ngxPermissionsOnly="['CLIENTE', 'ADMIN']">
         <h3>Editar Tarjeta de Credito</h3>
         <form name="post" (ngSubmit)="tarjetaForm.form.valid && editTarjeta()" #tarjetaForm="ngForm" novalidate>
               <div class="row">
