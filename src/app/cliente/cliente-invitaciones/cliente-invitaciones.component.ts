@@ -77,7 +77,7 @@ export class ClienteInvitacionesComponent implements OnInit, OnChanges {
    * Muestra o esconde el componente Create de la invitación.
    */
 
-  showHideCreate(): void {
+  showHideCreate(): void {  
     if (this.showCreate) { this.hideAllComponents() }
     else { this.hideAllComponents(); this.showCreate = !this.showCreate; }
   }
@@ -95,8 +95,7 @@ export class ClienteInvitacionesComponent implements OnInit, OnChanges {
       this.getInvitacion();
     }
     else {
-      this.showEdit = false;
-      this.showView = true;
+      this.hideAllComponents();
     }
   }
 
