@@ -1,5 +1,6 @@
-import { Component, OnInit, OnDestroy,ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy,ViewChild,ViewContainerRef } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 import { ToastrService } from 'ngx-toastr';
 import { Propuesta } from '../propuesta';
 import { EmpleadoService } from '../empleado.service';
@@ -7,6 +8,7 @@ import { Empleado } from '../empleado';
 import { EmpleadoDetail } from '../empleado-detail';
 import { EmpleadoPropuestasListComponent } from '../empleado-propuestas/empleado-propuestas.component';
 import { PropuestaCreateComponent } from '../empleado-add-propuesta/empleado-add-propuesta.component';
+import { EmpleadoEditComponent } from '../empleado-edit/empleado-edit.component';
 
 
 @Component({
@@ -28,6 +30,8 @@ export class EmpleadoDetailComponent implements OnInit, OnDestroy {
     private empleadoService: EmpleadoService,
     private route: ActivatedRoute,
     private router: Router,
+    private modalDialogService: ModalDialogService,
+    private viewRef: ViewContainerRef,
     private toastrService: ToastrService
   ) {
         // This is added so we can refresh the view when one of the empleados in
@@ -68,20 +72,13 @@ export class EmpleadoDetailComponent implements OnInit, OnDestroy {
 
   @ViewChild(EmpleadoPropuestasListComponent) propuestaListComponent: EmpleadoPropuestasListComponent;
 
+  @ViewChild(EmpleadoEditComponent) empleadoEditComponent: EmpleadoEditComponent;
+
   @ViewChild(PropuestaCreateComponent) propuestaCreateComponent: PropuestaCreateComponent;
 
   
   togglePropuestas(): void {
-    /*
-    if (this.propuestaCreateComponent.isCollapsed == false) 
-    {
-        this.propuestaCreateComponent.isCollapsed = true;
-       
-    }
-    */
   this.propuestaListComponent.isCollapsed = !this.propuestaListComponent.isCollapsed;
-  
-  console.log(this.empleado.propuestas);
   }
   
   
@@ -103,12 +100,43 @@ export class EmpleadoDetailComponent implements OnInit, OnDestroy {
   toggleInvitaciones(): void {
     this.mostrarInvitacion = !this.mostrarInvitacion;        
   }
+
+  toggleEditarEmpleado():void{
+    this.empleadoEditComponent.isCollapsed = !this.empleadoEditComponent.isCollapsed ;  
+  }
   
   updatePropuestas(): void {
     this.getEmpleado();
     this.propuestaListComponent.updatePropuestas(this.empleado.propuestas);
     this.propuestaListComponent.isCollapsed = false;
     this.propuestaCreateComponent.isCollapsed = true;
+  }
+
+ 
+
+  eliminarEmpleado():void
+  {
+    this.modalDialogService.openDialog(this.viewRef, {
+      title: 'Eliminar un empleado',
+      childComponent: SimpleModalComponent,
+      data: {text: 'Seguro que quiere eliminar esta empleado?'},
+      actionButtons: [
+          {
+              text: 'Yes',
+              buttonClass: 'btn btn-danger',
+              onAction: () => {
+                  this.empleadoService.deleteEmpleado(this.empleado_id).subscribe(book => {
+                      this.toastrService.success("Empleado  ", "Empleado eliminada");
+                      this.router.navigate(['empleados/list']);
+                  }, err => {
+                      this.toastrService.error(err, "Error");
+                  });
+                  return true;
+              }
+          },
+          {text: 'No', onAction: () => true}
+      ]
+  });
   }
 
   /**

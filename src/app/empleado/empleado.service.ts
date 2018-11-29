@@ -68,6 +68,10 @@ export class EmpleadoService {
     return this.http.delete<Propuesta>(API_URL + empleados + '/' + idEmpleado + "/propuestas/" + idPropuesta);
   }
 
+  deleteEmpleado(idEmpleado): Observable<Empleado> {
+    return this.http.delete<Empleado>(API_URL + empleados + '/' + idEmpleado );
+  }
+
   /**
  * Updates an author
  * @param author The author's information updated
@@ -75,6 +79,10 @@ export class EmpleadoService {
  */
   updatePropuesta(idEmpleado, propuesta): Observable<Propuesta> {
     return this.http.put<Propuesta>(API_URL + empleados + '/' + idEmpleado + "/propuestas/" + propuesta.id, propuesta);
+  }
+
+  updateEmpleado(empleado): Observable<EmpleadoDetail> {
+    return this.http.put<EmpleadoDetail>(API_URL + empleados + '/' + empleado.id , empleado);
   }
 
   /**

@@ -20,6 +20,7 @@ import {CalificacionesModule} from 'src/app/calificaciones/calificaciones.module
 import {EmpleadoInvitacionesComponent} from './empleado-invitaciones/empleado-invitaciones.component';
 import {EmpleadoInvitacionDetailComponent} from './empleado-invitacion-detail/empleado-invitacion-detail.component';
 import { CalificacionesListComponent } from '../calificaciones/calificaciones-list/calificaciones-list.component';
+import { EmpleadoEditComponent } from './empleado-edit/empleado-edit.component';
 
 
 @NgModule({
@@ -33,14 +34,15 @@ import { CalificacionesListComponent } from '../calificaciones/calificaciones-li
     CalificacionesModule
   ],
   declarations: [
-    EmpleadoListComponent, 
+    EmpleadoListComponent,
     EmpleadoDetailComponent, 
     EmpleadoCreateComponent,
     EmpleadoPropuestasListComponent,
     PropuestaCreateComponent, 
     EmpleadoEditPropuestaComponent,
     EmpleadoInvitacionesComponent,
-    EmpleadoInvitacionDetailComponent,
+    EmpleadoInvitacionDetailComponent, 
+    EmpleadoEditComponent
   ],
   providers: [EmpleadoService],
   exports: [
@@ -48,9 +50,11 @@ import { CalificacionesListComponent } from '../calificaciones/calificaciones-li
     EmpleadoDetailComponent, 
     EmpleadoCreateComponent,
     EmpleadoPropuestasListComponent,
+    EmpleadoEditPropuestaComponent,
     PropuestaCreateComponent,
     EmpleadoInvitacionesComponent,
-    EmpleadoInvitacionDetailComponent
+    EmpleadoInvitacionDetailComponent,
+    EmpleadoEditComponent
   ]
 })
 export class EmpleadoModule { }

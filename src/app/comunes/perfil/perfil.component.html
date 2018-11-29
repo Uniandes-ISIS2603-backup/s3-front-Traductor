@@ -91,7 +91,7 @@
     </div>
   </div>
 </div>
-<div class="all container" *ngxPermissionsOnly="['EMPLEADO']">
+<div class="all container-fluid" *ngxPermissionsOnly="['EMPLEADO']">
   <div class="row justify-content-center">
     <div class="col-md-4 d-flex flex-md-column align-items-center justify-content-center">
       <span class="figure-caption">Mi Perfil</span>
@@ -161,7 +161,7 @@
         </div>
       </div>
       <br>
-      <a routerLink="/empleados/{{empleado_id}}/edit" class="but btn-secundario">
+      <a style="cursor:pointer;" class="but btn-secundario" (click)="toggleEditarEmpleado()">
         <span class="fas fa-user-edit"></span> Editar perfil
       </a>
     </div>
@@ -182,26 +182,12 @@
             Mis Invitaciones
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="toggleSolicitudes()">
-            Mis solicitudes
-          </a>
-        </li>
-        <li class="nav-item dropdown" placement="bottom-right" ngbDropdown>
-          <a class="nav-link dropdown-toggle" id="drop-adds" ngbDropdownToggle>
-            <span class="fas fa-plus-circle"></span>
-          </a>
-          <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="drop-adds">
-            <a class="nav-link" (click)="toggleCreatePropuesta()">
-              Hacer Propuesta
-            </a>
-          </div>
-        </li>
       </ul>
       <div class="row d-flex justify-content-center">
         <app-empleado-propuestas [idEmpleado]="cliente_id"  [propuestasEmpleado]="this.authService.getUser().propuestas"></app-empleado-propuestas>
-        <list-calificacion [empleadoId]="cliente_id"></list-calificacion>
-        <app-empleado-invitaciones [empleado]="this.authService.getUser()" [empleadoId]="cliente_id"></app-empleado-invitaciones>
+        <list-calificacion *ngIf="mostrarCalificacion" [empleadoId]="cliente_id"></list-calificacion>
+        <app-empleado-invitaciones *ngIf="mostrarInvitacion" [empleado]="this.authService.getUser()" [empleadoId]="cliente_id"></app-empleado-invitaciones>
+        <app-empleado-edit [idEmpleado]="cliente_id"  ></app-empleado-edit>  
       </div>
     </div>
   </div>

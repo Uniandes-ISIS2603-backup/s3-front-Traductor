@@ -10,6 +10,7 @@ import { ClienteService } from 'src/app/cliente/cliente.service';
 import { EmpleadoPropuestasListComponent } from 'src/app/empleado/empleado-propuestas/empleado-propuestas.component';
 import { PropuestaCreateComponent } from 'src/app/empleado/empleado-add-propuesta/empleado-add-propuesta.component';
 import { EmpleadoService } from 'src/app/empleado/empleado.service';
+import { EmpleadoEditComponent } from 'src/app/empleado/empleado-edit/empleado-edit.component';
 
 @Component({
   selector: 'app-perfil-cliente',
@@ -43,10 +44,10 @@ export class PerfilComponent implements OnInit, OnDestroy {
   }
 
   //Ocultar o mostrar el modulo de invitaciones del cliente.
-  mostrarInvitacion = false;
+  mostrarInvitacion: boolean;
 
   //Mostrar la seccion de calificaciones
-  mostrarCalificacion = false;
+  mostrarCalificacion: boolean;
 
   rol: string;
 
@@ -73,6 +74,8 @@ export class PerfilComponent implements OnInit, OnDestroy {
 
   @ViewChild(PropuestaCreateComponent) propuestaCreateComponent: PropuestaCreateComponent;
 
+  @ViewChild(EmpleadoEditComponent) empleadoEditComponent: EmpleadoEditComponent;
+
 
   toggleTarjetas(): void {
     if (this.tarjetaAddComponent.isCollapsed == false) {
@@ -91,17 +94,22 @@ export class PerfilComponent implements OnInit, OnDestroy {
   }
 
   togglePropuestas(): void {
-    if (this.tarjetaAddComponent.isCollapsed == false) {
-      this.tarjetaAddComponent.isCollapsed = true;
-    }
-    if (this.tarjetaListComponent.isCollapsed == false) {
-      this.tarjetaListComponent.isCollapsed = true;
-    }
-    if (this.pagosListComponent.isCollapsed == false) {
-      this.pagosListComponent.isCollapsed = true;
+    if (this.rol === 'CLIENTE') {
+      if (this.tarjetaAddComponent.isCollapsed == false) {
+        this.tarjetaAddComponent.isCollapsed = true;
+      }
+      if (this.tarjetaListComponent.isCollapsed == false) {
+        this.tarjetaListComponent.isCollapsed = true;
+      }
+      if (this.pagosListComponent.isCollapsed == false) {
+        this.pagosListComponent.isCollapsed = true;
+      }
     }
     if (this.mostrarInvitacion) {
       this.mostrarInvitacion = !this.mostrarInvitacion;
+    }
+    if (this.mostrarCalificacion) {
+      this.mostrarCalificacion = !this.mostrarCalificacion;
     }
     if (this.rol === 'CLIENTE') {
       this.propuestaListCliente.isCollapsed = !this.propuestaListCliente.isCollapsed;
@@ -127,19 +135,21 @@ export class PerfilComponent implements OnInit, OnDestroy {
   }
 
   toggleCreateTarjeta(): void {
-    if (this.tarjetaListComponent.isCollapsed == false) {
-      this.tarjetaListComponent.isCollapsed = true;
-    }
     if (this.mostrarInvitacion) {
       this.mostrarInvitacion = !this.mostrarInvitacion;
     }
-    if (this.propuestaListCliente.isCollapsed == false) {
-      this.propuestaListCliente.isCollapsed = true;
+    if (this.rol === 'CLIENTE') {
+      if (this.tarjetaListComponent.isCollapsed == false) {
+        this.tarjetaListComponent.isCollapsed = true;
+      }
+      if (this.propuestaListCliente.isCollapsed == false) {
+        this.propuestaListCliente.isCollapsed = true;
+      }
+      if (this.pagosListComponent.isCollapsed == false) {
+        this.pagosListComponent.isCollapsed = true;
+      }
+      this.tarjetaAddComponent.isCollapsed = !this.tarjetaAddComponent.isCollapsed;
     }
-    if (this.pagosListComponent.isCollapsed == false) {
-      this.pagosListComponent.isCollapsed = true;
-    }
-    this.tarjetaAddComponent.isCollapsed = !this.tarjetaAddComponent.isCollapsed;
   }
 
   toggleInvitaciones(): void {
@@ -152,14 +162,19 @@ export class PerfilComponent implements OnInit, OnDestroy {
         this.propuestaListEmpleado.isCollapsed = true;
       }
     }
-    if (this.pagosListComponent.isCollapsed == false) {
-      this.pagosListComponent.isCollapsed = true;
+    if (this.mostrarCalificacion) {
+      this.mostrarCalificacion = !this.mostrarCalificacion;
     }
-    if (this.tarjetaListComponent.isCollapsed == false) {
-      this.tarjetaListComponent.isCollapsed = true;
-    }
-    if (this.tarjetaAddComponent.isCollapsed == false) {
-      this.tarjetaAddComponent.isCollapsed = true;
+    if (this.rol === 'CLIENTE') {
+      if (this.pagosListComponent.isCollapsed == false) {
+        this.pagosListComponent.isCollapsed = true;
+      }
+      if (this.tarjetaListComponent.isCollapsed == false) {
+        this.tarjetaListComponent.isCollapsed = true;
+      }
+      if (this.tarjetaAddComponent.isCollapsed == false) {
+        this.tarjetaAddComponent.isCollapsed = true;
+      }
     }
     this.mostrarInvitacion = !this.mostrarInvitacion;
   }
@@ -200,6 +215,26 @@ export class PerfilComponent implements OnInit, OnDestroy {
     this.mostrarCalificacion = !this.mostrarCalificacion;
   }
 
+  toggleEditarEmpleado():void
+  {
+    if (this.rol === 'CLIENTE') {
+      if (this.propuestaListCliente.isCollapsed == false) {
+        this.propuestaListCliente.isCollapsed = true;
+      }
+    } else {
+      if (this.propuestaListEmpleado.isCollapsed == false) {
+        this.propuestaListEmpleado.isCollapsed = true;
+      }
+    }
+    if (this.mostrarCalificacion) {
+      this.mostrarCalificacion = !this.mostrarCalificacion;
+    }
+    if (this.mostrarInvitacion) {
+      this.mostrarInvitacion = !this.mostrarInvitacion;
+    }
+    this.empleadoEditComponent.isCollapsed = !this.empleadoEditComponent.isCollapsed ;  
+  }
+
   updateTarjetas(): void {
     this.getCliente();
     this.tarjetaListComponent.updateTarjetas(this.authService.getUser().tarjetas);
@@ -220,7 +255,6 @@ export class PerfilComponent implements OnInit, OnDestroy {
     this.propuestaListEmpleado.isCollapsed = false;
     this.propuestaCreateComponent.isCollapsed = true;
   }
-
 
   getEmpleado(): void {
     this.empleadoService.getEmpleado(this.cliente_id)
@@ -257,6 +291,7 @@ export class PerfilComponent implements OnInit, OnDestroy {
     this.cliente_id = ((this.authService.getUser().id) as number);
     console.log(this.cliente_id);
     this.mostrarInvitacion = false;
+    this.mostrarCalificacion = false;
     if (this.rol === 'CLIENTE') {
       this.getCliente();
     } else {
