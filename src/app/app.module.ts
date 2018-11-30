@@ -14,12 +14,8 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 //import { FontAwesomeModule } from '@fortawesome/fontawesome-free';
 
 import { ClienteModule } from './cliente/cliente.module';
-import { PropuestaModule } from './propuesta/propuesta.module';
-import { PagosModule } from './pagos/pagos.module';
-import { TarjetaDeCreditoModule } from './tarjeta-de-credito/tarjeta-de-credito.module';
 import { IdiomasModule } from './idiomas/idiomas.module';
 import { AreasModule } from './areas/areas.module';
-import { InvitacionModule } from './invitacion/invitacion.module';
 import { CalificacionesModule } from './calificaciones/calificaciones.module';
 import { SolicitudesModule } from './solicitudes/solicitudes.module';
 import { EmpleadoModule } from './empleado/empleado.module';
@@ -41,13 +37,9 @@ import { PerfilComponent } from './comunes/perfil/perfil.component';
     BrowserModule,
     HttpClientModule,
     ClienteModule,
-    PropuestaModule,
-    PagosModule,
-    TarjetaDeCreditoModule,
     IdiomasModule,
     EmpleadoModule,
     CalificacionesModule,
-    InvitacionModule,
     AreasModule,
     SolicitudesModule,
     AppRoutingModule,

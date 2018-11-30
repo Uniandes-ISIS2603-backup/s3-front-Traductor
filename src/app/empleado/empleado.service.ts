@@ -5,7 +5,7 @@ import { environment } from '../../environments/environment';
 import { Empleado } from './empleado';
 import { Propuesta } from './propuesta';
 import { EmpleadoDetail } from './empleado-detail';
-import { Invitacion } from '../invitacion/invitacion';
+import { Invitacion } from '../cliente/invitacion';
 // import 'rxjs/add/operator/catch';
 // import { HttpErrorInterceptor } from '../interceptors/httperrorinterceptor.service';
 
