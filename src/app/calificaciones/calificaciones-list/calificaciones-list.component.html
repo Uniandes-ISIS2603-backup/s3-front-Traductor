@@ -19,7 +19,7 @@
                     <td>{{i.valorCalificacion}}</td>
                     <td>{{i.nombreCalificador}}</td>
                     <td>
-                        <button class="btn btn-danger iconoEliminar" (click)="deleteCalificacion(i.id)"><i class="fas fa-eraser"></i></button>
+                        <button class="btn btn-danger iconoEliminar" *ngxPermissionsOnly="['ADMIN']" (click)="deleteCalificacion(i.id)"><i class="fas fa-eraser"></i></button>
                     </td>
                 </tr>
             </tbody>

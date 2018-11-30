@@ -63,7 +63,7 @@
                     Propuestas
                 </button>
             </div>
-            <div class="col-md-5" *ngxPermissionsOnly="['ADMIN', 'CLIENTE']">
+            <div class="col-md-5">
                 <button type="button" class="btn" [ngClass]="{ 'btn-primary': mostrarInvitacion,'btn-outline-primary':!mostrarInvitacion}"
                     (click)="toggleInvitaciones()">
                     Invitaciones

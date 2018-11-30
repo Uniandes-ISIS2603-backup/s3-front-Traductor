@@ -11,6 +11,8 @@ import { EmpleadoPropuestasListComponent } from 'src/app/empleado/empleado-propu
 import { PropuestaCreateComponent } from 'src/app/empleado/empleado-add-propuesta/empleado-add-propuesta.component';
 import { EmpleadoService } from 'src/app/empleado/empleado.service';
 import { EmpleadoEditComponent } from 'src/app/empleado/empleado-edit/empleado-edit.component';
+import { ClienteEditComponent } from 'src/app/cliente/cliente-edit/cliente-edit.component';
+import { ClienteSolicitudesComponent } from 'src/app/cliente/cliente-solicitudes/cliente-solicitudes.component';
 
 @Component({
   selector: 'app-perfil-cliente',
@@ -75,6 +77,10 @@ export class PerfilComponent implements OnInit, OnDestroy {
   @ViewChild(PropuestaCreateComponent) propuestaCreateComponent: PropuestaCreateComponent;
 
   @ViewChild(EmpleadoEditComponent) empleadoEditComponent: EmpleadoEditComponent;
+
+  @ViewChild(ClienteEditComponent) clienteEditComponent: ClienteEditComponent;
+
+  @ViewChild(ClienteSolicitudesComponent) clienteSolicitudesComponent: ClienteSolicitudesComponent;
 
 
   toggleTarjetas(): void {
@@ -232,7 +238,13 @@ export class PerfilComponent implements OnInit, OnDestroy {
     if (this.mostrarInvitacion) {
       this.mostrarInvitacion = !this.mostrarInvitacion;
     }
-    this.empleadoEditComponent.isCollapsed = !this.empleadoEditComponent.isCollapsed ;  
+    if(this.rol === 'CLIENTE')
+    {
+      this.clienteEditComponent.isCollapsed = !this.clienteEditComponent.isCollapsed ;  
+    }
+    else{
+      this.empleadoEditComponent.isCollapsed = !this.empleadoEditComponent.isCollapsed ;  
+    }
   }
 
   updateTarjetas(): void {

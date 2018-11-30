@@ -1,4 +1,4 @@
-<div class="container-fluid" *ngxPermissionsOnly="['EMPLEADO', 'ADMIN']">
+<div class="container-fluid">
     <div class="card-deck justify-content-center">
         <a class="crd card text-center" routerLink="/empleados/{{empleado.id}}" *ngFor = "let empleado of empleados">
             <ng-container *ngIf="empleado.aniosExperiencia % 2 === 0; else elseTemplate">
