@@ -37,7 +37,7 @@
         </div>
       </div>
       <br>
-      <a routerLink="/clientes/{{cliente_id}}/edit" class="but btn-secundario">
+      <a class="but btn-secundario" (click)="toggleEditarEmpleado()">
         <span class="fas fa-user-edit"></span> Editar perfil
       </a>
     </div>
@@ -188,7 +188,8 @@
         <app-empleado-propuestas [idEmpleado]="cliente_id"  [propuestasEmpleado]="this.authService.getUser().propuestas"></app-empleado-propuestas>
         <list-calificacion *ngIf="mostrarCalificacion" [empleadoId]="cliente_id"></list-calificacion>
         <app-empleado-invitaciones *ngIf="mostrarInvitacion" [empleado]="this.authService.getUser()" [empleadoId]="cliente_id"></app-empleado-invitaciones>
-        <app-empleado-edit [idEmpleado]="cliente_id"  ></app-empleado-edit>  
+        <app-empleado-edit [idEmpleado]="cliente_id"></app-empleado-edit>
+        <app-cliente-edit [idCliente]="cliente_id"></app-cliente-edit> 
       </div>
     </div>
   </div>

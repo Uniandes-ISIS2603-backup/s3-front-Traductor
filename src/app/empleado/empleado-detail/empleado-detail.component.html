@@ -38,19 +38,19 @@
         </dl>
         <div class="row">
             <div class="col-md-2 latera">
-                <button type="button" class="btn btn-primary" (click)="toggleEditarEmpleado()">
+                <button type="button" *ngxPermissionsOnly="['ADMIN']" class="btn btn-primary" (click)="toggleEditarEmpleado()">
                     Editar perfil
                 </button>
             </div>
             <div class="col-md-2 lateral">
-                <button type="button" class="btn btn-primary" (click)="eliminarEmpleado()">
+                <button type="button" *ngxPermissionsOnly="['ADMIN']" class="btn btn-primary" (click)="eliminarEmpleado()">
                     Eliminar este empleado
                 </button>
             </div>
 
             <div class="col-md-3 lateral">
                 <div *ngIf="empleado.propuestas != undefined && empleado.propuestas.length > 0" class="col-md-2">
-                    <button type="button" class="btn" [ngClass]="{ 'btn-primary': propuestaListComponent.isCollapsed,'btn-outline-primary':!propuestaListComponent.isCollapsed}"
+                    <button type="button" *ngxPermissionsOnly="['ADMIN']" class="btn" [ngClass]="{ 'btn-primary': propuestaListComponent.isCollapsed,'btn-outline-primary':!propuestaListComponent.isCollapsed}"
                         (click)="togglePropuestas()">
                         Propuestas Enviadas
                     </button>
@@ -63,7 +63,7 @@
                 </button>
             </div>
             <div class="col-md-5 lateral">
-                <button type="button" class="btn" [ngClass]="{ 'btn-primary': mostrarInvitacion,'btn-outline-primary':!mostrarInvitacion}"
+                <button type="button" *ngxPermissionsOnly="['ADMIN']" class="btn" [ngClass]="{ 'btn-primary': mostrarInvitacion,'btn-outline-primary':!mostrarInvitacion}"
                     (click)="toggleInvitaciones()">
                     Invitaciones
                 </button>
@@ -71,16 +71,8 @@
         </div>
     </div>
 </div>
-<div class="crd row justify-content-center">
-    <app-empleado-propuestas [idEmpleado]="empleado.id" [propuestasEmpleado]="empleado.propuestas"></app-empleado-propuestas>
-</div>
-<div *ngIf="mostrarCalificacion" class="crd row justify-content-center">
-    <list-calificacion [empleadoId]="empleado_id"></list-calificacion>
-</div>
-<div *ngIf="mostrarInvitacion" class="crd row justify-content-center">
-    <app-empleado-invitaciones [empleado]="empleado" [empleadoId]="empleado_id"></app-empleado-invitaciones>
-</div>
-<div class="crd row justify-content-center">
-    <app-empleado-edit [idEmpleado]="empleado_id"></app-empleado-edit>
-</div>
+<app-empleado-propuestas class="crd row justify-content-center" [idEmpleado]="empleado.id" [propuestasEmpleado]="empleado.propuestas"></app-empleado-propuestas>
+<list-calificacion *ngIf="mostrarCalificacion" class="crd row justify-content-center" [empleadoId]="empleado_id"></list-calificacion>
+<app-empleado-invitaciones *ngIf="mostrarInvitacion" class="crd row justify-content-center" [empleado]="empleado" [empleadoId]="empleado_id"></app-empleado-invitaciones>
+<app-empleado-edit class="crd row justify-content-center" [idEmpleado]="empleado_id"></app-empleado-edit>
 

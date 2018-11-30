@@ -45,7 +45,7 @@ import { ClienteEditComponent } from './cliente-edit/cliente-edit.component';
     ClienteAddInvitacionComponent,
     ClienteEditInvitacionComponent,
     ClienteInvitacionDetailComponent,
-    ClienteSolicitudesComponent
+    ClienteSolicitudesComponent,
     ClienteEditComponent
   ],
   providers: [ClienteService],
