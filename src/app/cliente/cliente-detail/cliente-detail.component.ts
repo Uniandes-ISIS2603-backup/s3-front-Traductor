@@ -132,12 +132,12 @@ export class ClienteDetailComponent implements OnInit, OnDestroy {
     this.pagosListComponent.isCollapsed = false;
   }
 
-  eliminarEmpleado():void
+  eliminarCliente():void
   {
     this.modalDialogService.openDialog(this.viewRef, {
       title: 'Eliminar un cliente',
       childComponent: SimpleModalComponent,
-      data: {text: 'Seguro que quiere eliminar esta empleado?'},
+      data: {text: 'Seguro que quiere eliminar este cliente?'},
       actionButtons: [
           {
               text: 'Yes',

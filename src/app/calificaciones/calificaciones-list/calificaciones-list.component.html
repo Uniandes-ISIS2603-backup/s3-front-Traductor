@@ -3,17 +3,19 @@
         <table class="table table-hover">
             <thead style="background: #4ab8a1; color: white;">
                 <tr>
+                    <th></th>
                     <th>N°</th>
                     <th>Comentario recibido</th>
                     <th>Calificacion</th>
-                    <th></th>
                     <th>Nombre del cliente calificador</th>
+                    <th></th>                    
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let i of calificaciones; let j = index">
                     <td class="fas fa-angle-double-down" (click)="onSelected(i.id)" style="cursor: pointer;"></td>
                     <td>{{j+1}}</td>
+                    <td>{{i.comentario}}</td>
                     <td>{{i.valorCalificacion}}</td>
                     <td>{{i.nombreCalificador}}</td>
                     <td>

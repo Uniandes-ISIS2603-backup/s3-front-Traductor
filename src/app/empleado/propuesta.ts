@@ -1,4 +1,4 @@
-import { Invitacion } from "../invitacion/invitacion";
+import { Invitacion } from '../cliente/invitacion';
 
 /* 
  * Interfaz donde se definen los atributos y valores que recibe una propuesta.
