@@ -5,7 +5,6 @@ import { ToastrService } from 'ngx-toastr';
 import { Invitacion } from 'src/app/cliente/invitacion';
 import { EmpleadoService } from '../empleado.service';
 import { Empleado } from '../empleado';
-import { PropuestaListComponent } from 'src/app/propuesta/propuesta-list/propuesta-list.component';
 
 @Component({
   selector: 'app-empleado-invitacion-detail',

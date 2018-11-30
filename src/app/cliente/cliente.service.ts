@@ -6,7 +6,7 @@ import { environment } from '../../environments/environment';
 //import { catchError } from 'rxjs/operators';
 import { TarjetaDeCredito } from './tarjetaDeCredito';
 import { Propuesta } from './propuesta';
-import { Pagos } from '../pagos/pagos';
+import { Pagos } from './pagos';
 import {Invitacion} from './invitacion';
 //import 'rxjs/add/operator/catch';
 //import { HttpErrorInterceptor } from '../interceptors/httperrorinterceptor.service';

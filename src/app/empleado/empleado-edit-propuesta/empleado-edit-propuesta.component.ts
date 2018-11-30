@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Propuesta } from '../propuesta';
 import { Router} from '@angular/router';
 import {DatePipe} from '@angular/common';
+import { THROW_IF_NOT_FOUND } from '@angular/core/src/di/injector';
 
 
 @Component({
@@ -50,11 +51,13 @@ export class EmpleadoEditPropuestaComponent implements OnInit,OnChanges {
     */
    editPropuesta(): void {
     let dateB: Date = new Date(this.propuesta.tiempoEstimado.year, this.propuesta.tiempoEstimado.month - 1, this.propuesta.tiempoEstimado.day);
-    this.propuesta.tiempoEstimado = this.dp.transform(dateB, 'dd/MM/yyyy');
+    //this.propuesta.tiempoEstimado = this.dp.transform(dateB, 'dd/MM/yyyy');
+    console.log("[EditPropuesta] El id del empleado es: " + this.idEmpleado);
+    let idEmpleadoComponent = this.idEmpleado; //La guardo aqui porque parece que el servidor no responde el id
     this.empleadoService.updatePropuesta(this.idEmpleado,this.propuesta)
         .subscribe(() => {
             this.toastrService.success("La info de la propuesta se actualizo", "Actualizacion de la propuesta");
-            this.router.navigate(['empleados/'+this.idEmpleado]);
+            this.router.navigate(['empleados/'+ idEmpleadoComponent]);
         });
     this.update.emit();
     this.isCollapsed=true;

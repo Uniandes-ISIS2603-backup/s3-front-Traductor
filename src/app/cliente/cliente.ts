@@ -1,6 +1,6 @@
 import { TarjetaDeCredito } from "./tarjetaDeCredito";
-import { Propuesta } from "../propuesta/propuesta";
-import { Pagos } from "../pagos/pagos";
+import { Propuesta } from "./propuesta";
+import { Pagos } from "./pagos";
 
 /**
 * This class represents a client of the Translate proyect. 

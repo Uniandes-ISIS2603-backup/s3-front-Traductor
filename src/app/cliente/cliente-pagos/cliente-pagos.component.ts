@@ -1,5 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
-import { Pagos } from 'src/app/pagos/pagos';
+import { Pagos } from '../pagos';
 
 @Component({
   selector: 'app-cliente-pagos',
